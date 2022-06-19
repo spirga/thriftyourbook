@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('bookeditions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreignId('book_id')->constrained();
+            $table->foreign('book_id')->references('id')->on('books');
             $table->string('imageurl');
             $table->string('publisher', 50);
             $table->integer('editionyear');
