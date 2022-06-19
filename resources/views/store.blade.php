@@ -9,7 +9,7 @@
 					class="block px-4 pl-10 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-200 focus:border-gray-100 "
 					placeholder="Search books..." required></div>
 			<div class="flex justify-center items-center flex-col ml-25"><button type="submit"
-					class="text-custom absolute right-2.5 bottom-2.5 text-custom bg-custom hover:bg-custom-lighter focus:ring-4
+					class=" z-0 text-custom absolute right-2.5 bottom-2.5 text-custom bg-custom hover:bg-custom-lighter focus:ring-4
 				focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-white hover:bg-custom-lighter active:bg-gray-900 focus:outline-none disabled:opacity-25 transition ease-in-out duration-150">Search</button>
 			</div>
 		</form>
@@ -17,8 +17,8 @@
 	<div class="flex justify-center mb-4">
 		<hr class="w-80p ">
 	</div>
-	<div class="grid grid-cols-2 flex">
-		<div class=" sm:px-6 lg:px-8">
+	<div class="grid grid-cols-2">
+		<div class="sm:px-6 lg:px-8">
 			<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 				<div class="p-6 border-b border-gray-200">
 					<form>
@@ -200,23 +200,21 @@
 							</label>
 						</div>
 						<button type="submit"
-							class="mt-4 text-custom bg-custom hover:bg-custom-lighter focus:ring-4
-				focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-white hover:bg-custom-lighter active:bg-gray-900 focus:outline-none disabled:opacity-25 transition ease-in-out duration-150">Apply
+							class="mt-4 text-custom bg-custom hover:bg-custom-lighter focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-white hover:bg-custom-lighter active:bg-gray-900 focus:outline-none disabled:opacity-25 transition ease-in-out duration-150">Apply
 							Filters</button>
-
 					</form>
-
 				</div>
 			</div>
 		</div>
-		<div class="py-4 w-3/4">
+		<div class="py-4">
 			<h2 class="font-semibold text-xl text-gray-800 leading-tight">
 				{{ __('Available books') }}
 			</h2>
 			<div>
-
 				<div class="p-6 bg-white">
-					seit jaliek gramatas
+					<div class="grid grid-cols-3">
+						<div>seit jaliek izdevumi for each</div>
+					</div>
 				</div>
 			</div>
 		</div>
