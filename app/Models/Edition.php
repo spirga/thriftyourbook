@@ -8,7 +8,7 @@ use App\Models\Book;
 
 class Edition extends Model
 {
-    use HasFactory;
+    use HasFactory; 
     public function book() {
         return $this->belongsTo(Book::class);
     }

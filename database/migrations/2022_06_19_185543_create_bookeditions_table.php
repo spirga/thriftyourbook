@@ -17,10 +17,11 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('book_id')->constrained()->onDelete('cascade');
-            $table->string('imageurl');
+            $table->string('image_url');
             $table->string('publisher', 50);
-            $table->integer('editionyear');
+            $table->integer('edition_year');
             $table->integer('pages');
+            $table->string('cover_type', 2);
         });
     }
 

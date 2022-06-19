@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('title', 100);
-            $table->string('author', 50);
-            $table->string('description', 2000);
-            $table->integer('year');
-            $table->string('language', 3);
+            $table->string('book_title', 100);
+            $table->string('book_author', 50);
+            $table->string('book_description', 2000);
+            $table->integer('book_year');
+            $table->string('book_language', 3);
         });
     }
 
