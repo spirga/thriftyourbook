@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('booksgenres', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->foreign('book_id')->references('id')->on('books');
-            $table->foreign('genre_id')->references('id')->on('genres');
+            $table->integer('book_id')->unsigned();
+            $table->integer('genre_id')->unsigned();
         });
     }
 
