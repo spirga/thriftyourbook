@@ -899,6 +899,9 @@ select {
 .ml-25 {
     margin-left: 25px;
 }
+.w-80p {
+    width: 80%;
+}
 .w-8 {
     width: 2rem;
 }
