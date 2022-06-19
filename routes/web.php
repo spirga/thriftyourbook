@@ -14,13 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('/home');
+    return view('/store');
 });
 
+Route::get('/store', function () {
+    return view('store');
+})->name('store');
+
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('/home', function () {
-        return view('home');
-    })->name('home');
     
     Route::view(uri: 'profile', view: 'profile')->name(name: 'profile');
     Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');

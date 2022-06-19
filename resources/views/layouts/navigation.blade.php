@@ -5,17 +5,18 @@
 			<div class="flex">
 				<!-- Logo -->
 				<div class="shrink-0 flex items-center">
-					<a href="{{ route('home') }}">
+					<a href="{{ route('store') }}">
 						<span class="font-elsie text-xl text-custom">TYB</span>
 					</a>
 				</div>
 
 				<!-- Navigation Links -->
 				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-					<x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+					<x-nav-link :href="route('store')" :active="request()->routeIs('store')">
 						{{ __('Store') }}
 					</x-nav-link>
 				</div>
+				@if (Auth::check())
 				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 					<x-nav-link :href="route('my-listings')" :active="request()->routeIs('my-listings')">
 						{{ __('My Listings') }}
@@ -28,8 +29,11 @@
 				</div>
 			</div>
 
+			@endif
+
+			@if (Auth::check())
 			<!-- Settings Dropdown -->
-			<div class="hidden sm:flex sm:items-center sm:ml-6">
+			<div class="hidden fixed top-0 right-0 px-6 py-6 sm:block">
 				<x-dropdown align="right" width="48">
 					<x-slot name="trigger">
 						<button
@@ -63,6 +67,18 @@
 				</x-dropdown>
 			</div>
 
+			@else
+			@if (Route::has('login'))
+			<div class="hidden fixed top-0 right-0 px-6 py-6 sm:block">
+				<a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+
+				@if (Route::has('register'))
+				<a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+				@endif
+			</div>
+			@endif
+
+			@endif
 			<!-- Hamburger -->
 			<div class="-mr-2 flex items-center sm:hidden">
 				<button @click="open = ! open"
@@ -81,12 +97,13 @@
 	<!-- Responsive Navigation Menu -->
 	<div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
 		<div class="pt-2 pb-3 space-y-1">
-			<x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
-				{{ __('Books') }}
+			<x-responsive-nav-link :href="route('store')" :active="request()->routeIs('store')">
+				{{ __('Store') }}
 			</x-responsive-nav-link>
 		</div>
 
 		<!-- Responsive Settings Options -->
+		@if (Auth::check())
 		<div class="pt-4 pb-1 border-t border-gray-200">
 			<div class="px-4">
 				<div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
@@ -108,5 +125,18 @@
 				</form>
 			</div>
 		</div>
+
+		@else
+		@if (Route::has('login'))
+		<div class="mt-3 space-y-1">
+			<x-responsive-nav-link href="{{ route('login') }}">Log in</x-responsive-nav-link>
+
+			@if (Route::has('register'))
+			<x-responsive-nav-link href="{{ route('register') }}">Register</x-responsive-nav-link>
+			@endif
+		</div>
+		@endif
+
+		@endif
 	</div>
 </nav>
