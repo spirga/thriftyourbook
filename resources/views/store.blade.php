@@ -17,7 +17,7 @@
 	<div class="flex justify-center mb-4">
 		<hr class="w-80p ">
 	</div>
-	<div class="grid grid-cols-2 gap-4" >
+	<div class="grid grid-cols-2" >
 		<div class="sm:px-6 lg:px-8">
 			<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 				<div class="p-6 border-b border-gray-200">
