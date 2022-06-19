@@ -5,15 +5,25 @@
 			<div class="flex">
 				<!-- Logo -->
 				<div class="shrink-0 flex items-center">
-					<a href="{{ route('dashboard') }}">
-						<x-application-logo class="block h-10 w-auto fill-current text-gray-600" />
+					<a href="{{ route('home') }}">
+						<span class="font-elsie text-xl text-custom">TYB</span>
 					</a>
 				</div>
 
 				<!-- Navigation Links -->
 				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-					<x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-						{{ __('Books') }}
+					<x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+						{{ __('Store') }}
+					</x-nav-link>
+				</div>
+				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+					<x-nav-link :href="route('my-listings')" :active="request()->routeIs('my-listings')">
+						{{ __('My Listings') }}
+					</x-nav-link>
+				</div>
+				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+					<x-nav-link :href="route('my-orders')" :active="request()->routeIs('my-orders')">
+						{{ __('Orders') }}
 					</x-nav-link>
 				</div>
 			</div>
@@ -71,8 +81,8 @@
 	<!-- Responsive Navigation Menu -->
 	<div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
 		<div class="pt-2 pb-3 space-y-1">
-			<x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-				{{ __('Dashboard') }}
+			<x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
+				{{ __('Books') }}
 			</x-responsive-nav-link>
 		</div>
 

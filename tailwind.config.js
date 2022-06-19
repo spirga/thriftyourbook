@@ -11,6 +11,11 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: ["Nunito", ...defaultTheme.fontFamily.sans],
+                elsie: ["Elsie", "cursive"],
+                fasthand: ["Fasthand", "cursive"],
+            },
+            colors: {
+                custom: "#3B3C43",
             },
         },
     },
