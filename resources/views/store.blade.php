@@ -17,8 +17,8 @@
 	<div class="flex justify-center mb-4">
 		<hr class="w-80p ">
 	</div>
-	<div class="grid grid-cols-5">
-		<div class="sm:px-6 lg:px-8 col-span-1">
+	<div class="grid grid-cols-2">
+		<div class="sm:px-6 lg:px-8">
 			<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 				<div class="p-6 border-b border-gray-200">
 					<form>
@@ -206,7 +206,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="py-4 col-span-4">
+		<div class="py-4">
 			<h2 class="font-semibold text-xl text-gray-800 leading-tight">
 				{{ __('Available books') }}
 			</h2>
