@@ -19,6 +19,9 @@ module.exports = {
             },
         },
     },
+    variants: {
+        outline: ["focus"],
+    },
 
     plugins: [require("@tailwindcss/forms")],
 };

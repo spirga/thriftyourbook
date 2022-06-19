@@ -772,6 +772,7 @@ select {
         max-width: 1536px;
     }
 }
+
 .fixed {
     position: fixed;
 }
@@ -901,6 +902,9 @@ select {
 }
 .w-80p {
     width: 80%;
+}
+.w-90p {
+    width: 90%;
 }
 .w-8 {
     width: 2rem;
@@ -1088,6 +1092,9 @@ select {
 }
 .bg-custom {
     background-color: #3b3c43;
+}
+.bg-gray-50 {
+    background-color: #f8f8f8;
 }
 .bg-darker {
     background-color: #f9f9f9;
@@ -1445,6 +1452,10 @@ select {
 .hover\:bg-gray-700:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(55 65 81 / var(--tw-bg-opacity));
+}
+.hover\:bg-custom-lighter:hover {
+    --tw-bg-opacity: 1;
+    background-color: #5b5d66;
 }
 .hover\:text-gray-500:hover {
     --tw-text-opacity: 1;

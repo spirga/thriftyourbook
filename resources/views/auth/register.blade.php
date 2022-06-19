@@ -1,9 +1,10 @@
 <x-guest-layout>
 	<x-auth-card>
 		<x-slot name="logo">
-			<a href="/">
-				<img src="{{asset('/source')}}/logo_black.png">
-			</a>
+			<div class="pt-10 justify-center w-screen items-center flex flex-col">
+				<span class="font-elsie text-title">THRIFT YOUR BOOK</span>
+				<span class="font-fasthand text-subtitle mt-4 mb-4">- where books find their people -</span>
+			</div>
 		</x-slot>
 
 		<!-- Validation Errors -->
