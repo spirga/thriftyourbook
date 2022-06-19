@@ -9,8 +9,7 @@ use App\Models\Book;
 class Genre extends Model
 {
     use HasFactory;
-    public function book()
-    { // FKrelationship
-            return $this->belongsToMany(Book::class, 'book_genre');
-        }
+    public function book() { 
+        return $this->belongsToMany(Book::class);
+    }
 }

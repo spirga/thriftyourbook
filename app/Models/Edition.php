@@ -9,8 +9,7 @@ use App\Models\Book;
 class Edition extends Model
 {
     use HasFactory;
-    public function book()
-{ // FK relationship
-return $this->belongsTo(Book::class);
-}
+    public function book() {
+        return $this->belongsTo(Book::class);
+    }
 }
