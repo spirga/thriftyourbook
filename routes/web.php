@@ -32,6 +32,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/my-orders', function () {
         return view('my-orders');
     })->name('my-orders');
+
+    Route::get('/new-listing', function () {
+        return view('new-listing');
+    })->name('new-listing');
 });
 
 require __DIR__.'/auth.php';

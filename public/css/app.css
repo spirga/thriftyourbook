@@ -816,6 +816,9 @@ select {
 .mr-2 {
     margin-right: 0.5rem;
 }
+.mr-8 {
+    margin-right: 2rem;
+}
 .ml-2 {
     margin-left: 0.5rem;
 }
@@ -911,6 +914,9 @@ select {
 }
 .w-90p {
     width: 90%;
+}
+.w-95p {
+    width: 95%;
 }
 .w-8 {
     width: 2rem;

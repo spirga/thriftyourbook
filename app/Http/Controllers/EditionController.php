@@ -19,7 +19,7 @@ class EditionController extends Controller
     public function create($id)
     {
         $book = Book::findOrFail($id);
-        return view('new_edition', compact('book'));
+        return view('new-edition', compact('book'));
     }
 
     public function store(Request $request)
