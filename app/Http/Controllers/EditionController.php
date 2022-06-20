@@ -11,8 +11,8 @@ class EditionController extends Controller
 {
     public function create($id)
     {
-        // $book = Book::findOrFail($id);
-        // return view('new_edition', compact('book'));
+        $book = Book::findOrFail($id);
+        return view('new_edition', compact('book'));
     }
 
     public function store(Request $request)
@@ -31,5 +31,6 @@ class EditionController extends Controller
         $edition->save();
 
         //return redirect('book/edition' . $edition->book_id);
+        return redirect()->back();
     }
 }
