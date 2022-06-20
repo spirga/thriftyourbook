@@ -26,8 +26,8 @@
 						<div class="flex items-center">
 							<input id="genre-checkbox" type="checkbox" value=""
 								class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300">
-							<label for="genre-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Literary
-								Fiction</label>
+							<label for="genre-checkbox"
+								class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Fiction</label>
 						</div>
 						<div class="flex items-center">
 							<input id="genre-checkbox-1" type="checkbox" value=""
@@ -124,6 +124,12 @@
 								class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300">
 							<label for="genre-checkbox-15"
 								class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Non-fiction</label>
+						</div>
+						<div class="flex items-center">
+							<input id="genre-checkbox-18" type="checkbox" value=""
+								class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300">
+							<label for="genre-checkbox-18"
+								class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Play</label>
 						</div>
 						<div class="flex items-center">
 							<input id="genre-checkbox-16 type=" checkbox" value=""

@@ -26,6 +26,26 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+
+        Genre::create(['genre' => 'Fiction']);
+        Genre::create(['genre' => 'Mystery']);
+        Genre::create(['genre' => 'Young Adult']);
+        Genre::create(['genre' => 'Romance']);
+        Genre::create(['genre' => 'Thriller']);
+        Genre::create(['genre' => 'Horror']);
+        Genre::create(['genre' => 'Classics']);
+        Genre::create(['genre' => 'Historical']);
+        Genre::create(['genre' => 'Science Fiction']);
+        Genre::create(['genre' => 'Contemporary']);
+        Genre::create(['genre' => 'Self Help']);
+        Genre::create(['genre' => 'Fantasy']);
+        Genre::create(['genre' => 'Manga']);
+        Genre::create(['genre' => 'Childrens']);
+        Genre::create(['genre' => 'Poetry']);
+        Genre::create(['genre' => 'Textbooks']);
+        Genre::create(['genre' => 'Non-fiction']);
+        Genre::create(['genre' => 'Play']);
+        Genre::create(['genre' => 'Other']);
     
         $book = Book::create([
             'book_title' => 'Harry Potter and the Sorcerer\'s Stone]',
@@ -33,7 +53,9 @@ class DatabaseSeeder extends Seeder
             'book_description' => 'Harry Potter\'s life is miserable. His parents are dead and he\'s stuck with his heartless relatives, who force him to live in a tiny closet under the stairs. But his fortune changes when he receives a letter that tells him the truth about himself: he\'s a wizard. A mysterious visitor rescues him from his relatives and takes him to his new home, Hogwarts School of Witchcraft and Wizardry. After a lifetime of bottling up his magical powers, Harry finally feels like a normal kid. But even within the Wizarding community, he is special. He is the boy who lived: the only person to have ever survived a killing curse inflicted by the evil Lord Voldemort, who launched a brutal takeover of the Wizarding world, only to vanish after failing to kill Harry. Though Harry\'s first year at Hogwarts is the best of his life, not everything is perfect. There is a dangerous secret object hidden within the castle walls, and Harry believes it\'s his responsibility to prevent it from falling into evil hands. But doing so will bring him into contact with forces more terrifying than he ever could have imagined.',
             'book_year' => 1997,
             'book_language' => 'ENG'
-        ]);    
+        ]);   
+        $genre = Genre::find([1,12,14,9]); 
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Harry Potter and the Chamber of Secrets',
             'book_author' => 'J.K. Rowling',
@@ -41,6 +63,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 1998,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,12,14,9]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Harry Potter and the Prisoner of Azkaban',
             'book_author' => 'J.K. Rowling',
@@ -48,6 +72,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 1999,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,12,14,9]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Harry Potter and the Goblet of Fire',
             'book_author' => 'J.K. Rowling',
@@ -55,6 +81,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 2000,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,12,14,9]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Harry Potter and the Order of the Phoenix',
             'book_author' => 'J.K. Rowling',
@@ -62,6 +90,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 2003,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,12,14,9]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Harry Potter and the Half-Blood Prince',
             'book_author' => 'J.K. Rowling',
@@ -69,6 +99,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 2005,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,12,14,9]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Harry Potter and the Deathly Hallows',
             'book_author' => 'J.K. Rowling',
@@ -76,6 +108,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 2007,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,12,14,9]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'A Little Life',
             'book_author' => 'Hanya Yanagihara',
@@ -83,6 +117,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 2015,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,10]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'The Seven Husbands of Evelyn Hugo',
             'book_author' => 'Taylor Jenkins Reid',
@@ -90,6 +126,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 2017,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,8,10]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Where the Crawdads Sing',
             'book_author' => 'Delia Owens',
@@ -97,6 +135,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 2018,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,8,4,10]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Conversations with Friends',
             'book_author' => 'Sally Rooney',
@@ -104,6 +144,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 2017,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,10]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Norwegian Wood',
             'book_author' => 'Haruki Murakami',
@@ -111,6 +153,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 1987,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,7]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Before the Coffee Gets Cold',
             'book_author' => 'Toshikazu Kawaguchi',
@@ -118,6 +162,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 2015,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,12,9]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Little Women',
             'book_author' => 'Louisa May Alcott',
@@ -125,6 +171,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 1868,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,7,4,8,14]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'The Great Gatsby',
             'book_author' => 'F. Scott Fitzgerald',
@@ -132,6 +180,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 1925,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,4,7]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Educated',
             'book_author' => 'Tara Westover',
@@ -139,6 +189,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 2018,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([17]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Lepnums un Aizspriedumi',
             'book_author' => 'Džeina Ostina',
@@ -146,6 +198,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 1813,
             'book_language' => 'LV'
         ]);
+        $genre = Genre::find([1,7,8,4]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Robinsons Krūzo',
             'book_author' => 'Daniels Defo',
@@ -153,6 +207,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 1719,
             'book_language' => 'LV'
         ]);
+        $genre = Genre::find([7,1,8]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Jāzeps un viņa brāļi',
             'book_author' => 'Rainis',
@@ -160,6 +216,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 1919,
             'book_language' => 'LV'
         ]);
+        $genre = Genre::find([18]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Kalendārs mani sauc',
             'book_author' => 'Andris Kalnozols',
@@ -167,6 +225,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 2020,
             'book_language' => 'LV'
         ]);
+        $genre = Genre::find([1]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Death of a Salesman',
             'book_author' => 'Arthur Miller',
@@ -174,6 +234,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 1949,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([7,18]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Dorfpunks',
             'book_author' => 'Rocko Schamoni',
@@ -181,6 +243,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 2005,
             'book_language' => 'DEU'
         ]);
+        $genre = Genre::find([1,3]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'The 5 AM Club: Own Your Morning. Elevate Your Life',
             'book_author' => 'Robin S. Sharma',
@@ -188,6 +252,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 2018,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([11,17]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'The Fellowship of the Ring',
             'book_author' => 'J.R.R. Tolkien',
@@ -195,6 +261,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 1954,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,12,9,7,3]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'On Earth We\'re Briefly Gorgeous',
             'book_author' => 'Ocean Vuong',
@@ -202,6 +270,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 2019,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,15]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'Wuthering Heights',
             'book_author' => 'Emily Brontë',
@@ -209,6 +279,8 @@ class DatabaseSeeder extends Seeder
             'book_year' => 1847,
             'book_language' => 'ENG'
         ]);
+        $genre = Genre::find([1,7,8]);
+        $book->genres()->attach($genre);
         $book = Book::create([
             'book_title' => 'American Psycho',
             'book_author' => 'Bret Easton Ellis',
@@ -216,275 +288,252 @@ class DatabaseSeeder extends Seeder
             'book_year' => 1991,
             'book_language' => 'ENG'
         ]);
-    
-        $genre = Genre::create(['genre' => 'Literary Fiction']);
-        $genre = Genre::create(['genre' => 'Mystery']);
-        $genre = Genre::create(['genre' => 'Young Adult']);
-        $genre = Genre::create(['genre' => 'Romance']);
-        $genre = Genre::create(['genre' => 'Thriller']);
-        $genre = Genre::create(['genre' => 'Horror']);
-        $genre = Genre::create(['genre' => 'Classics']);
-        $genre = Genre::create(['genre' => 'Historical']);
-        $genre = Genre::create(['genre' => 'Science Fiction']);
-        $genre = Genre::create(['genre' => 'Contemporary']);
-        $genre = Genre::create(['genre' => 'Self Help']);
-        $genre = Genre::create(['genre' => 'Fantasy']);
-        $genre = Genre::create(['genre' => 'Manga']);
-        $genre = Genre::create(['genre' => 'Childrens']);
-        $genre = Genre::create(['genre' => 'Poetry']);
-        $genre = Genre::create(['genre' => 'Textbooks']);
-        $genre = Genre::create(['genre' => 'Non-fiction']);
-        $genre = Genre::create(['genre' => 'Other']);
+        $genre = Genre::find([1,6,2]);
+        $book->genres()->attach($genre);
 
-        // $book = Book::where('book_title', '')->first();
-        // $book->editions()->create([
-        //     'image_url' => '',
-        //     'publisher' => '',
-        //     'edition_year' => '',
-        //     'pages' =>,
-        //     'cover_type' => '',
-        // ]);
-
+        // no šejienes vairs nedarbojas
+        
         $book = Book::where('book_title', 'Harry Potter and the Sorcerer\'s Stone')->first();
         $book->editions()->create([
             'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1474154022i/3.jpg',
             'publisher' => 'Scholastic Inc.',
-            'edition_year' => '2003',
+            'edition_year' => 003,            
             'pages' => 309,
             'cover_type' => 'HC',
-        ]);
-        $book = Book::where('book_title', 'Harry Potter and the Sorcerer\'s Stone')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1622222711i/22841994.jpg',
-            'publisher' => 'Bloomsbury',
-            'edition_year' => '2014',
-            'pages' => 332,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Harry Potter and the Sorcerer\'s Stone')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1372555797i/17372039.jpg',
-            'publisher' => 'Scholastic',
-            'edition_year' => '2013',
-            'pages' => 309,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Harry Potter and the Chamber of Secrets')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1474169725i/15881.jpg',
-            'publisher' => 'Arthur A. Levine Books',
-            'edition_year' => '1999',
-            'pages' => 341,
-            'cover_type' => 'HC',
-        ]);
-        $book = Book::where('book_title', 'Harry Potter and the Prisoner of Azkaban')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630547330i/5.jpg',
-            'publisher' => 'Scholastic Inc.',
-            'edition_year' => '2004',
-            'pages' => 435,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Harry Potter and the Goblet of Fire')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1554006152i/6.jpg',
-            'publisher' => 'Scholastic Inc.',
-            'edition_year' => '2002',
-            'pages' => 734,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Harry Potter and the Order of the Phoenix')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1546910265i/2.jpg',
-            'publisher' => 'Scholastic Inc.',
-            'edition_year' => '2004',
-            'pages' => 870,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Harry Potter and the Half-Blood Prince')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1587697303i/1.jpg',
-            'publisher' => 'Scholastic Inc.',
-            'edition_year' => '2005',
-            'pages' => 652,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Harry Potter and the Deathly Hallows')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1632235105i/22844208.jpg',
-            'publisher' => 'Bloomsbury',
-            'edition_year' => '2014',
-            'pages' => 620,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'A Little Life')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1453060759i/25852828.jpg',
-            'publisher' => 'Anchor',
-            'edition_year' => '2016',
-            'pages' => 816,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'The Seven Husbands of Evelyn Hugo')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1527540345i/33160963.jpg',
-            'publisher' => 'Washington Square Press',
-            'edition_year' => '2018',
-            'pages' => 389,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Where the Crawdads Sing')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1582135294i/36809135.jpg',
-            'publisher' => 'G.P. Putnam’s Sons',
-            'edition_year' => '2018',
-            'pages' => 370,
-            'cover_type' => 'HC',
-        ]);
-        $book = Book::where('book_title', 'Conversations with Friends')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1638729263i/32187419.jpg',
-            'publisher' => 'Faber & Faber',
-            'edition_year' => '2018',
-            'pages' => 323,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Norwegian Wood')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630460042i/11297.jpg',
-            'publisher' => 'Vintage Books',
-            'edition_year' => '2000',
-            'pages' => 296,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Norwegian Wood')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1616843770i/17308035.jpg',
-            'publisher' => 'Einaudi',
-            'edition_year' => '2012',
-            'pages' => 388,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Before the Coffee Gets Cold')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1560955053i/44421460.jpg',
-            'publisher' => 'Picador',
-            'edition_year' => '2019',
-            'pages' => 213,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Little Women')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400837889i/20893528.jpg',
-            'publisher' => 'Puffin Classics',
-            'edition_year' => '2014',
-            'pages' => 816,
-            'cover_type' => 'HC',
-        ]);
-        $book = Book::where('book_title', 'The Great Gatsby')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1603742148i/55333945.jpg',
-            'publisher' => 'Modern Library',
-            'edition_year' => '2021',
-            'pages' => 192,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Educated')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1534667345i/40060637.jpg',
-            'publisher' => 'Windmill Books',
-            'edition_year' => '2018',
-            'pages' => 384,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Lepnums un Aizspriedumi')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1335123223i/13612903.jpg',
-            'publisher' => 'Jumava',
-            'edition_year' => '2011',
-            'pages' => 400,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Robinsons Krūzo')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1299185050i/10661493.jpg',
-            'publisher' => 'Zvaigzne ABC',
-            'edition_year' => '2001',
-            'pages' => 303,
-            'cover_type' => 'HC',
-        ]);
-        $book = Book::where('book_title', 'Jāzeps un viņa brāļi')->first();
-        $book->editions()->create([
-            'image_url' => 'https://www.zvaigzne.lv/images/books/111313/300x0_jazepsunvinabrali_978-9934-0-4915-6.jpg',
-            'publisher' => 'Zvaigzne ABC',
-            'edition_year' => '2015',
-            'pages' => 296,
-            'cover_type' => 'HC',
-        ]);
-        $book = Book::where('book_title', 'Kalendārs mani sauc')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1609151707i/56338211.jpg',
-            'publisher' => 'Orbīta',
-            'edition_year' => '2020',
-            'pages' => 336,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Death of a Salesman')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1554514105i/12898.jpg',
-            'publisher' => 'Heinemann Library',
-            'edition_year' => '1994',
-            'pages' => 117,
-            'cover_type' => 'HC',
-        ]);
-        $book = Book::where('book_title', 'Dorfpunks')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1185744325i/1603221.jpg',
-            'publisher' => 'Rowohlt Taschenbuch Verlag',
-            'edition_year' => '2005',
-            'pages' => 204,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'The 5 AM Club: Own Your Morning. Elevate Your Life')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1545910967i/37502596.jpg',
-            'publisher' => 'HarperCollins Publishers',
-            'edition_year' => '2018',
-            'pages' => 314,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'The Fellowship of the Ring')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1585164808i/51177733.jpg',
-            'publisher' => 'HarperCollins',
-            'edition_year' => '2020',
-            'pages' => 415,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'On Earth We\'re Briefly Gorgeous')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1607857168i/52544164.jpg',
-            'publisher' => 'Vintage',
-            'edition_year' => '2020',
-            'pages' => 242,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'Wuthering Heights')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1546419424i/15994537.jpg',
-            'publisher' => 'Penguin Books',
-            'edition_year' => '2021',
-            'pages' => 360,
-            'cover_type' => 'PB',
-        ]);
-        $book = Book::where('book_title', 'American Psycho')->first();
-        $book->editions()->create([
-            'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1436934349i/28676.jpg',
-            'publisher' => 'Vintage Contemporaries',
-            'edition_year' => '1991',
-            'pages' => 399,
-            'cover_type' => 'PB',
-        ]);
+        ]);      
+        
+        // $book = Book::where('book_title', 'Harry Potter and the Sorcerer\'s Stone')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1622222711i/22841994.jpg',
+        //     'publisher' => 'Bloomsbury',
+        //     'edition_year' => 014,            
+        //     'pages' => 332,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Harry Potter and the Sorcerer\'s Stone')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1372555797i/17372039.jpg',
+        //     'publisher' => 'Scholastic',
+        //     'edition_year' => 013,            
+        //     'pages' => 309,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Harry Potter and the Chamber of Secrets')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1474169725i/15881.jpg',
+        //     'publisher' => 'Arthur A. Levine Books',
+        //     'edition_year' => 999,            
+        //     'pages' => 341,
+        //     'cover_type' => 'HC',
+        // ]);
+        // $book = Book::where('book_title', 'Harry Potter and the Prisoner of Azkaban')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630547330i/5.jpg',
+        //     'publisher' => 'Scholastic Inc.',
+        //     'edition_year' => 004,            
+        //     'pages' => 435,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Harry Potter and the Goblet of Fire')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1554006152i/6.jpg',
+        //     'publisher' => 'Scholastic Inc.',
+        //     'edition_year' => 002,            
+        //     'pages' => 734,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Harry Potter and the Order of the Phoenix')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1546910265i/2.jpg',
+        //     'publisher' => 'Scholastic Inc.',
+        //     'edition_year' => 004,            
+        //     'pages' => 870,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Harry Potter and the Half-Blood Prince')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1587697303i/1.jpg',
+        //     'publisher' => 'Scholastic Inc.',
+        //     'edition_year' => 005,            
+        //     'pages' => 652,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Harry Potter and the Deathly Hallows')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1632235105i/22844208.jpg',
+        //     'publisher' => 'Bloomsbury',
+        //     'edition_year' => 2014,
+        //     'pages' => 620,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'A Little Life')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1453060759i/25852828.jpg',
+        //     'publisher' => 'Anchor',
+        //     'edition_year' => 2016,
+        //     'pages' => 816,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'The Seven Husbands of Evelyn Hugo')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1527540345i/33160963.jpg',
+        //     'publisher' => 'Washington Square Press',
+        //     'edition_year' => 2018,
+        //     'pages' => 389,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Where the Crawdads Sing')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1582135294i/36809135.jpg',
+        //     'publisher' => 'G.P. Putnam’s Sons',
+        //     'edition_year' => 2018,
+        //     'pages' => 370,
+        //     'cover_type' => 'HC',
+        // ]);
+        // $book = Book::where('book_title', 'Conversations with Friends')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1638729263i/32187419.jpg',
+        //     'publisher' => 'Faber & Faber',
+        //     'edition_year' => 2018,
+        //     'pages' => 323,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Norwegian Wood')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630460042i/11297.jpg',
+        //     'publisher' => 'Vintage Books',
+        //     'edition_year' => 2000,
+        //     'pages' => 296,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Norwegian Wood')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1616843770i/17308035.jpg',
+        //     'publisher' => 'Einaudi',
+        //     'edition_year' => 2012,
+        //     'pages' => 388,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Before the Coffee Gets Cold')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1560955053i/44421460.jpg',
+        //     'publisher' => 'Picador',
+        //     'edition_year' => 2019,
+        //     'pages' => 213,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Little Women')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1400837889i/20893528.jpg',
+        //     'publisher' => 'Puffin Classics',
+        //     'edition_year' => 2014,
+        //     'pages' => 816,
+        //     'cover_type' => 'HC',
+        // ]);
+        // $book = Book::where('book_title', 'The Great Gatsby')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1603742148i/55333945.jpg',
+        //     'publisher' => 'Modern Library',
+        //     'edition_year' => 2021,
+        //     'pages' => 192,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Educated')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1534667345i/40060637.jpg',
+        //     'publisher' => 'Windmill Books',
+        //     'edition_year' => 2018,
+        //     'pages' => 384,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Lepnums un Aizspriedumi')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1335123223i/13612903.jpg',
+        //     'publisher' => 'Jumava',
+        //     'edition_year' => 2011,
+        //     'pages' => 400,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Robinsons Krūzo')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1299185050i/10661493.jpg',
+        //     'publisher' => 'Zvaigzne ABC',
+        //     'edition_year' => 2001,
+        //     'pages' => 303,
+        //     'cover_type' => 'HC',
+        // ]);
+        // $book = Book::where('book_title', 'Jāzeps un viņa brāļi')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://www.zvaigzne.lv/images/books/111313/300x0_jazepsunvinabrali_978-9934-0-4915-6.jpg',
+        //     'publisher' => 'Zvaigzne ABC',
+        //     'edition_year' => 2015,
+        //     'pages' => 296,
+        //     'cover_type' => 'HC',
+        // ]);
+        // $book = Book::where('book_title', 'Kalendārs mani sauc')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1609151707i/56338211.jpg',
+        //     'publisher' => 'Orbīta',
+        //     'edition_year' => 2020,
+        //     'pages' => 336,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Death of a Salesman')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1554514105i/12898.jpg',
+        //     'publisher' => 'Heinemann Library',
+        //     'edition_year' => 1994,
+        //     'pages' => 117,
+        //     'cover_type' => 'HC',
+        // ]);
+        // $book = Book::where('book_title', 'Dorfpunks')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1185744325i/1603221.jpg',
+        //     'publisher' => 'Rowohlt Taschenbuch Verlag',
+        //     'edition_year' => 2005,
+        //     'pages' => 204,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'The 5 AM Club: Own Your Morning. Elevate Your Life')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1545910967i/37502596.jpg',
+        //     'publisher' => 'HarperCollins Publishers',
+        //     'edition_year' => 2018,
+        //     'pages' => 314,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'The Fellowship of the Ring')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1585164808i/51177733.jpg',
+        //     'publisher' => 'HarperCollins',
+        //     'edition_year' => 2020,
+        //     'pages' => 415,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'On Earth We\'re Briefly Gorgeous')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1607857168i/52544164.jpg',
+        //     'publisher' => 'Vintage',
+        //     'edition_year' => 2020,
+        //     'pages' => 242,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'Wuthering Heights')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1546419424i/15994537.jpg',
+        //     'publisher' => 'Penguin Books',
+        //     'edition_year' => 2021,
+        //     'pages' => 360,
+        //     'cover_type' => 'PB',
+        // ]);
+        // $book = Book::where('book_title', 'American Psycho')->first();
+        // $book->editions()->create([
+        //     'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1436934349i/28676.jpg',
+        //     'publisher' => 'Vintage Contemporaries',
+        //     'edition_year' => 1991,
+        //     'pages' => 399,
+        //     'cover_type' => 'PB',
+        // ]);
         
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
