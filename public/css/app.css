@@ -1115,8 +1115,11 @@ select {
     --tw-border-opacity: 1;
     border-color: rgb(55 65 81 / var(--tw-border-opacity));
 }
-.bg-custom {
-    background-color: #3b3c43;
+.border-white {
+    border-color: #ffffff;
+}
+.border-gray {
+    border-color: #f8f8f8;
 }
 .bg-gray-50 {
     background-color: #f8f8f8;
@@ -1264,7 +1267,30 @@ select {
     line-height: 1.75rem;
 }
 .bg-custom-lighter {
-    background-color: #5b5d66;
+    background-color: #4e4f55;
+}
+.bg-custom {
+    background-color: #3b3c43;
+}
+.text-custom {
+    --tw-text-opacity: 1;
+    color: #3b3c43;
+}
+.hover\:text-custom:hover {
+    color: #575862;
+}
+.border-custom {
+    border-color: #3b3c43;
+}
+.border-custom-lighter {
+    border-color: #4e4f55;
+}
+.hover\:bg-custom-lighter:hover {
+    --tw-bg-opacity: 1;
+    background-color: #4e4f55;
+}
+.hover\:border-custom-lighter:hover {
+    border-color: #dadadc;
 }
 .text-title {
     font-size: 72px;
@@ -1303,12 +1329,11 @@ select {
 .tracking-widest {
     letter-spacing: 0.1em;
 }
-.text-custom {
-    --tw-text-opacity: 1;
-    color: #3b3c43;
-}
 .text-whitesmoke {
     color: #f3f4f6;
+}
+.text-gray {
+    color: #9799a5;
 }
 .text-gray-500 {
     --tw-text-opacity: 1;
@@ -1478,10 +1503,7 @@ select {
     --tw-bg-opacity: 1;
     background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
-.hover\:bg-custom-lighter:hover {
-    --tw-bg-opacity: 1;
-    background-color: #5b5d66;
-}
+
 .hover\:text-gray-500:hover {
     --tw-text-opacity: 1;
     color: rgb(107 114 128 / var(--tw-text-opacity));
