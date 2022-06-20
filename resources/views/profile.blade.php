@@ -23,12 +23,12 @@
 								<div>
 									<x-label for="name" :value="__('Name')" />
 									<x-input id="name" class="block mt-1 w-full" type="text" name="name"
-										value="{{ auth()->user()->name }}" autofocus />
+										value="{{ auth()->user()->name }}" />
 								</div>
 								<div>
 									<x-label for="email" :value="__('Email')" />
 									<x-input id="email" class="block mt-1 w-full" type="email" name="email"
-										value="{{ auth()->user()->email }}" autofocus />
+										value="{{ auth()->user()->email }}" />
 								</div>
 							</div>
 							<div class="grid grid-rows-2 gap-6">

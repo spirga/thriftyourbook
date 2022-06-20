@@ -20,7 +20,7 @@ module.exports = {
         },
     },
     variants: {
-        outline: ["focus"],
+        extend: {},
     },
 
     plugins: [require("@tailwindcss/forms")],
