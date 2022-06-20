@@ -8,9 +8,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use App\Models\Listing;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
+
+    public function listings() {
+        return $this->hasMany(Listing::class);
+    }
 
     /**
      * The attributes that are mass assignable.
