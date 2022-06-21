@@ -28,9 +28,7 @@ Route::get('/store',[ListingController::class,'index'])->name('store');
 //Route::resource('store', ListingController::class);
 
 //pagaidu message skats
-Route::get('listing/{id}', function () {
-    return view('message');
-})->name('message');
+Route::get('listing/{id}', [ListingController::class, 'index_one']);
 
 
 Route::group(['middleware' => 'auth'], function() {
