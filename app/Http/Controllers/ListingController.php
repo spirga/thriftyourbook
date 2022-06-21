@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Listing;
 use App\Models\Edition;
 use App\Models\Book;
+use App\Models\User;
 
 class ListingController extends Controller
 {
@@ -21,13 +22,15 @@ class ListingController extends Controller
     {   
         $data = [
             $listing = Listing::where('id', '=', $id)->get(),
+            $user_id = $listing->first()->user_id,
+            $user = User::where('id', '=', $user_id)->get(),
             $edition_id = $listing->first()->edition_id,
             $edition = Edition::where('id', '=', $edition_id)->get(),
             $book_id = $edition->first()->book_id,
             $book = Book::where('id', '=', $book_id)
         ];
         
-        return view('listing', compact('listing', 'edition', 'book'));
+        return view('listing', compact('listing', 'edition', 'book', 'user'));
     }
 
     public function create()
