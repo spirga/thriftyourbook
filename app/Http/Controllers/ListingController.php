@@ -22,15 +22,15 @@ class ListingController extends Controller
     {   
         $data = [
             $listing = Listing::where('id', '=', $id)->get(),
-            $user_id = $listing->first()->user_id,
-            $user = User::where('id', '=', $user_id)->get(),
+            //$user_id = $listing->first()->user_id,
+            //$user = User::where('id', '=', $user_id)->get(),
             $edition_id = $listing->first()->edition_id,
             $edition = Edition::where('id', '=', $edition_id)->get(),
             $book_id = $edition->first()->book_id,
             $book = Book::where('id', '=', $book_id)
         ];
         
-        return view('listing', compact('listing', 'edition', 'book', 'user'));
+        return view('listing', compact('listing', 'edition', 'book'));
     }
 
     public function create()

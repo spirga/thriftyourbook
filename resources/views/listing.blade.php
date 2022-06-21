@@ -4,7 +4,6 @@
 			{{ $book->first()->book_title}}
 		</h2>
 		<p>
-			<!-- {{$user->first()->name}} -->
 		</p>
 	</x-slot>
 
