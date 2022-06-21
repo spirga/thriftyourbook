@@ -5,6 +5,8 @@
 }
 
 .book-image {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     opacity: 1;
     display: block;
@@ -13,13 +15,25 @@
     -webkit-backface-visibility: hidden;
 }
 
-.book-text {
+.book-title {
     color: #3b3c43;
-    background-color: #04aa6d;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.book-author {
+    color: #3b3c43;
+    margin-bottom: 3px;
+    font-size: 14px;
 }
 
 .book-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     transition: 0.3s ease;
+    width: 90%;
     opacity: 0;
     position: absolute;
     top: 50%;
@@ -36,5 +50,9 @@
 }
 
 .book-container:hover .book-image {
-    opacity: 0.3;
+    opacity: 0.1;
+}
+
+.w-60p {
+    width: 60%;
 }
