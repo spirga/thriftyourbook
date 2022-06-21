@@ -231,7 +231,11 @@
 			<div>
 				<div class="p-6 bg-white">
 					<div class="grid grid-cols-3">
+						@if (is_countable($listings) && count($listings) == 0)
+						<p>There are no books currently being sold</p>
+						@else
 						<div>seit jaliek izdevumi for each</div>
+						@endif
 					</div>
 				</div>
 			</div>

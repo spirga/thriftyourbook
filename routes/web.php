@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,18 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('/store');
-});
+Route::redirect('/', 'store');
+
+// Route::get('/', function () {
+//     return view('/store');
+// });
 
 Route::get('/store', function () {
     return view('store');
 })->name('store');
 
+Route::get('/store',[ListingController::class,'index'])->name('store');
+//Route::resource('store', ListingController::class);
+
+
 Route::group(['middleware' => 'auth'], function() {
     
     Route::view(uri: 'profile', view: 'profile')->name(name: 'profile');
-    Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    //Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
     
     Route::get('/my-listings', function () {
         return view('my-listings');
