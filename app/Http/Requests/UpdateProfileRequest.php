@@ -27,7 +27,8 @@ class UpdateProfileRequest extends FormRequest
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'min:8|confirmed',
-            'location'=> 'min:2|alpha'
+            'location'=> 'min:2|max:30|alpha',
+            'about_me' => 'max:200'
         ];
     }
 }

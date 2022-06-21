@@ -43,9 +43,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::view(uri: 'profile', view: 'profile')->name(name: 'profile');
     
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::post('profile', [ProfileController::class, 'upload']);
-    
-    
+
     Route::get('/my-listings', function () {
         return view('my-listings');
     })->name('my-listings');

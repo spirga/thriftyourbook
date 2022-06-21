@@ -13,24 +13,26 @@ class ListingController extends Controller
 {
     public function index_all()
     {
-        $listings = Listing::all();
+        //$listings = Listing::all();
+        //return view('store', compact('listings'));
+
+        //$listings_cnt = $listings->groupBy('edition_id')->map(fn ($listings) => $listings->count());
+        $listings = Listing::with('edition.book')->groupBy('edition_id')->get();
+        //$listings = $listings->groupBy('edition_id');
         return view('store', compact('listings'));
-        //return view ('store', ['listings' => $listings]);
     }
 
     public function index_one($id)
     {   
-        $data = [
-            $listing = Listing::where('id', '=', $id)->get(),
-            //$user_id = $listing->first()->user_id,
-            //$user = User::where('id', '=', $user_id)->get(),
-            $edition_id = $listing->first()->edition_id,
-            $edition = Edition::where('id', '=', $edition_id)->get(),
-            $book_id = $edition->first()->book_id,
-            $book = Book::where('id', '=', $book_id)
-        ];
+        $listing = Listing::where('id', '=', $id)->get();
+        $user_id = $listing->first()->user_id;
+        $user = User::where('id', '=', $user_id)->get();
+        $edition_id = $listing->first()->edition_id;
+        $edition = Edition::where('id', '=', $edition_id)->get();
+        $book_id = $edition->first()->book_id;
+        $book = Book::where('id', '=', $book_id);
         
-        return view('listing', compact('listing', 'edition', 'book'));
+        return view('listing', compact('listing', 'edition', 'book', 'user'));
     }
 
     public function create()

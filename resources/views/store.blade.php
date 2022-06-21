@@ -5,16 +5,15 @@
 			<span class="font-fasthand text-subtitle mt-4 mb-4">- where books find their people -</span>
 		</div>
 		<form class="flex justify-center items-center">
-			<div class="flex mr-25 "><input type="search" id="default-search"
-					class="block px-4 pl-10 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-200 focus:border-gray-400 input-control"
+			<div class="flex mr-4 "><input type="search" id="default-search"
+					class="block px-4 py-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-200 focus:border-gray-400 input-control"
 					placeholder="Search books..." required></div>
-			<div class="flex justify-center items-center flex-col ml-25"><button type="submit"
-					class=" z-0 text-custom absolute right-2.5 bottom-2.5 text-custom bg-custom hover:bg-custom-lighter focus:ring-4
-				focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-white hover:bg-custom-lighter active:bg-gray-900 focus:outline-none disabled:opacity-25 transition ease-in-out duration-150">Search</button>
+			<div class="flex justify-center items-center flex-col ml-4">
+				<x-button class="py-2.5">Search</x-button>
 			</div>
 		</form>
 	</x-slot>
-	<div class="flex justify-center mb-4">
+	<div class=" flex justify-center mb-4">
 		<hr class="w-80p ">
 	</div>
 	<div class="grid grid-cols-2">
@@ -217,9 +216,7 @@
 								class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Antique
 							</label>
 						</div>
-						<button type="submit"
-							class="mt-4 text-custom bg-custom hover:bg-custom-lighter focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-white hover:bg-custom-lighter active:bg-gray-900 focus:outline-none disabled:opacity-25 transition ease-in-out duration-150">Apply
-							Filters</button>
+						<x-button class="mt-4">Apply Filters</x-button>
 					</form>
 				</div>
 			</div>
@@ -230,16 +227,22 @@
 			</h2>
 			<div>
 				<div class="p-6 bg-white">
-					<div class="grid grid-cols-3">
-						@if (is_countable($listings) && count($listings) == 0)
-						<p>There are no books currently being sold</p>
-						@else
-						<div>seit jaliek izdevumi for each</div>
-
-						@endif
+					@if (is_countable($listings) && count($listings) == 0)
+					<p>There are no books currently being sold...</p>
+					@else
+					<div class="grid grid-cols-3 gap-4">
+						@foreach ($listings as $listing)
+						<x-book image="{{$listing->edition->image_url}}" message="{{$listing->edition->book->book_title}}">
+						</x-book>
 					</div>
+					@endforeach
 				</div>
+
+
+
+				@endif
 			</div>
 		</div>
+	</div>
 	</div>
 </x-app-layout>

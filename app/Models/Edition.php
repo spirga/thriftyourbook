@@ -12,4 +12,7 @@ class Edition extends Model
     public function book() {
         return $this->belongsTo(Book::class);
     }
+    public function listings() {
+        return $this->hasMany(Listing::class);
+    }
 }
