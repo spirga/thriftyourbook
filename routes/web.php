@@ -29,7 +29,7 @@ Route::get('/store',[ListingController::class,'index_all'])->name('store');
 //Route::resource('store', ListingController::class);
 
 //pagaidu message skats
-Route::get('listing/{id}', [ListingController::class, 'index_one']);
+Route::get('listing/{id}', [ListingController::class, 'index_one'])->name('listing');
 
 
 Route::group(['middleware' => 'auth'], function() {
