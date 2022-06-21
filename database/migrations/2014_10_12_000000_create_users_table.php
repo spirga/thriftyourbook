@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('location')->nullable();
             $table->string('about_me', 200)->nullable();
+            $table->string('profile_picture')->default('user.png');
             $table->rememberToken();
             $table->timestamps();
         });

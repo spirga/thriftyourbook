@@ -17,7 +17,7 @@ class ListingController extends Controller
 
     public function index_one($id)
     {
-        $listing = Listing::where('listing_id', '=', $id)->get();
+        $listing = Listing::where('id', '=', $id)->get();
         return view('listing', ['listing_id'=>$id, 'listing'=>$listing]);
     }
 
