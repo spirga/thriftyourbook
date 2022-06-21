@@ -10,9 +10,9 @@ use Laravel\Sanctum\HasApiTokens;
 
 use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 use App\Models\Listing;
-use Spatie\MediaLibrary\Models\Media;
 
 class User extends Authenticatable implements HasMedia
 {
@@ -22,7 +22,7 @@ class User extends Authenticatable implements HasMedia
         return $this->hasMany(Listing::class);
     }
 
-    public function registerMediaConversions(Media $media = null)
+    public function registerMediaConversions(Media $media = null) : void
     {
         $this->addMediaConversion('thumb')
             ->width(60)

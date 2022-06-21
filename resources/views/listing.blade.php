@@ -1,7 +1,7 @@
 <x-app-layout>
 	<x-slot name="header">
 		<h2 class="font-semibold text-xl text-gray-800 leading-tight">
-			{{ $book->first()->book_name }}
+			{{ $book->first()->book_title }}
 		</h2>
 		<p>
 			seit bus username

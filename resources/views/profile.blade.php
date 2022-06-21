@@ -4,7 +4,8 @@
 			{{ __('My Profile') }}
 		</h2>
 	</x-slot>
-	<form method="POST" action="{{ route('profile.update') }}" class="flex justify-center flex-col">
+	<form method="POST" action="{{ route('profile.update') }}" class="flex justify-center flex-col"
+		enctype="multipart/form-data">
 		<div class="py-4">
 			<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 				<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
@@ -32,16 +33,10 @@
 								</div>
 							</div>
 							<div class="grid grid-rows-2 gap-6">
-								<div>
-									<x-label for="new_password" :value="__('New password')" />
-									<x-input id="new_password" class="block mt-1 w-full" type="password" name="password"
-										autocomplete="new-password" />
-								</div>
-								<div>
-									<x-label for="confirm_password" :value="__('Confirm password')" />
-									<x-input id="confirm_password" class="block mt-1 w-full" type="password" name="password_confirmation"
-										autocomplete="confirm-password" />
-								</div>
+								<img class="image rounded-circle" src="{{asset('/storage/images/'.Auth::user()->profile_picture)}}"
+									alt="profile_image" style="width: 80px;height: 80px; padding: 10px; margin: 0px; ">
+
+								<input type="file" name="image">
 							</div>
 						</div>
 					</div>
