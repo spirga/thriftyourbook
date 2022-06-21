@@ -40,6 +40,7 @@ class User extends Authenticatable implements HasMedia
         'password',
         'location',
         'about_me',
+        'profile_picture',
     ];
 
     /**
