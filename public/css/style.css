@@ -56,3 +56,25 @@
 .w-60p {
     width: 60%;
 }
+
+.filter-book-container {
+    display: flex;
+    justify-content: center;
+}
+
+.filter-container {
+    width: 15%;
+}
+
+.books-container-container {
+    width: 85%;
+}
+
+.books-container {
+    width: 100%;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+}
