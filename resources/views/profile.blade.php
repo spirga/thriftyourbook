@@ -4,14 +4,14 @@
 			{{ __('My Profile') }}
 		</h2>
 	</x-slot>
+	<form method="POST" action="{{ route('profile.update') }}" class="flex justify-center flex-col">
+		<div class="py-4">
+			<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+				<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
+					<div class="p-6 bg-white border-b border-gray-200">
+						<x-auth-validation-errors :errors="$errors" />
+						<x-success-message />
 
-	<div class="py-4">
-		<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-			<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
-				<div class="p-6 bg-white border-b border-gray-200">
-					<x-auth-validation-errors :errors="$errors" />
-					<x-success-message />
-					<form method="POST" action="{{ route('profile.update') }}">
 						@method('PUT')
 						@csrf
 						<div class="mb-4">
@@ -21,12 +21,51 @@
 						<div class="grid grid-cols-2 gap-6">
 							<div class="grid grid-rows-2 gap-6">
 								<div>
-									<x-label for="name" :value="__('Name')" />
+									<x-label for="location" :value="__('My location')" />
+									<x-input id="location" class="block mt-1 w-full" type="text" name="location"
+										value="{{ auth()->user()->location }}" />
+								</div>
+								<div>
+									<x-label for="about_me" :value="__('About me')" />
+									<x-input id="about_me" class="block mt-1 w-full" type="text" name="about_me"
+										value="{{ auth()->user()->about_me }}" />
+								</div>
+							</div>
+							<div class="grid grid-rows-2 gap-6">
+								<div>
+									<x-label for="new_password" :value="__('New password')" />
+									<x-input id="new_password" class="block mt-1 w-full" type="password" name="password"
+										autocomplete="new-password" />
+								</div>
+								<div>
+									<x-label for="confirm_password" :value="__('Confirm password')" />
+									<x-input id="confirm_password" class="block mt-1 w-full" type="password" name="password_confirmation"
+										autocomplete="confirm-password" />
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="py-4">
+			<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+				<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
+					<div class="p-6 bg-white border-b border-gray-200">
+						<div class="mb-4">
+							<b>Update login information</b>
+						</div>
+
+						<div class="grid grid-cols-2 gap-6">
+							<div class="grid grid-rows-2 gap-6">
+								<div>
+									<x-label for="name" :value="__('Username')" />
 									<x-input id="name" class="block mt-1 w-full" type="text" name="name"
 										value="{{ auth()->user()->name }}" />
 								</div>
 								<div>
-									<x-label for="email" :value="__('Email')" />
+									<x-label for="email" :value="__('E-mail')" />
 									<x-input id="email" class="block mt-1 w-full" type="email" name="email"
 										value="{{ auth()->user()->email }}" />
 								</div>
@@ -44,14 +83,18 @@
 								</div>
 							</div>
 						</div>
+
 						<div class="flex items-center justify-end mt-4">
-							<x-button class="ml-3">
-								{{ __('Update') }}
-							</x-button>
+
 						</div>
-					</form>
+					</div>
+				</div>
+				<div class="flex items-center justify-end mt-4">
+					<x-button class="ml-3">
+						{{ __('Save') }}
+					</x-button>
 				</div>
 			</div>
 		</div>
-	</div>
+	</form>
 </x-app-layout>

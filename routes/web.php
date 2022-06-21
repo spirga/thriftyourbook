@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::get('/store', function () {
     return view('store');
 })->name('store');
 
-Route::get('/store',[ListingController::class,'index'])->name('store');
+Route::get('/store',[ListingController::class,'index_all'])->name('store');
 //Route::resource('store', ListingController::class);
 
 //pagaidu message skats
@@ -34,8 +35,9 @@ Route::get('listing/{id}', [ListingController::class, 'index_one']);
 Route::group(['middleware' => 'auth'], function() {
     
     Route::view(uri: 'profile', view: 'profile')->name(name: 'profile');
-    //Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
+    
     
     Route::get('/my-listings', function () {
         return view('my-listings');

@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateProfileRequest;
+use App\Http\Requests\EditProfileRequest;
 
 class ProfileController extends Controller
 {
     public function update(UpdateProfileRequest $request)
     {
-        auth()->user()->update($request->only('name', 'email'));
+        auth()->user()->update($request->only('name', 'email','location', 'about_me', 'profile_pic'));
 
         if ($request->input('password')) {
             auth()->user()->update([

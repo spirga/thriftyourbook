@@ -235,6 +235,7 @@
 						<p>There are no books currently being sold</p>
 						@else
 						<div>seit jaliek izdevumi for each</div>
+
 						@endif
 					</div>
 				</div>

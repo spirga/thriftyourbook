@@ -921,6 +921,9 @@ select {
 .w-8 {
     width: 2rem;
 }
+.w-12 {
+    width: 4rem;
+}
 .w-auto {
     width: auto;
 }
