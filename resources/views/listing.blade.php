@@ -1,7 +1,7 @@
 <x-app-layout>
 	<x-slot name="header">
 		<h2 class="font-semibold text-xl text-gray-800 leading-tight">
-			{{ $book->first()->book_name }}
+			{{ $book->first()->book_title }}
 		</h2>
 		<p>
 			seit bus username
@@ -13,7 +13,9 @@
 			<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
 				<div class="p-6 bg-white border-b border-gray-200">
 					<div>
-						content
+						<div>
+							<x-message></x-message>
+						</div>
 					</div>
 				</div>
 			</div>
