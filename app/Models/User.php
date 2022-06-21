@@ -8,14 +8,25 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-use App\Models\Listing;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class User extends Authenticatable
+use App\Models\Listing;
+use Spatie\MediaLibrary\Models\Media;
+
+class User extends Authenticatable implements HasMedia
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, InteractsWithMedia;
 
     public function listings() {
         return $this->hasMany(Listing::class);
+    }
+
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->addMediaConversion('thumb')
+            ->width(60)
+            ->height(60);
     }
 
     /**
@@ -27,6 +38,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'location',
+        'about_me',
+        'profile_pic'
     ];
 
     /**

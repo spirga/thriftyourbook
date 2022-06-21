@@ -8,11 +8,17 @@ use App\Models\Listing;
 
 class ListingController extends Controller
 {
-    public function index()
+    public function index_all()
     {
         $listings = Listing::all();
         return view('store', compact('listings'));
         //return view ('store', ['listings' => $listings]);
+    }
+
+    public function index_one($id)
+    {
+        $listing = Listing::where('listing_id', '=', $id)->get();
+        return view('listing', ['listing_id'=>$id, 'listing'=>$listing]);
     }
 
     public function create()
