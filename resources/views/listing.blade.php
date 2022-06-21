@@ -13,7 +13,9 @@
 			<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
 				<div class="p-6 bg-white border-b border-gray-200">
 					<div>
-						content
+						<div>
+							<x-message></x-message>
+						</div>
 					</div>
 				</div>
 			</div>
