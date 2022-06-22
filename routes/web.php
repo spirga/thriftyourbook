@@ -32,6 +32,8 @@ Route::get('/store', function () {
 Route::get('/store',[ListingController::class,'index_all'])->name('store');
 //Route::resource('store', ListingController::class);
 
+Route::post('/store', [ListingController::class, 'search'])->name('search');
+
 //pagaidu message skats
 Route::get('listing/{id}', [ListingController::class, 'index_one'])->name('listing');
 
