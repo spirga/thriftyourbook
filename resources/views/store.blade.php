@@ -1,8 +1,6 @@
 <x-app-layout>
 	<x-slot name="header">
 		<div class="border-b border-gray-100 py-12">
-
-
 			<div class="pt-3 justify-center w-screen items-center flex flex-col">
 				<span class="font-elsie text-title">THRIFT YOUR BOOK</span>
 				<span class="font-fasthand text-subtitle mt-4 mb-4">- where books find their people -</span>
@@ -231,7 +229,7 @@
 					<div class="p-6 bg-white">
 
 						<div
-							class="books-container grid grid-cols-7 gap-x-12 gap-y-12 flex flex-wrap -mx-3 overflow-hidden sm:-mx-3 md:-mx-4 lg:-mx-4 xl:-mx-4">
+							class="books-container grid grid-cols-5 gap-x-12 gap-y-12 flex flex-wrap -mx-3 overflow-hidden sm:-mx-3 md:-mx-4 lg:-mx-4 xl:-mx-4">
 							@if (is_countable($listings) && count($listings) == 0)
 							<p>There are no books currently being sold...</p>
 							@else
