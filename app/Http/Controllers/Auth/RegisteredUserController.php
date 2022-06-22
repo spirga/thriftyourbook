@@ -56,14 +56,13 @@ class RegisteredUserController extends Controller
     }
     public function index()
     {
-    // select all Users + count how many message are unread from the selected user
+    // ŠEIT IR JĀNOMAINA, LAI NAV VISI USERI  select all Users + count how many message are unread from the selected user
         $users = DB::select("select users.id, users.name, users.email, count(is_read) as unread 
         from users LEFT  JOIN  messages ON users.id = messages.from and is_read = 0 and messages.to = " . Auth::id() . "
         where users.id !=  " . Auth::id() . " 
         group by users.id, users.name, users.email");
 
-        return view('chattest', ['users' => $users]);
-        //return view('chattest1', compact('users'));
+        return view('chattest', compact('users'));
         
     }
     // get all Messages
@@ -81,8 +80,7 @@ class RegisteredUserController extends Controller
      $query->where('from', $my_id)->where('to', $user_id);
     })->get();
 
-    return view('messages.index', ['messages' => $messages]);
-    //return view('messages.index', compact('messages'));
+    return view('messages.index', compact('messages'));
     }
    
    // send new message

@@ -146,7 +146,8 @@
             <div class="col-md-4">
                  <div class="user-wrapper">
                     <ul class="users">
-                           @foreach($users as $user)
+                           <!--  šeit jānomaina lai nav visi useri-->
+                    @foreach($users as $user)
                            <li class="user" id="{{ $user->id }}">
                                 @if($user->unread)
                                    <span class="pending">{{ $user->unread }}</span>
@@ -186,12 +187,10 @@
             }
         });
         // Enable pusher logging - don't include this in production
-        Pusher.logToConsole = true;
-   var pusher = new Pusher('85db3734be833f620d43', {
-    cluster: 'eu'
-    });
+    Pusher.logToConsole = true;
+    var pusher = new Pusher('85db3734be833f620d43', {
+    cluster: 'eu' });
     var channelName = "<?php echo 'notify-channel' ?>";
-    //var channelName =  'notify-channel';
     var status = $('#id').val();
     var channel = pusher.subscribe('notify-channel');
     channel.bind('App\\Events\\Notify', function(data) {
@@ -218,7 +217,6 @@
             $(this).addClass('active');
             $(this).find('.pending').remove();
             receiver_id = $(this).attr('id');
-            // alert("receiver_id");
             $.ajax({
                 type: "get",
                 url: "message/" + receiver_id, // need to create this route
