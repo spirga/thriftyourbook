@@ -62,4 +62,3 @@ Route::post('message', 'App\Http\Controllers\Auth\RegisteredUserController@sendM
 
 
 require __DIR__.'/auth.php';
-
