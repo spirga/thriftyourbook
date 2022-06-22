@@ -54,7 +54,12 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/new-listing', function () {
         return view('new-listing');
     })->name('new-listing');
+
+    Route::get('/chattest1', 'App\Http\Controllers\Auth\RegisteredUserController@index')->name('chattest1');
+Route::get('/message/{id}', 'App\Http\Controllers\Auth\RegisteredUserController@getMessage')->name('message');
+Route::post('message', 'App\Http\Controllers\Auth\RegisteredUserController@sendMessage');
 });
+
 
 require __DIR__.'/auth.php';
 
