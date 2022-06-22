@@ -1703,11 +1703,8 @@ select {
     }
 }
 
-@media (max-width: 480px) {
+@media (min-width: 480px) {
     .sm\:grid-cols-2 {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .mob\:grid-cols-2 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
     .sm\:-my-px {
@@ -1788,12 +1785,9 @@ select {
         text-align: right;
     }
 }
-@media (max-width: 768px) {
+@media (min-width: 768px) {
     .md\:grid-cols-2 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .tab\:grid-cols-3 {
-        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
     .md\:border-t-0 {
         border-top-width: 0px;
@@ -1802,24 +1796,9 @@ select {
         border-left-width: 1px;
     }
 }
-@media (max-width: 1024px) {
-    .lpt1\:grid-cols-4 {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
+@media (min-width: 1024px) {
     .lg\:px-8 {
         padding-left: 2rem;
         padding-right: 2rem;
-    }
-}
-
-@media (max-width: 1440px) {
-    .lpt2\:grid-cols-5 {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-    }
-}
-
-@media (max-width: 1920px) {
-    .dsk\:grid-cols-6 {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
     }
 }
