@@ -44,12 +44,14 @@
 					Listing</a>
 			</div> -->
 			<!-- Settings Dropdown -->
-			<div class="hidden fixed top-0 right-0 px-6 py-6 sm:block">
+			<div class="hidden fixed top-0 right-0 pr-4 py-2 sm:block">
 				<x-dropdown align="right" width="48">
 					<x-slot name="trigger">
 						<button
 							class="flex items-center text-sm font-medium text-gray-500 hover:text-custom hover:border-gray-300 focus:outline-none focus:text-custom focus:border-gray-300 transition duration-150 ease-in-out">
-							<div><b>{{ Auth::user()->name }}</b></div>
+							<img class="image aspect-square" src="{{asset('/storage/images/'.Auth::user()->image)}}"
+								alt="profile_image"
+								style="object-fit:cover; width:3rem; height:3rem; padding: 10px; margin: 0px; border-radius:50%;">
 							<div class="ml-1">
 								<svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
 									<path fill-rule="evenodd"
@@ -57,10 +59,16 @@
 										clip-rule="evenodd" />
 								</svg>
 							</div>
+
 						</button>
 					</x-slot>
 
 					<x-slot name="content">
+						<div class="px-4 py-2">
+							<div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
+							<div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+							<hr class="mt-2">
+						</div>
 						<x-dropdown-link :href="route('profile')">
 							{{ __('My Profile') }}
 						</x-dropdown-link>

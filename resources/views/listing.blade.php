@@ -4,7 +4,7 @@
 			{{ $book->first()->book_title }}
 		</h2>
 		<p>
-			seit bus username
+			{{$user->first()->name}}
 		</p>
 	</x-slot>
 

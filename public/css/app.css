@@ -26,6 +26,10 @@
 4. Use the user's configured `sans` font-family by default.
 */
 
+/* 
+Hover effect
+ */
+
 html {
     line-height: 1.5; /* 1 */
     -webkit-text-size-adjust: 100%; /* 2 */
@@ -813,6 +817,12 @@ select {
 .mt-2 {
     margin-top: 0.5rem;
 }
+.mr-1 {
+    margin-right: 0.2rem;
+}
+.ml-1 {
+    margin-right: 0.2rem;
+}
 .mr-2 {
     margin-right: 0.5rem;
 }
@@ -870,9 +880,27 @@ select {
 .inline-flex {
     display: inline-flex;
 }
+
 .grid {
     display: grid;
 }
+
+.grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+.grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+.grid-cols-7 {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
 .hidden {
     display: none;
 }
@@ -1037,6 +1065,12 @@ select {
 .gap-6 {
     gap: 1.5rem;
 }
+.gap-x-12 {
+    row-gap: 3rem;
+}
+.gap-y-12 {
+    column-gap: 3rem;
+}
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
     margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -1167,6 +1201,14 @@ select {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
+.py-2.5 {
+    padding-top: 0.65rem;
+    padding-bottom: 0.65rem;
+}
+.py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
 .px-2 {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
@@ -1222,6 +1264,9 @@ select {
 }
 .pr-4 {
     padding-right: 1rem;
+}
+.pr-6 {
+    padding-right: 1.5rem;
 }
 .pt-0 {
     padding-top: 0px;
