@@ -18,7 +18,6 @@ class ListingController extends Controller
 
         //$listings_cnt = $listings->groupBy('edition_id')->map(fn ($listings) => $listings->count());
         $listings = Listing::with('edition.book')->groupBy('edition_id')->get();
-        //$listings = $listings->groupBy('edition_id');
         return view('store', compact('listings'));
     }
 
