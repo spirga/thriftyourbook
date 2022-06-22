@@ -17,7 +17,7 @@
 		</div>
 	</x-slot>
 	<x-slot name="slot">
-		<div class="flex w-80p filter-book-container justify-center mb-4">
+		<div class="flex filter-book-container justify-center">
 			<div class="sm:px-6 lg:px-8 filter-container">
 				<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 					<div class="p-6 border-b border-gray-200">
@@ -222,15 +222,14 @@
 					</div>
 				</div>
 			</div>
-			<div class="py-4 books-container-container w-full">
+			<div class="py-4 books-container-container">
 				<h2 class="font-semibold text-xl text-gray-800 leading-tight">
 					{{ __('Available books') }}
 				</h2>
 				<div>
 					<div class="p-6 bg-white">
-
 						<div
-							class="books-container grid grid-cols-5 gap-x-12 gap-y-12 flex flex-wrap -mx-3 overflow-hidden sm:-mx-3 md:-mx-4 lg:-mx-4 xl:-mx-4">
+							class="books-container grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 cl:grid-cols-5 vl:grid-cols-6 gap-4 sm:gap-2 lg:gap-2 flex flex-wrap overflow-hidden -mx-3 sm:-mx-3 md:-mx-4 lg:-mx-4 xl:-mx-4">
 							@if (is_countable($listings) && count($listings) == 0)
 							<p>There are no books currently being sold...</p>
 							@else

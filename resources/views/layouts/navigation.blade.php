@@ -27,9 +27,8 @@
 						{{ __('My Orders') }}
 					</x-nav-link>
 				</div>
+				@endif
 			</div>
-
-			@endif
 
 			@if (Auth::check())
 			<div class="hidden space-x-8 sm:-my-px sm:flex">
@@ -37,12 +36,7 @@
 					{{ __('New Listing') }}
 				</x-nav-link>
 			</div>
-			<!-- <div class="flex justify-center items-center flex-col ml-25"><a
-					class="text-custom bg-custom-lighter focus:ring-4
-				focus:outline-none font-medium rounded-lg text-sm px-4 py-2 text-white hover:bg-custom-lighter active:bg-gray-900 focus:outline-none disabled:opacity-25 transition ease-in-out duration-150"
-					href="{{ url('new-listing')}}">New
-					Listing</a>
-			</div> -->
+
 			<!-- Settings Dropdown -->
 			<div class="hidden fixed top-0 right-0 pr-4 py-2 sm:block">
 				<x-dropdown align="right" width="48">
@@ -59,7 +53,6 @@
 										clip-rule="evenodd" />
 								</svg>
 							</div>
-
 						</button>
 					</x-slot>
 
