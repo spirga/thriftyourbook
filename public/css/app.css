@@ -1687,6 +1687,45 @@ select {
     }
 }
 
+@media (min-width: 200px) {
+    .filter-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .filter-book-container {
+        flex-direction: column;
+    }
+    .filter-inside-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0 15px 0 15px;
+    }
+    .genre-container > div {
+        display: flex;
+        justify-content: space-between;
+    }
+    .genre-container > div > div:not(:last-child) {
+        margin-right: 8px;
+    }
+    .language-condition-container {
+        display: flex;
+        justify-content: space-around;
+    }
+    .book-container {
+        position: relative;
+        width: 150px;
+        height: 225px;
+    }
+    .xs\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .xs\:gap-1 {
+        row-gap: 0.25rem;
+        column-gap: 0.25rem;
+    }
+}
+
 @media (min-width: 640px) {
     .sm\:grid-cols-2 {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1771,6 +1810,11 @@ select {
     .sm\:gap-2 {
         gap: 0.5rem;
     }
+    .book-container {
+        position: relative;
+        width: 200px;
+        height: 300px;
+    }
 }
 @media (min-width: 768px) {
     .md\:grid-cols-3 {
@@ -1782,6 +1826,18 @@ select {
     .md\:border-l {
         border-left-width: 1px;
     }
+    .md\:gap-3 {
+        gap: 0.75rem;
+    }
+    .genre-container > div > div:not(:last-child) {
+        margin-right: 30px;
+    }
+    .filter-inside-container {
+        flex-direction: row;
+    }
+    .language-condition-container {
+        width: 45%;
+    }
 }
 @media (min-width: 1024px) {
     .lg\:px-8 {
@@ -1791,7 +1847,27 @@ select {
     .lg\:grid-cols-3 {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-    .lg\:gap-2 {
+    .lg\:gap-4 {
+        gap: 1rem;
+    }
+    .filter-book-container {
+        flex-direction: row;
+    }
+    .filter-inside-container {
+        flex-direction: column;
+    }
+    .genre-container > div {
+        flex-direction: column;
+    }
+    .genre-container > div > div:not(:last-child) {
+        margin-right: 0px;
+    }
+    .filter-outside-container {
+        justify-content: center;
+    }
+    .language-condition-container {
+        flex-direction: column;
+        width: 100%;
     }
 }
 @media (min-width: 1440px) {
@@ -1801,7 +1877,7 @@ select {
 }
 
 @media (min-width: 1920px) {
-    .cl\:grid-cols-5 {
+    .\2xl\:grid-cols-5 {
         grid-template-columns: repeat(5, minmax(5, 1fr));
     }
 }

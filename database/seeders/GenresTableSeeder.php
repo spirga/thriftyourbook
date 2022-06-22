@@ -34,7 +34,6 @@ class GenresTableSeeder extends Seeder
         Genre::create(['genre' => 'Poetry']);
         Genre::create(['genre' => 'Textbooks']);
         Genre::create(['genre' => 'Non-fiction']);
-        Genre::create(['genre' => 'Play']);
         Genre::create(['genre' => 'Other']);
     }
 }
