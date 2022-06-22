@@ -5,12 +5,13 @@
 				<span class="font-elsie text-title">THRIFT YOUR BOOK</span>
 				<span class="font-fasthand text-subtitle mt-4 mb-4">- where books find their people -</span>
 			</div>
-			<form class="flex justify-center items-center">
-				<div class="flex mr-4 "><input type="search" id="default-search"
+			<form class="flex justify-center items-center" method="POST" action="{{ action([App\Http\Controllers\ListingController::class, 'search']) }}">
+			@csrf
+				<div class="flex mr-4 "><input type="search" id="dsearch"
 						class="block px-4 py-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-200 focus:border-gray-400 input-control"
-						placeholder="Search books..." required></div>
+						placeholder="Search books..."  required></div>
 				<div class="flex justify-center items-center flex-col ml-4">
-					<x-button class="py-2.5">Search</x-button>
+					<x-button class="py-2.5" type="submit" value="search">Search</x-button>
 				</div>
 			</form>
 		</div>
