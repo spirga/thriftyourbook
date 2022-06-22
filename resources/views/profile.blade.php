@@ -4,7 +4,7 @@
 			{{ __('My Profile') }}
 		</h2>
 	</x-slot>
-	<x-slot>
+	<x-slot name="slot">
 		<form method="POST" action="{{ route('profile.update') }}" class="flex justify-center flex-col"
 			enctype="multipart/form-data">
 			<div class="py-4">
