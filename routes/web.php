@@ -56,8 +56,8 @@ Route::group(['middleware' => 'auth'], function() {
     })->name('new-listing');
 
     Route::get('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index')->name('chattest');
-    Route::get('/message/{id}', 'App\Http\Controllers\Auth\RegisteredUserController@getMessage')->name('message');
-    Route::post('message', 'App\Http\Controllers\Auth\RegisteredUserController@sendMessage');
+Route::get('/message/{id}', 'App\Http\Controllers\Auth\RegisteredUserController@getMessage')->name('message');
+Route::post('message', 'App\Http\Controllers\Auth\RegisteredUserController@sendMessage');
 });
 
 
