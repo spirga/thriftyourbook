@@ -1,8 +1,6 @@
 <x-app-layout>
 	<x-slot name="header">
 		<div class="border-b border-gray-100 py-12">
-
-
 			<div class="pt-3 justify-center w-screen items-center flex flex-col">
 				<span class="font-elsie text-title">THRIFT YOUR BOOK</span>
 				<span class="font-fasthand text-subtitle mt-4 mb-4">- where books find their people -</span>
@@ -18,7 +16,7 @@
 		</div>
 	</x-slot>
 	<x-slot name="slot">
-		<div class="filter-book-container">
+		<div class="flex w-80p filter-book-container justify-center mb-4">
 			<div class="sm:px-6 lg:px-8 filter-container">
 				<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 					<div class="p-6 border-b border-gray-200">
@@ -229,6 +227,7 @@
 				</h2>
 				<div>
 					<div class="p-6 bg-white">
+
 						<div
 							class="books-container grid grid-cols-5 gap-x-12 gap-y-12 flex flex-wrap -mx-3 overflow-hidden sm:-mx-3 md:-mx-4 lg:-mx-4 xl:-mx-4">
 							@if (is_countable($listings) && count($listings) == 0)
@@ -237,6 +236,7 @@
 							@foreach ($listings as $listing)
 							<div
 								class="my-3 px-3 w-1/4 overflow-hidden sm:my-3 sm:px-3 sm:w-1/2 md:my-4 md:px-4 md:w-1/3 lg:my-4 lg:px-4 lg:w-1/4 xl:my-4 xl:px-4 xl:w-1/6">
+								<!-- Column Content -->
 								<x-book image="{{$listing->edition->image_url}}" message="{{$listing->edition->book->book_title}}"
 									author="{{$listing->edition->book->book_author}}">
 								</x-book>

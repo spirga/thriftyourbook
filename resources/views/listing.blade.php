@@ -14,8 +14,8 @@
 				<div class="p-6 bg-white border-b border-gray-200">
 					<div>
 						<div>
-							<x-message>
-							</x-message>
+							<x-message-modal message="Toggle Modal">
+							</x-message-modal>
 						</div>
 					</div>
 				</div>
