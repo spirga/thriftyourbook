@@ -5,11 +5,12 @@
 				<span class="font-elsie text-title">THRIFT YOUR BOOK</span>
 				<span class="font-fasthand text-subtitle mt-4 mb-4">- where books find their people -</span>
 			</div>
-			<form class="flex justify-center items-center" method="POST" action="{{ action([App\Http\Controllers\ListingController::class, 'search']) }}">
-			@csrf
+			<form class="flex justify-center items-center" method="POST"
+				action="{{ action([App\Http\Controllers\ListingController::class, 'search']) }}">
+				@csrf
 				<div class="flex mr-4 "><input type="search" id="dsearch"
 						class="block px-4 py-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-200 focus:border-gray-400 input-control"
-						placeholder="Search books..."  required></div>
+						placeholder="Search books..." required></div>
 				<div class="flex justify-center items-center flex-col ml-4">
 					<x-button class="py-2.5" type="submit" value="search">Search</x-button>
 				</div>
@@ -255,7 +256,7 @@
 				<div>
 					<div class="p-6 bg-white">
 						<div
-							class="books-container grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 vl:grid-cols-6 xs:gap-1 sm:gap-2 md:gap-2 lg:gap-4 flex flex-wrap overflow-hidden -mx-3 sm:-mx-3 md:-mx-4 lg:-mx-4 xl:-mx-4">
+							class="books-container grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 1xl:grid-cols-4 2xl:grid-cols-5 vl:grid-cols-6 xs:gap-1 sm:gap-2 md:gap-2 lg:gap-4 flex flex-wrap overflow-hidden -mx-3 sm:-mx-3 md:-mx-4 lg:-mx-4 xl:-mx-4">
 							@if (is_countable($listings) && count($listings) == 0)
 							<p>There are no books currently being sold...</p>
 							@else
@@ -264,7 +265,7 @@
 								class="my-3 px-3 w-1/4 overflow-hidden sm:my-3 sm:px-3 sm:w-1/2 md:my-4 md:px-4 md:w-1/3 lg:my-4 lg:px-4 lg:w-1/4 xl:my-4 xl:px-4 xl:w-1/6">
 								<!-- Column Content -->
 								<x-book image="{{$listing->edition->image_url}}" message="{{$listing->edition->book->book_title}}"
-									author="{{$listing->edition->book->book_author}}">
+									author="{{$listing->edition->book->book_author}}" id="{{$listing->edition_id}}">
 								</x-book>
 							</div>
 							@endforeach

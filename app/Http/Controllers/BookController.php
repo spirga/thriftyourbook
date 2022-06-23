@@ -7,10 +7,10 @@ use App\Models\Book;
 
 class BookController extends Controller
 {
-    public function index()
-    {
+    public function index_all()
+    {s
         $books = Book::all();
-        return view('books', compact('books'));
+        return view('book', compact('books'));
     }
     
     public function create()
