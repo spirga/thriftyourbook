@@ -46,3 +46,18 @@
 .book-container:hover .book-image {
     opacity: 0.1;
 }
+.edition-container {
+    width: 100%;
+}
+.edition-image-container {
+    width: 100px;
+    height: auto;
+}
+
+.edition-info-container {
+    width: 70%;
+}
+
+.edition-image {
+    object-fit: cover;
+}

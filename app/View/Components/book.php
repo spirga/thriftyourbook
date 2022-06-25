@@ -16,11 +16,13 @@ class book extends Component
     public $image;
     public $message;
     public $author;
-    public function __construct($image, $message, $author)
+    public $id;
+    public function __construct($image, $message, $author, $id)
     {
         $this->image = $image;
         $this->message = $message;
         $this->author = $author;
+        $this->id = $id;
     }
 
     /**

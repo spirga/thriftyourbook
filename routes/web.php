@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\EditionController;
 
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Routes;
@@ -35,8 +36,8 @@ Route::get('/store',[ListingController::class,'index_all'])->name('store');
 
 Route::post('/store', [ListingController::class, 'search'])->name('search');
 
-//pagaidu message skats
 Route::get('listing/{id}', [ListingController::class, 'index_one'])->name('listing');
+Route::get('edition/{id}', [EditionController::class, 'index_one'])->name('edition');
 
 
 Route::group(['middleware' => 'auth'], function() {

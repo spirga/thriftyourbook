@@ -21,7 +21,7 @@ class EditionsTableSeeder extends Seeder
         $book->editions()->create([
             'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1474154022i/3.jpg',
             'publisher' => 'Scholastic Inc.',
-            'edition_year' => 003,            
+            'edition_year' => 2003,            
             'pages' => 309,
             'cover_type' => 'HC',
         ]);      
@@ -30,17 +30,16 @@ class EditionsTableSeeder extends Seeder
         $book->editions()->create([
             'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1622222711i/22841994.jpg',
             'publisher' => 'Bloomsbury',
-            'edition_year' => 014,            
+            'edition_year' => 2014,            
             'pages' => 332,
             'cover_type' => 'PB',
         ]);
         
-
         $book = Book::where('book_title', 'Harry Potter and the Sorcerer\'s Stone')->first();
         $book->editions()->create([
             'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1372555797i/17372039.jpg',
             'publisher' => 'Scholastic',
-            'edition_year' => 013,            
+            'edition_year' => 2013,            
             'pages' => 309,
             'cover_type' => 'PB',
         ]);
@@ -48,7 +47,7 @@ class EditionsTableSeeder extends Seeder
         $book->editions()->create([
             'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1474169725i/15881.jpg',
             'publisher' => 'Arthur A. Levine Books',
-            'edition_year' => 999,            
+            'edition_year' => 1999,            
             'pages' => 341,
             'cover_type' => 'HC',
         ]);
@@ -56,7 +55,7 @@ class EditionsTableSeeder extends Seeder
         $book->editions()->create([
             'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1630547330i/5.jpg',
             'publisher' => 'Scholastic Inc.',
-            'edition_year' => 004,            
+            'edition_year' => 2004,            
             'pages' => 435,
             'cover_type' => 'PB',
         ]);
@@ -64,7 +63,7 @@ class EditionsTableSeeder extends Seeder
         $book->editions()->create([
             'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1554006152i/6.jpg',
             'publisher' => 'Scholastic Inc.',
-            'edition_year' => 002,            
+            'edition_year' => 2002,            
             'pages' => 734,
             'cover_type' => 'PB',
         ]);
@@ -72,7 +71,7 @@ class EditionsTableSeeder extends Seeder
         $book->editions()->create([
             'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1546910265i/2.jpg',
             'publisher' => 'Scholastic Inc.',
-            'edition_year' => 004,            
+            'edition_year' => 2004,            
             'pages' => 870,
             'cover_type' => 'PB',
         ]);
@@ -80,7 +79,7 @@ class EditionsTableSeeder extends Seeder
         $book->editions()->create([
             'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1587697303i/1.jpg',
             'publisher' => 'Scholastic Inc.',
-            'edition_year' => 005,            
+            'edition_year' => 2005,            
             'pages' => 652,
             'cover_type' => 'PB',
         ]);

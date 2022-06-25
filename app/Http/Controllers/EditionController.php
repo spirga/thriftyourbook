@@ -10,10 +10,20 @@ use App\Models\Edition;
 class EditionController extends Controller
 {
 
-    public function index($id)
+    // public function index($id)
+    // {
+    //     $editions=Edition::where('book_id','=',$id)->get(); 
+    //     return view('editions',['book_id'=>$id,'editions'=>$editions]);
+    // }
+
+    public function index_one($id)
     {
-        $editions=Edition::where('book_id','=',$id)->get(); 
-        return view('editions',['book_id'=>$id,'editions'=>$editions]);
+        //$edition = Edition::with('book')->where('id', '=', $id)->get();
+        $edition = Edition::where('id', '=', $id)->first();
+        $book_id = $edition->book_id;
+        $book = Book::where('id', '=', $book_id);
+
+        return view('edition', compact('edition', 'book'));
     }
     
     public function create($id)

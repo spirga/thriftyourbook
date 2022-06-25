@@ -13,10 +13,6 @@ class ListingController extends Controller
 {
     public function index_all()
     {
-        //$listings = Listing::all();
-        //return view('store', compact('listings'));
-
-        //$listings_cnt = $listings->groupBy('edition_id')->map(fn ($listings) => $listings->count());
         $listings = Listing::with('edition.book')->groupBy('edition_id')->get();
         return view('store', compact('listings'));
     }
