@@ -5,9 +5,9 @@
 				<span class="font-elsie text-title">THRIFT YOUR BOOK</span>
 				<span class="font-fasthand text-subtitle mt-4 mb-4">- where books find their people -</span>
 			</div>
-			<form class="flex justify-center items-center" method="POST" action="{{ action([App\Http\Controllers\ListingController::class, 'search']) }}">
+			<form action="{{action([App\Http\Controllers\ListingController::class, 'search'])}}" method="POST" class="flex justify-center items-center" ">
 			@csrf
-				<div class="flex mr-4 "><input type="search" id="dsearch"
+				<div class="flex mr-4 "><input type="text" id="dsearch" name="search"
 						class="block px-4 py-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-200 focus:border-gray-400 input-control"
 						placeholder="Search books..."  required></div>
 				<div class="flex justify-center items-center flex-col ml-4">

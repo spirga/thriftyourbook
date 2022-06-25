@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 use App\Models\Listing;
 use App\Models\Edition;
 use App\Models\Book;
@@ -54,19 +54,28 @@ class ListingController extends Controller
         $listing->save();
         //return redirect('listing/');
     }
-    // public function search(Request $request) {
+    public function search(Request $request) {
 
-    // // $listings = Listing::with('edition.book')->groupBy('edition_id')->get();
-    // // $listings = $listings->where($listings->edition->book->book_title . 'LIKE', '%' . $request . '%')->get();
-    // // // $listings = $listings->where($listings->edition->book->book_author. 'LIKE', '%' . $request . '%')->get();
-    // // return view('storesearch', compact('listings'));        
-
-    // $re=$request->input('data');
-    // $query = Listing::join('editions', 'editions.id', '=', 'listings.edition_id')->join('books', 'books.id', '=', 'editions.book_id');
-    // $query = $query->where('book_title' , 'LIKE', '%' . $re . '%')->orwhere('book_author', 'LIKE', '%' . $re . '%');
-    // return view('store', array('listings'=>$query->get()));
+    $search = $request->input('search');
+    $books = Book::query()->where('book_title' , 'like', '%' .$search. '%')->orwhere('book_author', 'like', '%' .$search. '%')->get();
+    $listing = Listing::all();
+    $listings =collect();
+    foreach ($listing as $listing) {
+        $edition_id = $listing->edition_id;
+        $edition = Edition::where('id', $edition_id)->first();
+        $checkid=$edition->book_id;
+        $a = 0;
+            foreach ($books as $book) {
+                $id = $book->id;
+                if ($id==$checkid) $a=1;
+            }
+        if ($a == 1){
+            $listings ->  push($listing);
+        }
+    }
+     return view('store', compact('listings'));
     
-    // }
+}
 }
 
 

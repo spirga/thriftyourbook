@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Routes;
 use App\User;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,7 +31,7 @@ Route::get('/store', function () {
 })->name('store');
 
 Route::get('/store',[ListingController::class,'index_all'])->name('store');
-//Route::resource('store', ListingController::class);
+//Route::resource('storesearch', ListingController::class);
 
 Route::post('/store', [ListingController::class, 'search'])->name('search');
 
