@@ -75,11 +75,12 @@ class ListingController extends Controller
     }
     
     if ($language != null) {
-        $book_collection = collect();
+       $book_collection = [];
+       
         foreach ($language as $language) {
-        $books = Book::query()->where('book_language' , '=' , $language)->get();
+        $books = Book::where('book_language' , '=' , $language)->get();
         foreach ($books as $book) {
-            $book_collection ->  push($book);
+          $book_collection[] = $book->id;
         }
         }
         $listing = Listing::all();
@@ -88,10 +89,10 @@ class ListingController extends Controller
             $edition = Edition::where('id', $edition_id)->first();
             $checkid=$edition->book_id;
             $a = 0;
-                foreach ($book_collection as $book_collection) {
-                    $id = $book_collection->id;
-                    if ($id==$checkid) $a=1;
-                }
+            foreach ($book_collection as $collection){
+                if ($collection == $checkid) $a=1;
+            }
+            
                 if ($a == 1){
                     $listings ->  push($listing);
                 }

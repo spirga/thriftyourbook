@@ -8,10 +8,11 @@ use App\Models\Book;
 class BookController extends Controller
 {
     public function index_all()
-    {s
+    {
         $books = Book::all();
         return view('book', compact('books'));
     }
+    
     
     public function create()
     {

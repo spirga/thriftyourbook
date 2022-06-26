@@ -172,7 +172,7 @@
 													class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Russian</label>
 											</div>
 											<div class="flex items-center" style="margin-bottom: 3px;">
-												<input id="language-checkbox-4" type="checkbox" value="DE" name="language[]"
+												<input id="language-checkbox-4" type="checkbox" value="DEU" name="language[]"
 													class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
 												<label for="language-checkbox-41" style="margin-bottom:0;"
 													class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">German</label>
