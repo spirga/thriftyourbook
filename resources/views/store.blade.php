@@ -286,20 +286,20 @@
 										<div class="condition-contaienr">
 											<p><b>Condition</b></p>
 											<div class="flex items-center" style="margin-bottom: 3px;">
-												<input id="condition-checkbox-1" type="checkbox" value="New" name="condition"
+												<input id="condition-checkbox-1" type="checkbox" value="New" name="condition[]"
 													class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
 												<label for="condition-checkbox-1" style="margin-bottom:0;"
 													class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">New</label>
 											</div>
 											<div class="flex items-center" style="margin-bottom: 3px;">
-												<input id="condition-checkbox-2" type="checkbox" value="Like New" name="condition"
+												<input id="condition-checkbox-2" type="checkbox" value="Like New" name="condition[]"
 													class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
 												<label for="condition-checkbox-2" style="margin-bottom:0;"
 													class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
 													Like New</label>
 											</div>
 											<div class="flex items-center" style="margin-bottom: 3px;">
-												<input id="condition-checkbox-3" type="checkbox" value="Very good" name="condition"
+												<input id="condition-checkbox-3" type="checkbox" value="Very good" name="condition[]"
 													class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
 												<label for="condition-checkbox-3" style="margin-bottom:0;"
 													class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
@@ -307,7 +307,7 @@
 												</label>
 											</div>
 											<div class="flex items-center" style="margin-bottom: 3px;">
-												<input id="condition-checkbox-4" type="checkbox" value="Good" name="condition"
+												<input id="condition-checkbox-4" type="checkbox" value="Good" name="condition[]"
 													class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
 												<label for="condition-checkbox-1" style="margin-bottom:0;"
 													class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
@@ -315,7 +315,7 @@
 												</label>
 											</div>
 											<div class="flex items-center" style="margin-bottom: 3px;">
-												<input id="condition-checkbox-4" type="checkbox" value="Acceptable" name="condition"
+												<input id="condition-checkbox-4" type="checkbox" value="Acceptable" name="condition[]"
 													class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
 												<label for="condition-checkbox-4" style="margin-bottom:0;"
 													class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
@@ -323,7 +323,7 @@
 												</label>
 											</div>
 											<div class="flex items-center" style="margin-bottom: 3px;">
-												<input id="condition-checkbox-4" type="checkbox" value="Antique" name="condition"
+												<input id="condition-checkbox-4" type="checkbox" value="Antique" name="condition[]"
 													class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
 												<label for="condition-checkbox-4" style="margin-bottom:0;"
 													class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Antique
