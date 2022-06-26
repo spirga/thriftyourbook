@@ -335,8 +335,6 @@
 
 								<x-button type="submit" value="search" class="mt-4">Apply Filters</x-button>
 							</div>
-
-
 						</form>
 					</div>
 				</div>
