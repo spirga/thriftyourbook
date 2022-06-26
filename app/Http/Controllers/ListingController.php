@@ -50,8 +50,8 @@ class ListingController extends Controller
         $listing->save();
         //return redirect('listing/');
     }
+    
     public function search(Request $request) {
-
     $search = $request->search;
     $language = $request->input('language');
     $listings =collect();

@@ -1,3 +1,93 @@
+<style>
+@media (min-width: 200px) {
+	.filter-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.filter-book-container {
+		flex-direction: column;
+	}
+
+
+	.filter-inside-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding: 0 15px 0 15px;
+	}
+
+	.genre-container>div {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.genre-container>div>div:not(:last-child) {
+		margin-right: 8px;
+	}
+
+	.language-condition-container {
+		display: flex;
+		justify-content: space-around;
+	}
+
+	.book-container {
+		position: relative;
+		width: 150px;
+		height: 225px;
+	}
+}
+
+@media (min-width: 640px) {
+	.book-container {
+		position: relative;
+		width: 200px;
+		height: 300px;
+	}
+}
+
+@media (min-width: 768px) {
+	.genre-container>div>div:not(:last-child) {
+		margin-right: 30px;
+	}
+
+	.filter-inside-container {
+		flex-direction: row;
+	}
+
+	.language-condition-container {
+		width: 45%;
+	}
+}
+
+@media (min-width: 1024px) {
+	.filter-book-container {
+		flex-direction: row;
+	}
+
+	.filter-inside-container {
+		flex-direction: column;
+	}
+
+	.genre-container>div {
+		flex-direction: column;
+	}
+
+	.genre-container>div>div:not(:last-child) {
+		margin-right: 0px;
+	}
+
+	.filter-outside-container {
+		justify-content: center;
+	}
+
+	.language-condition-container {
+		flex-direction: column;
+		width: 100%;
+	}
+}
+</style>
+
 <x-app-layout>
 	<x-slot name="header">
 		<div class="border-b border-gray-100 py-12">
@@ -5,24 +95,26 @@
 				<span class="font-elsie text-title">THRIFT YOUR BOOK</span>
 				<span class="font-fasthand text-subtitle mt-4 mb-4">- where books find their people -</span>
 			</div>
-			<form action="{{action([App\Http\Controllers\ListingController::class, 'search'])}}" method="POST" class="flex justify-center items-center" ">
+			<form action="{{action([App\Http\Controllers\ListingController::class, 'search'])}}" method="POST"
+				class="flex justify-center items-center" ">
 			@csrf
-				<div class="flex mr-4 "><input type="text" id="dsearch" name="search"
-						class="block px-4 py-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-200 focus:border-gray-400 input-control"
-						placeholder="Search books..." required></div>
-				<div class="flex justify-center items-center flex-col ml-4">
-					<x-button class="py-2.5" type="submit" value="search">Search</x-button>
-				</div>
-			</form>
+				<div class=" flex mr-4 "><input type=" text" id="dsearch" name="search"
+				class="block px-4 py-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-200 focus:border-gray-400 input-control"
+				placeholder="Search books..." required>
+		</div>
+		<div class="flex justify-center items-center flex-col ml-4">
+			<x-button class="py-2.5" type="submit" value="search">Search</x-button>
+		</div>
+		</form>
 		</div>
 	</x-slot>
 	<x-slot name="slot">
 		<div class="flex filter-book-container justify-center sm:column lg:row">
 			<div class="sm:px-6 lg:px-8 filter-container">
-				<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+				<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-6">
 					<div class="p-6 border-b border-gray-200">
 						<form action="{{action([App\Http\Controllers\ListingController::class, 'search'])}}" method="POST">
-						@csrf
+							@csrf
 							<div class="filter-outside-container">
 								<div class="filter-inside-container">
 									<div class="genre-container">
@@ -31,7 +123,7 @@
 											<div>
 												<div class="flex items-center" style="margin-bottom: 3px;">
 													<input id="genre-checkbox" type="checkbox" value="1"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control" >
+														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
 													<label for="genre-checkbox" style="margin-bottom:0;"
 														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Fiction</label>
 												</div>

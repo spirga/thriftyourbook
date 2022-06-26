@@ -31,6 +31,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
 	</script>
+	<script src="https://kit.fontawesome.com/95e47140da.js" crossorigin="anonymous"></script>
 </head>
 
 <body class="font-sans antialiased">
@@ -38,8 +39,8 @@
 		@include('layouts.navigation')
 
 		<!-- Page Heading -->
-		<header class="bg-transparent mt-16 mb-4">
-			<div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+		<header class="bg-transparent mt-16">
+			<div class="max-w-7xl mx-auto pt-6 px-4 sm:px-6 lg:px-8">
 				{{ $header }}
 			</div>
 		</header>
