@@ -50,17 +50,7 @@ class ListingController extends Controller
         $listing->save();
         //return redirect('listing/');
     }
-    // public function search(Request $request) {
-
-    // // $listings = Listing::with('edition.book')->groupBy('edition_id')->get();
-    // // $listings = $listings->where($listings->edition->book->book_title . 'LIKE', '%' . $request . '%')->get();
-    // // // $listings = $listings->where($listings->edition->book->book_author. 'LIKE', '%' . $request . '%')->get();
-    // // return view('storesearch', compact('listings'));        
-
-    // $re=$request->input('data');
-    // $query = Listing::join('editions', 'editions.id', '=', 'listings.edition_id')->join('books', 'books.id', '=', 'editions.book_id');
-    // $query = $query->where('book_title' , 'LIKE', '%' . $re . '%')->orwhere('book_author', 'LIKE', '%' . $re . '%');
-    // return view('store', array('listings'=>$query->get()));
     
-    // }
+    public function search(Request $request) {
+    }
 }

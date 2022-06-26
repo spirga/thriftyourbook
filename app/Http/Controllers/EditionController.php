@@ -21,7 +21,7 @@ class EditionController extends Controller
         //$edition = Edition::with('book')->where('id', '=', $id)->get();
         $edition = Edition::where('id', '=', $id)->first();
         $book_id = $edition->book_id;
-        $book = Book::where('id', '=', $book_id);
+        $book = Book::where('id', '=', $book_id)->with('genres')->get();
 
         return view('edition', compact('edition', 'book'));
     }

@@ -17,7 +17,7 @@ class EditionsTableSeeder extends Seeder
      */
     public function run()
     {
-        $book = Book::where('book_title', 'Harry Potter and the Sorcerer\'s Stone')->first();
+        $book = Book::where('book_title', 'Harry Potter and the Sorcerers Stone')->first();
         $book->editions()->create([
             'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1474154022i/3.jpg',
             'publisher' => 'Scholastic Inc.',
@@ -26,7 +26,7 @@ class EditionsTableSeeder extends Seeder
             'cover_type' => 'HC',
         ]);      
         
-        $book = Book::where('book_title', 'Harry Potter and the Sorcerer\'s Stone')->first();
+        $book = Book::where('book_title', 'Harry Potter and the Sorcerers Stone')->first();
         $book->editions()->create([
             'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1622222711i/22841994.jpg',
             'publisher' => 'Bloomsbury',
@@ -35,7 +35,7 @@ class EditionsTableSeeder extends Seeder
             'cover_type' => 'PB',
         ]);
         
-        $book = Book::where('book_title', 'Harry Potter and the Sorcerer\'s Stone')->first();
+        $book = Book::where('book_title', 'Harry Potter and the Sorcerers Stone')->first();
         $book->editions()->create([
             'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1372555797i/17372039.jpg',
             'publisher' => 'Scholastic',
@@ -235,7 +235,7 @@ class EditionsTableSeeder extends Seeder
             'pages' => 415,
             'cover_type' => 'PB',
         ]);
-        $book = Book::where('book_title', 'On Earth We\'re Briefly Gorgeous')->first();
+        $book = Book::where('book_title', 'On Earth We Are Briefly Gorgeous')->first();
         $book->editions()->create([
             'image_url' => 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1607857168i/52544164.jpg',
             'publisher' => 'Vintage',

@@ -18,7 +18,7 @@ class BookGenreBooksTableSeeder extends Seeder
     public function run()
     {
         $book = Book::create([
-            'book_title' => "Harry Potter and the Sorcerer's Stone",
+            'book_title' => 'Harry Potter and the Sorcerers Stone',
             'book_author' => 'J.K. Rowling',
             'book_description' => "Harry Potter's life is miserable. His parents are dead and he's stuck with his heartless relatives, who force him to live in a tiny closet under the stairs. But his fortune changes when he receives a letter that tells him the truth about himself: he's a wizard. A mysterious visitor rescues him from his relatives and takes him to his new home, Hogwarts School of Witchcraft and Wizardry. After a lifetime of bottling up his magical powers, Harry finally feels like a normal kid. But even within the Wizarding community, he is special. He is the boy who lived: the only person to have ever survived a killing curse inflicted by the evil Lord Voldemort, who launched a brutal takeover of the Wizarding world, only to vanish after failing to kill Harry. Though Harry's first year at Hogwarts is the best of his life, not everything is perfect. There is a dangerous secret object hidden within the castle walls, and Harry believes it's his responsibility to prevent it from falling into evil hands. But doing so will bring him into contact with forces more terrifying than he ever could have imagined.",
             'book_year' => 1997,
@@ -38,7 +38,7 @@ class BookGenreBooksTableSeeder extends Seeder
         $book = Book::create([
             'book_title' => 'Harry Potter and the Prisoner of Azkaban',
             'book_author' => 'J.K. Rowling',
-            'book_description' => "For use in schools and libraries only. During his third year at Hogwarts School for Witchcraft and Wizardry, Harry Potter must confront the devious and dangerous wizard responsible for his parents' deaths.",
+            'book_description' => "During his third year at Hogwarts School for Witchcraft and Wizardry, Harry Potter must confront the devious and dangerous wizard responsible for his parents' deaths.",
             'book_year' => 1999,
             'book_language' => 'ENG'
         ]);
@@ -234,7 +234,7 @@ class BookGenreBooksTableSeeder extends Seeder
         $genre = Genre::find([1,12,9,7,3]);
         $book->genres()->attach($genre);
         $book = Book::create([
-            'book_title' => "On Earth We're Briefly Gorgeous",
+            'book_title' => "On Earth We Are Briefly Gorgeous",
             'book_author' => 'Ocean Vuong',
             'book_description' => "This is a letter from a son to a mother who cannot read. Written when the speaker, Little Dog, is in his late twenties, the letter unearths a family's history that began before he was born. It tells of Vietnam, of the lasting impact of war, and of his family's struggle to forge a new future. And it serves as a doorway into parts of Little Dog's life his mother has never known - episodes of bewilderment, fear and passion - all the while moving closer to an unforgettable revelation.",
             'book_year' => 2019,
