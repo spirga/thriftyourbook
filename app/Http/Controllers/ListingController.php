@@ -52,26 +52,64 @@ class ListingController extends Controller
     }
     public function search(Request $request) {
 
-    $search = $request->input('search');
-    $books = Book::query()->where('book_title' , 'like', '%' .$search. '%')->orwhere('book_author', 'like', '%' .$search. '%')->get();
-    $listing = Listing::all();
+    $search = $request->search;
+    $language = $request->input('language');
     $listings =collect();
-    foreach ($listing as $listing) {
-        $edition_id = $listing->edition_id;
-        $edition = Edition::where('id', $edition_id)->first();
-        $checkid=$edition->book_id;
-        $a = 0;
-            foreach ($books as $book) {
-                $id = $book->id;
-                if ($id==$checkid) $a=1;
+
+    if ($search != null) {
+        $books = Book::query()->where('book_title' , 'like', '%' .$search. '%')->orwhere('book_author', 'like', '%' .$search. '%')->get();
+        $listing = Listing::all();
+        foreach ($listing as $listing) {
+            $edition_id = $listing->edition_id;
+            $edition = Edition::where('id', $edition_id)->first();
+            $checkid=$edition->book_id;
+            $a = 0;
+                foreach ($books as $book) {
+                    $id = $book->id;
+                    if ($id==$checkid) $a=1;
+                }
+            if ($a == 1){
+                $listings ->  push($listing);
             }
-        if ($a == 1){
-            $listings ->  push($listing);
         }
     }
+    
+    if ($language != null) {
+        $book_collection = collect();
+        foreach ($language as $language) {
+        $books = Book::query()->where('book_language' , '=' , $language)->get();
+        foreach ($books as $book) {
+            $book_collection ->  push($book);
+        }
+        }
+        $listing = Listing::all();
+        foreach ($listing as $listing) {
+            $edition_id = $listing->edition_id;
+            $edition = Edition::where('id', $edition_id)->first();
+            $checkid=$edition->book_id;
+            $a = 0;
+                foreach ($book_collection as $book_collection) {
+                    $id = $book_collection->id;
+                    if ($id==$checkid) $a=1;
+                }
+                if ($a == 1){
+                    $listings ->  push($listing);
+                }
+                
+            }
+        }
+    
+        
      return view('store', compact('listings'));
     
 }
 }
 
 
+// $book_collection = collect();
+// foreach ($language as $language) {
+// $books = Book::query()->where('book_language' , '=' , $language)->get();
+// foreach ($books as $books){
+//     if (!$book_collection->contains('id', $books->id)) $book_collection ->  push($books);
+// }
+// }
