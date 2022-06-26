@@ -7,14 +7,21 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Listing;
 use App\Models\Edition;
 use App\Models\Book;
+use App\Models\Genre;
 use App\Models\User;
 
 class ListingController extends Controller
 {
     public function index_all()
     {
-        $listings = Listing::with('edition.book')->groupBy('edition_id')->get();
-        return view('store', compact('listings'));
+        $listings = Listing::with('edition.book.genres')->groupBy('edition_id')->get();
+        $genres = Genre::all();
+        return view('store', compact('listings', 'genres'));
+    }
+
+    public function index_all_edition($id) {
+        $listings = Listing::with('edition.book')->get();
+        return view('listings', compact('listings'));
     }
 
     public function index_one($id)
@@ -26,7 +33,7 @@ class ListingController extends Controller
         $edition = Edition::where('id', '=', $edition_id)->get();
         $book_id = $edition->first()->book_id;
         $book = Book::where('id', '=', $book_id);
-        
+
         return view('listing', compact('listing', 'edition', 'book', 'user'));
     }
 

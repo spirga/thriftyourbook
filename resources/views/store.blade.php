@@ -121,122 +121,18 @@
 										<p class="mb-2"><b>Genre</b></p>
 										<div>
 											<div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox" type="checkbox" value="1"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Fiction</label>
-												</div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-1" type="checkbox" value="2"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-1" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Mystery</label>
-												</div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-2" type="checkbox" value="3"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-2" class="ml-2 text-sm font-medium text-gray-900"
-														style="margin-bottom:0;">Young
-														Adult</label>
-												</div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-3" type="checkbox" value="4"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-3" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Romance</label>
-												</div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-4" type="checkbox" value="5"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-4" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Thriller</label>
-												</div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-5" type="checkbox" value="6"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-5" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Horror</label>
-												</div>
-
-											</div>
-											<div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-6" type="checkbox" value="7"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-6" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Classics</label>
-												</div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-7" type="checkbox" value="8"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-7" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Historial</label>
-												</div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-8" type="checkbox" value="9"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-8" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Science
-														Fiction</label>
-												</div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-9" type="checkbox" value="10"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-9" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Contemporary</label>
-												</div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-10" type="checkbox" value="11"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-10" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Self
-														Help</label>
-												</div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-11" type="checkbox" value="12"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-11" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Fantasy</label>
-												</div>
-											</div>
-											<div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-12" type="checkbox" value="13"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-12" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Manga</label>
-												</div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-13" type="checkbox" value="14"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-13" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Childrens</label>
-												</div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-17" type="checkbox" value="15"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-17" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Poetry</label>
-												</div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-14" type="checkbox" value="16"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-14" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Textbooks</label>
-												</div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-15" type="checkbox" value="17"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-15" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Non-fiction</label>
-												</div>
-												<div class="flex items-center" style="margin-bottom: 3px;">
-													<input id="genre-checkbox-16" type="checkbox" value="18"
-														class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-													<label for="genre-checkbox-16" style="margin-bottom:0;"
-														class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Other</label>
-												</div>
+												<?php 
+													$count = 0;
+													foreach ($genres as $genre) {
+														echo "
+														<div class='flex items-center' style='margin-bottom: 3px;'>
+														<input id='genre-checkbox-{{$count}}' type='checkbox' value='1' class='w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control'>
+														<label for='genre-checkbox-{{$count}}' style='margin-bottom:0;'
+														class='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>{$genre->genre}</label>
+														</div>";
+														$count = $count + 1;
+													}
+												?>
 											</div>
 										</div>
 
@@ -335,8 +231,6 @@
 
 								<x-button type="submit" value="search" class="mt-4">Apply Filters</x-button>
 							</div>
-
-
 						</form>
 					</div>
 				</div>

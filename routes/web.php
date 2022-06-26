@@ -38,6 +38,7 @@ Route::post('/store', [ListingController::class, 'search'])->name('search');
 
 Route::get('listing/{id}', [ListingController::class, 'index_one'])->name('listing');
 Route::get('edition/{id}', [EditionController::class, 'index_one'])->name('edition');
+Route::get('listings/{id}', [ListingController::class, 'index_all_edition'])->name('listings');
 
 
 Route::group(['middleware' => 'auth'], function() {
