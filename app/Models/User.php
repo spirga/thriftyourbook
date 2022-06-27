@@ -37,6 +37,7 @@ class User extends Authenticatable implements HasMedia
     protected $fillable = [
         'name',
         'email',
+        'google_id',
         'password',
         'location',
         'about_me',

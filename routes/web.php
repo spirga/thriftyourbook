@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EditionController;
+use App\Http\Controllers\GoogleController;
 
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Routes;
@@ -39,6 +40,9 @@ Route::post('/store', [ListingController::class, 'search'])->name('search');
 Route::get('listing/{id}', [ListingController::class, 'index_one'])->name('listing');
 Route::get('edition/{id}', [EditionController::class, 'index_one'])->name('edition');
 Route::get('listings/{id}', [ListingController::class, 'index_all_edition'])->name('listings');
+
+Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
+Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 
 Route::group(['middleware' => 'auth'], function() {
