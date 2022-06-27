@@ -164,7 +164,8 @@ class ListingController extends Controller
               }
              }
         
-     return view('store', compact('listings'));
+             $genres = Genre::all();
+     return view('store', compact('listings', 'genres'));
     
 }
 }

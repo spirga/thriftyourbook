@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('book_id')->constrained()->onDelete('cascade');
-            $table->string('image_url');
+            $table->string('image_url')->default('https://i.ibb.co/4FGJ1wr/book.png');
             $table->string('publisher', 50);
             $table->integer('edition_year');
             $table->integer('pages');

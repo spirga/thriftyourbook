@@ -151,7 +151,11 @@
 
 @media (min-width: 768px) {}
 
-@media (min-width: 1024px) {}
+@media (min-width: 1024px) {
+	.container {
+		display: flex;
+	}
+}
 </style>
 <x-app-layout>
 	<x-slot name="header">
@@ -162,107 +166,126 @@
 	</x-slot>
 
 	<x-slot name="slot">
-		<div class="py-4">
-			<div class="max-w-7xl mx-auto sm:px-6 lg:px-6 mb-4">
-				<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
-					<div class="p-6 bg-white border-b border-gray-200">
-						<form action="{{action([App\Http\Controllers\ListingController::class, 'search'])}}" method="POST">
-							@csrf
-							<div class="filter-outside-container">
-								<div class="filter-inside-container">
-									<div class="condition-contaienr">
-										<p><b>Condition</b></p>
-										<div class="flex items-center" style="margin-bottom: 3px;">
-											<input id="condition-checkbox-1" type="checkbox" value="New" name="condition[]"
-												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-											<label for="condition-checkbox-1" style="margin-bottom:0;"
-												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">New</label>
+		<div class="container">
+			<div class="py-4">
+				<div class="max-w-7xl mx-auto sm:px-6 lg:px-6 mb-4">
+					<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
+						<div class="p-6 bg-white border-b border-gray-200">
+							<form action="{{action([App\Http\Controllers\ListingController::class, 'search'])}}" method="POST">
+								@csrf
+								<div class="filter-outside-container">
+									<div class="filter-inside-container">
+										<div class="price-container">
+											<p><b>Price</b></p>
+											<div class="relative pt-1">
+												<label for="customRange1" class="form-label">Example range</label>
+												<input type="range" class="
+      form-range
+      appearance-none
+      w-full
+      h-6
+      p-0
+      bg-transparent
+      focus:outline-none focus:ring-0 focus:shadow-none
+    " id="customRange1" />
+											</div>
 										</div>
-										<div class="flex items-center" style="margin-bottom: 3px;">
-											<input id="condition-checkbox-2" type="checkbox" value="Like New" name="condition[]"
-												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-											<label for="condition-checkbox-2" style="margin-bottom:0;"
-												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-												Like New</label>
-										</div>
-										<div class="flex items-center" style="margin-bottom: 3px;">
-											<input id="condition-checkbox-3" type="checkbox" value="Very good" name="condition[]"
-												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-											<label for="condition-checkbox-3" style="margin-bottom:0;"
-												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-												Very good
-											</label>
-										</div>
-										<div class="flex items-center" style="margin-bottom: 3px;">
-											<input id="condition-checkbox-4" type="checkbox" value="Good" name="condition[]"
-												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-											<label for="condition-checkbox-1" style="margin-bottom:0;"
-												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-												Good
-											</label>
-										</div>
-										<div class="flex items-center" style="margin-bottom: 3px;">
-											<input id="condition-checkbox-4" type="checkbox" value="Acceptable" name="condition[]"
-												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-											<label for="condition-checkbox-4" style="margin-bottom:0;"
-												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-												Acceptable
-											</label>
-										</div>
-										<div class="flex items-center" style="margin-bottom: 3px;">
-											<input id="condition-checkbox-4" type="checkbox" value="Antique" name="condition[]"
-												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-											<label for="condition-checkbox-4" style="margin-bottom:0;"
-												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Antique
-											</label>
+										<div class="condition-container">
+											<p><b>Condition</b></p>
+											<div class="flex items-center" style="margin-bottom: 3px;">
+												<input id="condition-checkbox-1" type="checkbox" value="New" name="condition[]"
+													class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
+												<label for="condition-checkbox-1" style="margin-bottom:0;"
+													class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">New</label>
+											</div>
+											<div class="flex items-center" style="margin-bottom: 3px;">
+												<input id="condition-checkbox-2" type="checkbox" value="Like New" name="condition[]"
+													class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
+												<label for="condition-checkbox-2" style="margin-bottom:0;"
+													class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+													Like New</label>
+											</div>
+											<div class="flex items-center" style="margin-bottom: 3px;">
+												<input id="condition-checkbox-3" type="checkbox" value="Very good" name="condition[]"
+													class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
+												<label for="condition-checkbox-3" style="margin-bottom:0;"
+													class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+													Very good
+												</label>
+											</div>
+											<div class="flex items-center" style="margin-bottom: 3px;">
+												<input id="condition-checkbox-4" type="checkbox" value="Good" name="condition[]"
+													class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
+												<label for="condition-checkbox-1" style="margin-bottom:0;"
+													class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+													Good
+												</label>
+											</div>
+											<div class="flex items-center" style="margin-bottom: 3px;">
+												<input id="condition-checkbox-4" type="checkbox" value="Acceptable" name="condition[]"
+													class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
+												<label for="condition-checkbox-4" style="margin-bottom:0;"
+													class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+													Acceptable
+												</label>
+											</div>
+											<div class="flex items-center" style="margin-bottom: 3px;">
+												<input id="condition-checkbox-4" type="checkbox" value="Antique" name="condition[]"
+													class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
+												<label for="condition-checkbox-4" style="margin-bottom:0;"
+													class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Antique
+												</label>
+											</div>
 										</div>
 									</div>
 								</div>
-
-								<x-button type="submit" value="search" class="mt-4">Apply Filters</x-button>
-							</div>
+								<x-button type="submit" value="search" class="mt-4 items-center justify-center apply-filters">Apply
+									Filters
+								</x-button>
+						</div>
 						</form>
 					</div>
 				</div>
 			</div>
-			@foreach ($listings as $listing)
-			<div class="max-w-7xl mx-auto sm:px-6 lg:px-6 mb-4">
-				<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
-					<div class="p-6 bg-white border-b border-gray-200">
-						<div class="listing-container">
-							<div class="image-container">
-								<img src="{{$listing->image_url}}" class="listing-image" />
-								<div id="myModal" class="modal">
-									<span class="close"><i class="fa-solid fa-xmark"></i></span>
-									<img class="modal-content" id="img01">
+			<div>
+				@foreach ($listings as $listing)
+				<div class="max-w-7xl mx-auto sm:px-6 lg:px-6 mb-4">
+					<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
+						<div class="p-6 bg-white border-b border-gray-200">
+							<div class="listing-container">
+								<div class="image-container">
+									<img src="{{$listing->image_url}}" class="listing-image" />
+									<div id="myModal" class="modal">
+										<span class="close"><i class="fa-solid fa-xmark"></i></span>
+										<img class="modal-content" id="img01">
+									</div>
 								</div>
-							</div>
-							<div class="right-side">
-								<div class="info-container">
-									<div class="info-left">
-										<span><b>{{$listing->user->name}}</b></span>
-										<span>{{$listing->listing_description}}</span>
+								<div class="right-side">
+									<div class="info-container">
+										<div class="info-left">
+											<span><b>{{$listing->user->name}}</b></span>
+											<span>{{$listing->listing_description}}</span>
 
-									</div>
-									<div class="info-right">
-										<span><i>{{$listing->condition}}</i></span>
-										<div>
-											<span><b>{{$listing->price}}&euro;</b></span><span class="plus-shipping"> + shipping</span>
 										</div>
-										<p class="shipping">Ships by {{$listing->shipping_type}}</p>
+										<div class="info-right">
+											<span><i>{{$listing->condition}}</i></span>
+											<div>
+												<span><b>{{$listing->price}}&euro;</b></span><span class="plus-shipping"> + shipping</span>
+											</div>
+											<p class="shipping">Ships by {{$listing->shipping_type}}</p>
+										</div>
 									</div>
-								</div>
-								<div class="button-container">
-									<x-button class="message-seller">Message Seller</x-button>
+									<div class="button-container">
+										<x-button class="message-seller">Message Seller</x-button>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				@endforeach
 			</div>
-			@endforeach
-		</div>
-		</div>
+
 
 
 		</div>
