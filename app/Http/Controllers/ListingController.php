@@ -20,7 +20,7 @@ class ListingController extends Controller
     }
 
     public function index_all_edition($id) {
-        $listings = Listing::with('edition.book')->get();
+        $listings = Listing::with('user', 'edition.book')->where('edition_id', '=', $id)->get();
         return view('listings', compact('listings'));
     }
 

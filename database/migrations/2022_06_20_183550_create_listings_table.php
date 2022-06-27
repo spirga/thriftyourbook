@@ -18,10 +18,10 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('edition_id')->constrained()->onDelete('cascade');
-            $table->string('listing_description', 200)->nullable();
+            $table->string('listing_description', 200);
+            $table->string('image_url')->default('https://i.ibb.co/4FGJ1wr/book.png');
             $table->decimal('price', 5,2);
             $table->string('condition', 10);
-            $table->boolean('ship_incl_price');
             $table->string('shipping_type');
         });
     }

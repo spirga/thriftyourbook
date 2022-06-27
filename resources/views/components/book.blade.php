@@ -3,6 +3,7 @@
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	object-position: center;
 	opacity: 1;
 	display: block;
 	transition: 0.3s ease;
