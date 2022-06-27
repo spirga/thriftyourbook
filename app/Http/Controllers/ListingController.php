@@ -59,10 +59,10 @@ class ListingController extends Controller
     }
     
     public function search(Request $request) {
+
     $search = $request->search;
     $language = $request->input('language');
-    $genre = $request->input('genre');
-    $condition = $request->input('condition');
+    $genre = $request->input('genres');
     $listings =collect();
 
     if ($search != null) {
@@ -83,91 +83,84 @@ class ListingController extends Controller
         }
     }
 
-    if ($genre != null) {
-        $genre_collection = [];
+    if ($genre != null || $language != null) {
         $book_collection = [];
-        foreach ($genre as $genre) {
-        $genres = Genre::where('genre' , '=' , $genre)->get();
-        foreach ($genres as $genres) {
-          $genre_collection[] = $genres->id;
+        if ($genre != null && $language == null){
+            $genre_collection = [];
+            foreach ($genre as $genre) {
+            $genres = Genre::where('genre' , '=' , $genre)->get();
+            foreach ($genres as $genres) {
+            $genre_collection[] = $genres->id;
+            }
+            }
+            $book = Book::all();
+            foreach ($book as $book) {
+                $book_genre = $book->genres;
+                foreach($book_genre as $book_genre){
+                    if (in_array($book_genre->id, $genre_collection)) {
+                        if (!in_array($book->id, $book_collection)) $book_collection[] = $book->id;
+                    }
+                }
+            }
         }
+
+        if ($genre == null && $language != null){
+            foreach ($language as $language) {
+                $books = Book::where('book_language' , '=' , $language)->get();
+                foreach ($books as $book) {
+                  $book_collection[] = $book->id;
+                }
+                }
         }
-        $book = Book::all();
-        foreach ($book as $book) {
-            $book_genre = $book->genres();
+
+        if ($genre != null && $language != null){
+
+            $book_collection1=[];
+            $genre_collection = [];
+            foreach ($genre as $genre) {
+            $genres = Genre::where('genre' , '=' , $genre)->get();
+            foreach ($genres as $genres) {
+            $genre_collection[] = $genres->id;
+            }
+            }
+            $book = Book::all();
+            foreach ($book as $book) {
+                $book_genre = $book->genres;
+                foreach($book_genre as $book_genre){
+                    if (in_array($book_genre->id, $genre_collection)) {
+                        if (!in_array($book->id, $book_collection1)) $book_collection1[] = $book->id;
+                    }
+                }
+            }
+
+            $book_collection2=[];
+            foreach ($language as $language) {
+                $books = Book::where('book_language' , '=' , $language)->get();
+                foreach ($books as $book) {
+                  $book_collection2[] = $book->id;
+                }
+                }
+        foreach ($book_collection1 as $book_collection1) {
+            if (in_array($book_collection1, $book_collection2))  $book_collection[] = $book_collection1;
           }
-        // $listing = Listing::all();
-        // foreach ($listing as $listing) {
-        //     $edition_id = $listing->edition_id;
-        //     $edition = Edition::where('id', $edition_id)->first();
-        //     $checkid=$edition->book_id;
-        //     $a = 0;
-        //     foreach ($book_collection as $collection){
-        //         if ($collection == $checkid) $a=1;
-        //     }
-            
-        //         if ($a == 1){
-        //             $listings ->  push($listing);
-        //         }
-                
-        //     }
         
+          dump($book_collection);
+        }
+          $listing = Listing::with('edition.book.genres')->groupBy('edition_id')->get();
+         foreach ($listing as $listing) {
+            $edition_id = $listing->edition_id;
+            $edition = Edition::where('id', $edition_id)->first();
+            $checkid=$edition->book_id;
+            $a = 0;
+            foreach ($book_collection as $collection){
+                if ($collection == $checkid) $a=1;
+            }
+                if ($a == 1){
+                    $listings ->  push($listing);
+                }  
+            }
     }
 
-    if ($language != null) {
-        $book_collection = [];
-            foreach ($language as $language) {
-            $books = Book::where('book_language' , '=' , $language)->get();
-            foreach ($books as $book) {
-              $book_collection[] = $book->id;
-            }
-            }
-        if ($condition==null) {
-            $listing = Listing::with('edition.book.genres')->groupBy('edition_id')->get();
-            foreach ($listing as $listing) {
-                $edition_id = $listing->edition_id;
-                $edition = Edition::where('id', $edition_id)->first();
-                $checkid=$edition->book_id;
-                $a = 0;
-                foreach ($book_collection as $collection){
-                    if ($collection == $checkid) $a=1;
-                }
-                
-                    if ($a == 1){
-                        $listings ->  push($listing);
-                    }
-                    
-                }   
-        }
-        else {
-            foreach ($condition as $condition) {
-                $listing = Listing::where('condition' , '=' , $condition)->groupBy('edition_id')->get();
-                foreach ($listing as $listing) {
-                    $edition_id = $listing->edition_id;
-                $edition = Edition::where('id', $edition_id)->first();
-                $checkid=$edition->book_id;
-                $a = 0;
-                foreach ($book_collection as $collection){
-                    if ($collection == $checkid) $a=1;
-                }
-                
-                    if ($a == 1){
-                        $listings ->  push($listing);
-                    }
-                  }
-              }
-        }
-        }
-
-    
-        if ($condition != null && $language== null) {
-            foreach ($condition as $condition) {
-                $listing = Listing::where('condition' , '=' , $condition)->get();
-                foreach ($listing as $listing) {
-                    $listings ->  push($listing);
-                  }
-              }
-             }
         
              $genres = Genre::all();
      return view('store', compact('listings', 'genres'));
@@ -176,10 +169,71 @@ class ListingController extends Controller
 }
 
 
-// $book_collection = collect();
-// foreach ($language as $language) {
-// $books = Book::query()->where('book_language' , '=' , $language)->get();
-// foreach ($books as $books){
-//     if (!$book_collection->contains('id', $books->id)) $book_collection ->  push($books);
+// $condition = $request->input('condition');
+// if ($condition != null && $language== null) {
+//     foreach ($condition as $condition) {
+//         $listing = Listing::where('condition' , '=' , $condition)->get();
+//         foreach ($listing as $listing) {
+//             $listings ->  push($listing);
+//           }
+//       }
+//      }
+
+// if ($genre != null) {
+//     $genre_collection = [];
+//     $book_collection = [];
+//     foreach ($genre as $genre) {
+//     $genres = Genre::where('genre' , '=' , $genre)->get();
+//     foreach ($genres as $genres) {
+//       $genre_collection[] = $genres->id;
+//     }
+//     }
+//     $book = Book::all();
+//     foreach ($book as $book) {
+//         $book_genre = $book->genres;
+//         foreach($book_genre as $book_genre){
+//             if (in_array($book_genre->id, $genre_collection)) {
+//                 if (!in_array($book->id, $book_collection)) $book_collection[] = $book->id;
+//             }
+//         }
+//       }
+//       dump($book_collection);
+//       $listing = Listing::with('edition.book.genres')->groupBy('edition_id')->get();
+//      foreach ($listing as $listing) {
+//         $edition_id = $listing->edition_id;
+//         $edition = Edition::where('id', $edition_id)->first();
+//         $checkid=$edition->book_id;
+//         $a = 0;
+//         foreach ($book_collection as $collection){
+//             if ($collection == $checkid) $a=1;
+//         }
+//             if ($a == 1){
+//                 $listings ->  push($listing);
+//             }  
+//         }
 // }
-// }
+
+// if ($language != null) {
+//     $book_collection = [];
+//         foreach ($language as $language) {
+//         $books = Book::where('book_language' , '=' , $language)->get();
+//         foreach ($books as $book) {
+//           $book_collection[] = $book->id;
+//         }
+//         }
+//         $listing = Listing::with('edition.book.genres')->groupBy('edition_id')->get();
+//         foreach ($listing as $listing) {
+//             $edition_id = $listing->edition_id;
+//             $edition = Edition::where('id', $edition_id)->first();
+//             $checkid=$edition->book_id;
+//             $a = 0;
+//             foreach ($book_collection as $collection){
+//                 if ($collection == $checkid) $a=1;
+//             }
+            
+//                 if ($a == 1){
+//                     $listings ->  push($listing);
+//                 }
+                
+//             }   
+   // }

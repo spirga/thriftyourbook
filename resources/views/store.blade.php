@@ -156,7 +156,7 @@
 													while ($count <= 8) { 
 													echo "
 													<div class='flex items-center' style='margin-bottom: 3px;'>
-													<input id='genre-checkbox-{{$count}}' type='checkbox' value='1' class='w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control'>
+													<input id='genre-checkbox-{{$count}}' type='checkbox' value='{$genres[$count]->genre}' name = 'genres[]' class='w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control'>
 													<label for='genre-checkbox-{{$count}}' style='margin-bottom:0;'
 													class='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>{$genres[$count]->genre}</label>
 													</div>" ; 
@@ -169,7 +169,7 @@
 												while ($count <= 17) { 
 													echo "
 													<div class='flex items-center' style='margin-bottom: 3px;'>
-													<input id='genre-checkbox-{{$count}}' type='checkbox' value='1' class='w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control'>
+													<input id='genre-checkbox-{{$count}}' type='checkbox' value='{$genres[$count]->genre}' name = 'genres[]' class='w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control'>
 													<label for='genre-checkbox-{{$count}}' style='margin-bottom:0;'
 													class='ml-2 text-sm font-medium text-gray-900 dark:text-gray-300'>{$genres[$count]->genre}</label>
 													</div>" ; 
@@ -259,4 +259,4 @@
 			</div>
 		</div>
 	</x-slot>
-</x-app-layout>
+</x-app-layout>''
