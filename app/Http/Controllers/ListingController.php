@@ -61,6 +61,8 @@ class ListingController extends Controller
     public function search(Request $request) {
     $search = $request->search;
     $language = $request->input('language');
+    $genre = $request->input('genre');
+    $condition = $request->input('condition');
     $listings =collect();
 
     if ($search != null) {
@@ -80,33 +82,89 @@ class ListingController extends Controller
             }
         }
     }
-    
-    if ($language != null) {
-       $book_collection = [];
-       
-        foreach ($language as $language) {
-        $books = Book::where('book_language' , '=' , $language)->get();
-        foreach ($books as $book) {
-          $book_collection[] = $book->id;
-        }
-        }
-        $listing = Listing::all();
-        foreach ($listing as $listing) {
-            $edition_id = $listing->edition_id;
-            $edition = Edition::where('id', $edition_id)->first();
-            $checkid=$edition->book_id;
-            $a = 0;
-            foreach ($book_collection as $collection){
-                if ($collection == $checkid) $a=1;
-            }
+    // if ($genre != null) {
+    //     $book_collection = [];
+    //     foreach ($genre as $genre) {
+    //     $genres = Genre::where('genre' , '=' , $genre)->get();
+    //     foreach ($genres as $genres) {
+    //         $genres_books=join('genre' , '=' , $genre)->get();
+
+    //       $book_collection[] = $book->id;
+    //     }
+    //     }
+    //     $listing = Listing::all();
+    //     foreach ($listing as $listing) {
+    //         $edition_id = $listing->edition_id;
+    //         $edition = Edition::where('id', $edition_id)->first();
+    //         $checkid=$edition->book_id;
+    //         $a = 0;
+    //         foreach ($book_collection as $collection){
+    //             if ($collection == $checkid) $a=1;
+    //         }
             
-                if ($a == 1){
-                    $listings ->  push($listing);
+    //             if ($a == 1){
+    //                 $listings ->  push($listing);
+    //             }
+                
+    //         }
+        
+    // }
+    if ($language != null) {
+        $book_collection = [];
+            foreach ($language as $language) {
+            $books = Book::where('book_language' , '=' , $language)->get();
+            foreach ($books as $book) {
+              $book_collection[] = $book->id;
+            }
+            }
+        if ($condition==null) {
+            dump($book_collection);
+            $listing = Listing::all();
+            foreach ($listing as $listing) {
+                $edition_id = $listing->edition_id;
+                $edition = Edition::where('id', $edition_id)->first();
+                $checkid=$edition->book_id;
+                $a = 0;
+                foreach ($book_collection as $collection){
+                    if ($collection == $checkid) $a=1;
                 }
                 
-            }
+                    if ($a == 1){
+                        $listings ->  push($listing);
+                    }
+                    
+                }   
         }
+        else {
+            dump($book_collection);
+            foreach ($condition as $condition) {
+                $listing = Listing::where('condition' , '=' , $condition)->get();
+                foreach ($listing as $listing) {
+                    $edition_id = $listing->edition_id;
+                $edition = Edition::where('id', $edition_id)->first();
+                $checkid=$edition->book_id;
+                $a = 0;
+                foreach ($book_collection as $collection){
+                    if ($collection == $checkid) $a=1;
+                }
+                
+                    if ($a == 1){
+                        $listings ->  push($listing);
+                    }
+                  }
+              }
+        }
+        }
+
     
+        if ($condition != null && $language== null) {
+            foreach ($condition as $condition) {
+                $listing = Listing::where('condition' , '=' , $condition)->get();
+                foreach ($listing as $listing) {
+                    $listings ->  push($listing);
+                  }
+              }
+             }
         
      return view('store', compact('listings'));
     
