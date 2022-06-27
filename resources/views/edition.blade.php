@@ -68,6 +68,10 @@
 		width: 100%;
 	}
 
+	.main-container {
+		width: 95%;
+	}
+
 	.edition-info-container {
 		width: 100%;
 	}
@@ -135,6 +139,10 @@
 	.edition-info-container {
 		width: 75%;
 	}
+
+	.main-container {
+		width: 90%;
+	}
 }
 </style>
 <x-app-layout>
@@ -147,30 +155,29 @@
 
 	<x-slot name="slot">
 		<div class="py-4">
-			<div class="max-w-7xl mx-auto sm:px-6 lg:px-6">
+			<div class="mx-auto sm:px-6 lg:px-6 main-container">
 				<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
 					<div class="p-6 bg-white border-b border-gray-200">
-						<div>
-							<div class="edition-container">
-								<div class="edition-image-container">
-									<img src="{{$edition->image_url}}" class="edition-image">
-									<x-button class="go-to-listings-1">Listings</x-button>
+						<div class="edition-container">
+							<div class="edition-image-container">
+								<img src="{{$edition->image_url}}" class="edition-image">
+								<x-button class="go-to-listings-1">Listings</x-button>
+							</div>
+							<div class="edition-info-container">
+								<h2 class="font-semibold text-xl text-gray-800 leading-tight margin-bottom book-title">
+									{{ $edition->book->book_title }} ({{$edition->book->book_year}})
+								</h2>
+								<p class="book-author">
+									{{$edition->book->book_author}}
+								</p>
+								<div>
+									<p class="margin-bottom"><b>Description</b></p>
+									<p class="book-description">{{$edition->book->book_description}}</p>
 								</div>
-								<div class="edition-info-container">
-									<h2 class="font-semibold text-xl text-gray-800 leading-tight margin-bottom book-title">
-										{{ $edition->book->book_title }} ({{$edition->book->book_year}})
-									</h2>
-									<p class="book-author">
-										{{$edition->book->book_author}}
-									</p>
-									<div>
-										<p class="margin-bottom"><b>Description</b></p>
-										<p class="book-description">{{$edition->book->book_description}}</p>
-									</div>
-									<div>
-										<p class="margin-bottom"><b>Genres</b></p>
-										<div class="genre-container">
-											<?php
+								<div>
+									<p class="margin-bottom"><b>Genres</b></p>
+									<div class="genre-container">
+										<?php
 											$num_of_items = count($edition->book->genres);
 											$num_count = 0;
 											foreach ($edition->book->genres as $genre) {
@@ -179,14 +186,14 @@
 												if ($num_count < $num_of_items) { echo "<span>, </span>" ; }
 											}
 											?>
-										</div>
-
 									</div>
-									<div>
-										<p class="margin-bottom"><b>About this edition</b></p>
-										<p class="margin-bottom">Published in {{$edition->edition_year}} by {{$edition->publisher}}</p>
-										<p class="margin-bottom">Language:
-											<?php 
+
+								</div>
+								<div>
+									<p class="margin-bottom"><b>About this edition</b></p>
+									<p class="margin-bottom">Published in {{$edition->edition_year}} by {{$edition->publisher}}</p>
+									<p class="margin-bottom">Language:
+										<?php 
 											if ($edition->book->book_language == "ENG") {
 												echo "<span>English</span>";
 											} elseif ($edition->book->book_language == "LV") {
@@ -201,8 +208,8 @@
 												echo "<span>Other</span>";
 											}
 											?> </p>
-										<p>Format: {{$edition->pages}} pages,
-											<?php 
+									<p>Format: {{$edition->pages}} pages,
+										<?php 
 											if ($edition->cover_type == "HC") {
 												echo "<span>Hardback</span>";
 											} elseif ($edition->cover_type == "PB") {
@@ -211,10 +218,9 @@
 												echo "<span>Unknown</span>";
 											}
 											?></p>
-									</div>
 								</div>
-								<x-button class="go-to-listings-2">Listings</x-button>
 							</div>
+							<x-button class="go-to-listings-2">Listings</x-button>
 						</div>
 					</div>
 				</div>

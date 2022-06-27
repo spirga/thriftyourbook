@@ -40,13 +40,13 @@
 
 		<!-- Page Heading -->
 		<header class="bg-transparent mt-16">
-			<div class="max-w-7xl mx-auto pt-6 px-4 sm:px-6 lg:px-8">
+			<div class="mx-auto pt-6 px-4 sm:px-6 lg:px-8 w-90p">
 				{{ $header }}
 			</div>
 		</header>
 
 		<!-- Page Content -->
-		<main>
+		<main class="flex justify-center">
 			{{ $slot }}
 		</main>
 	</div>
