@@ -143,8 +143,6 @@ class ListingController extends Controller
         foreach ($book_collection1 as $book_collection1) {
             if (in_array($book_collection1, $book_collection2))  $book_collection[] = $book_collection1;
           }
-        
-          dump($book_collection);
         }
           $listing = Listing::with('edition.book.genres')->groupBy('edition_id')->get();
          foreach ($listing as $listing) {
