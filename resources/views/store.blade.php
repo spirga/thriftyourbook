@@ -8,6 +8,7 @@
 	.filter-book-container {
 		display: flex;
 		flex-direction: column;
+		width: 95%;
 	}
 
 	.filter-inside-container {
@@ -76,8 +77,13 @@
 	}
 
 	.filter-book-container {
+		width: 90%;
 		justify-content: space-around;
 		flex-direction: row;
+	}
+
+	.filter-container {
+		width: 23%;
 	}
 
 	.book-container {
