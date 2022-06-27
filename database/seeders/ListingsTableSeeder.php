@@ -43,6 +43,7 @@ class ListingsTableSeeder extends Seeder
         $user->listings()->create([
             'edition_id' => 11,
             'price' => 10,
+            'listing_description' => 'Everything is great',
             'condition' => 'Like New',
             'shipping_type' => 'Omniva, DPD, Post', 
         ]);

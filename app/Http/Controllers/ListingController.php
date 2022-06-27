@@ -118,7 +118,6 @@ class ListingController extends Controller
             }
             }
         if ($condition==null) {
-            dump($book_collection);
             $listing = Listing::all();
             foreach ($listing as $listing) {
                 $edition_id = $listing->edition_id;
@@ -136,7 +135,6 @@ class ListingController extends Controller
                 }   
         }
         else {
-            dump($book_collection);
             foreach ($condition as $condition) {
                 $listing = Listing::where('condition' , '=' , $condition)->get();
                 foreach ($listing as $listing) {

@@ -163,6 +163,68 @@
 
 	<x-slot name="slot">
 		<div class="py-4">
+			<div class="max-w-7xl mx-auto sm:px-6 lg:px-6 mb-4">
+				<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
+					<div class="p-6 bg-white border-b border-gray-200">
+						<form action="{{action([App\Http\Controllers\ListingController::class, 'search'])}}" method="POST">
+							@csrf
+							<div class="filter-outside-container">
+								<div class="filter-inside-container">
+									<div class="condition-contaienr">
+										<p><b>Condition</b></p>
+										<div class="flex items-center" style="margin-bottom: 3px;">
+											<input id="condition-checkbox-1" type="checkbox" value="New" name="condition[]"
+												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
+											<label for="condition-checkbox-1" style="margin-bottom:0;"
+												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">New</label>
+										</div>
+										<div class="flex items-center" style="margin-bottom: 3px;">
+											<input id="condition-checkbox-2" type="checkbox" value="Like New" name="condition[]"
+												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
+											<label for="condition-checkbox-2" style="margin-bottom:0;"
+												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+												Like New</label>
+										</div>
+										<div class="flex items-center" style="margin-bottom: 3px;">
+											<input id="condition-checkbox-3" type="checkbox" value="Very good" name="condition[]"
+												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
+											<label for="condition-checkbox-3" style="margin-bottom:0;"
+												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+												Very good
+											</label>
+										</div>
+										<div class="flex items-center" style="margin-bottom: 3px;">
+											<input id="condition-checkbox-4" type="checkbox" value="Good" name="condition[]"
+												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
+											<label for="condition-checkbox-1" style="margin-bottom:0;"
+												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+												Good
+											</label>
+										</div>
+										<div class="flex items-center" style="margin-bottom: 3px;">
+											<input id="condition-checkbox-4" type="checkbox" value="Acceptable" name="condition[]"
+												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
+											<label for="condition-checkbox-4" style="margin-bottom:0;"
+												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+												Acceptable
+											</label>
+										</div>
+										<div class="flex items-center" style="margin-bottom: 3px;">
+											<input id="condition-checkbox-4" type="checkbox" value="Antique" name="condition[]"
+												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
+											<label for="condition-checkbox-4" style="margin-bottom:0;"
+												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Antique
+											</label>
+										</div>
+									</div>
+								</div>
+
+								<x-button type="submit" value="search" class="mt-4">Apply Filters</x-button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
 			@foreach ($listings as $listing)
 			<div class="max-w-7xl mx-auto sm:px-6 lg:px-6 mb-4">
 				<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
