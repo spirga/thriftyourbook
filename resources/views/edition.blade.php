@@ -14,6 +14,7 @@
 
 .edition-image {
 	object-fit: cover;
+	object-position: center;
 	border-radius: 8px;
 }
 

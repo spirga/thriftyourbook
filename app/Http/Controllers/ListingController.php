@@ -20,7 +20,7 @@ class ListingController extends Controller
     }
 
     public function index_all_edition($id) {
-        $listings = Listing::with('edition.book')->get();
+        $listings = Listing::with('user', 'edition.book')->where('edition_id', '=', $id)->get();
         return view('listings', compact('listings'));
     }
 
@@ -140,7 +140,6 @@ class ListingController extends Controller
                 }   
         }
         else {
-            dump($book_collection);
             foreach ($condition as $condition) {
                 $listing = Listing::where('condition' , '=' , $condition)->groupBy('edition_id')->get();
                 foreach ($listing as $listing) {
@@ -170,7 +169,8 @@ class ListingController extends Controller
               }
              }
         
-     return view('store', compact('listings'));
+             $genres = Genre::all();
+     return view('store', compact('listings', 'genres'));
     
 }
 }
