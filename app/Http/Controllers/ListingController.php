@@ -160,8 +160,8 @@ class ListingController extends Controller
     }
 
         
-             $genres = Genre::all();
-     return view('store', compact('listings', 'genres'));
+    $genres = Genre::all();
+    return view('store', compact('listings', 'genres'));
     
 }
 
@@ -181,8 +181,8 @@ public function new_search(Request $request) {
         }
      }
         
-     $genres = Genre::all();
-     return view('listings2', compact('listings', 'genres'));
+    $genres = Genre::all();
+    return view('listings2', compact('listings', 'genres'));
     
 }
 }

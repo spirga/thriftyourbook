@@ -9,8 +9,8 @@ class BookController extends Controller
 {
     public function index_all()
     {
-        $books = Book::all();
-        return view('book', compact('books'));
+        $books = Book::all().with('editions');
+        return view('new-listing', compact('books'));
     }
     
     
@@ -31,7 +31,6 @@ class BookController extends Controller
         $book->book_year = $request->book_year;
         $book->book_language = $request->book_language;
         $book->save();        
-        //return redirect('country/');
         return redirect()->back();
     }
 
@@ -43,14 +42,12 @@ class BookController extends Controller
         $book->book_year = $request->book_year;
         $book->book_language = $request->book_language;
         $book->save();     
-        //return redirect('country/');
         return redirect()->back();
     }
 
     public function destroy($id)
     {
         Book::findOrFail($id)->delete();
-        //return redirect('country/');
         return redirect()->back();
     }
 }

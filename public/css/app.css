@@ -1134,8 +1134,14 @@ select {
     --tw-border-opacity: 1;
     border-color: #3b3c43;
 }
+.border-custom-grey {
+    border-color: #f3f4f6;
+}
 .border-transparent {
     border-color: transparent;
+}
+.bg-custom-grey {
+    background-color: #f3f4f6;
 }
 .border-gray-700 {
     --tw-border-opacity: 1;
@@ -1321,6 +1327,10 @@ select {
 }
 .border-custom-lighter {
     border-color: #4e4f55;
+}
+.hover\:no-underline {
+    text-decoration: none;
+    color: #3b3c43;
 }
 .hover\:bg-custom-lighter:hover {
     --tw-bg-opacity: 1;
