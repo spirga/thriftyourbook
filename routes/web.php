@@ -44,7 +44,6 @@ Route::get('edition/{id}', [EditionController::class, 'index_one'])->name('editi
 Route::get('listings/{id}', [ListingController::class, 'index_all_edition'])->name('listings');
 Route::post('listings/{id}', [ListingController::class, 'new_search'])->name('listings2');
 Route::get('delete/{id}', [ListingController::class, 'destroy'])->name('destroy');
-//Route::get('update/{id}', [ListingController::class, 'update'])->name('update');
 Route::get('/my-listings', [ListingController::class, 'index_one_user'])->name('my-listings');
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
