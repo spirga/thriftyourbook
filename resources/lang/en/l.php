@@ -65,11 +65,6 @@ return [
     'antique' => 'Antique',
     'nosuchfilter' => 'There are no such listings! Try again!',
     'messageseller' => 'Message Seller',
-    '' => '',
-    '' => '',
-    '' => '',
-    '' => '',
-    '' => '',
-    '' => '',
+    
 
 ];

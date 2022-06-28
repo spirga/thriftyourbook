@@ -161,7 +161,7 @@
 						<div class="edition-container">
 							<div class="edition-image-container">
 								<img src="{{$edition->image_url}}" class="edition-image">
-								<x-button class="go-to-listings-1">{{ __('l.listings') }}</x-button>
+								<x-button class="go-to-listings-1" onclick="open_listing({{$edition->id}})">{{ __('l.listings') }} </x-button>
 							</div>
 							<div class="edition-info-container">
 								<h2 class="font-semibold text-xl text-gray-800 leading-tight margin-bottom book-title">
@@ -228,3 +228,10 @@
 		</div>
 	</x-slot>
 </x-app-layout>
+
+<script>
+function open_listing(id ) {
+            window.location.href = "/listings/" + id;
+            }
+
+</script>
