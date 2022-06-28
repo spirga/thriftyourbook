@@ -21,7 +21,8 @@ class ListingController extends Controller
 
     public function index_all_edition($id) {
         $listings = Listing::with('user', 'edition.book')->where('edition_id', '=', $id)->get();
-        return view('listings', compact('listings'));
+        $emptiness = [1];
+        return view('listings', compact('listings', 'emptiness'));
     }
 
     public function index_one($id)
@@ -165,25 +166,66 @@ class ListingController extends Controller
     
 }
 
-public function new_search(Request $request) {
-
+public function new_search(Request $request, $id) {
+    
     $condition = $request->input('condition');
     $min = $request->input('min');
     $max = $request->input('max');
     $listings =collect();
-    
+    $a=0;
+    $listing_collection=[];
+    $listing_collection1=[];
+    $all_listings = Listing::all();
+    foreach ($all_listings as $all_listings) {
+        if($all_listings->edition_id == $id) $listing_collection[]=$all_listings->id;
+    }
+    if ($max != null && $condition == null) {
+        $listing = Listing::where('price' , '<=' , $max)->get();
+        foreach ($listing as $listing) {
+            if (in_array($listing->id, $listing_collection)) {$listings ->  push($listing);
+                $a=1;}
+        }
+    }
     if ($condition != null) {
+        if ($max != null ) {
+            $listing = Listing::where('price' , '<=' , $max)->get();
+            foreach ($listing as $listing) {
+                if (in_array($listing->id, $listing_collection)) $listing_collection1[]=$listing->id;
+            }
         foreach ($condition as $condition) {
             $listing = Listing::where('condition' , '=' , $condition)->get();
             foreach ($listing as $listing) {
-                $listings ->  push($listing);
+                if (in_array($listing->id, $listing_collection1)) {
+                if (in_array($listing->id, $listing_collection)) {
+                    $listings ->  push($listing);
+                    $a=1;
+                }
+            }
             }
         }
+    }
+    else {
+        foreach ($condition as $condition) {
+            $listing = Listing::where('condition' , '=' , $condition)->get();
+            foreach ($listing as $listing) {
+                if (in_array($listing->id, $listing_collection)) {
+                    $listings ->  push($listing);
+                    $a=1;
+            }
+            }
+        }
+    }
+     }   
+     $genres = Genre::all();
+     if ($a==0){
+     $emptiness = [];
+     $listings = Listing::with('user', 'edition.book')->where('edition_id', '=', $id)->get();
+     return view('listings', compact('listings', 'emptiness'));
      }
-        
-    $genres = Genre::all();
-    return view('listings2', compact('listings', 'genres'));
-    
+     else{
+     $emptiness = [1];
+     return view('listings', compact('listings', 'genres', 'emptiness'));
+     }
 }
 }
 
