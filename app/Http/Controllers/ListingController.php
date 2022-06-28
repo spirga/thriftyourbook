@@ -9,6 +9,8 @@ use App\Models\Edition;
 use App\Models\Book;
 use App\Models\Genre;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
+use function view;
 
 class ListingController extends Controller
 {
@@ -38,6 +40,12 @@ class ListingController extends Controller
         return view('listing', compact('listing', 'edition', 'book', 'user'));
     }
 
+    public function index_one_user() {
+        $id = Auth::id();
+        $listings = Listing::where('user_id', $id)->get();
+        return view('my-listings', compact('listings'));
+    }
+
     public function create()
     {
         return view('new-listing');
@@ -63,7 +71,7 @@ class ListingController extends Controller
 
     $search = $request->search;
     $language = $request->input('language');
-    $genre = $request->input('genres');
+    $genre = $request->input('genre');
     $listings =collect();
 
     if ($search != null) {
@@ -171,6 +179,7 @@ public function new_search(Request $request, $id) {
     $condition = $request->input('condition');
     $min = $request->input('min');
     $max = $request->input('max');
+    $range = [$min, $max];
     $listings =collect();
     $a=0;
     $listing_collection=[];
@@ -180,7 +189,7 @@ public function new_search(Request $request, $id) {
         if($all_listings->edition_id == $id) $listing_collection[]=$all_listings->id;
     }
     if ($max != null && $condition == null) {
-        $listing = Listing::where('price' , '<=' , $max)->get();
+        $listing = Listing::query()->whereBetween('price', $range)->get();
         foreach ($listing as $listing) {
             if (in_array($listing->id, $listing_collection)) {$listings ->  push($listing);
                 $a=1;}
@@ -188,10 +197,10 @@ public function new_search(Request $request, $id) {
     }
     if ($condition != null) {
         if ($max != null ) {
-            $listing = Listing::where('price' , '<=' , $max)->get();
+            $listing = Listing::query()->whereBetween('price', $range)->get();
             foreach ($listing as $listing) {
-                if (in_array($listing->id, $listing_collection)) $listing_collection1[]=$listing->id;
-            }
+                if (in_array($listing->id, $listing_collection)) {$listing_collection1[]=$listing->id;}
+        }
         foreach ($condition as $condition) {
             $listing = Listing::where('condition' , '=' , $condition)->get();
             foreach ($listing as $listing) {
@@ -227,4 +236,10 @@ public function new_search(Request $request, $id) {
      return view('listings', compact('listings', 'genres', 'emptiness'));
      }
 }
+public function destroy($id)
+    {
+        Listing::findOrFail($id)->delete();
+        return redirect('my-listings');
+    }
 }
+

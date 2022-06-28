@@ -54,6 +54,14 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
+    public function id()
+    {
+    $id=Auth::id();
+    return $id;
+        
+    }
+
     public function index()
     {
     // ŠEIT IR JĀNOMAINA, LAI NAV VISI USERI  select all Users + count how many message are unread from the selected user
