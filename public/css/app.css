@@ -1208,9 +1208,9 @@ select {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
 }
-.py-2.5 {
-    padding-top: 0.65rem;
-    padding-bottom: 0.65rem;
+.py-2-5 {
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 .py-3 {
     padding-top: 0.75rem;

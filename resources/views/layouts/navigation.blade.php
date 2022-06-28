@@ -1,21 +1,22 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100 fixed z-50 top-0 w-full">
-		<!-- Language -->
-		<li >
-			<a href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				{{ Config::get('languages')[App::getLocale()] }}
-			</a>
-			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-			@foreach (Config::get('languages') as $lang => $language)
-				@if ($lang != App::getLocale())
-						<a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
-				@endif
-			@endforeach
-			</div>
-		</li>
-	<!-- Primary Navigation Menu -->
+<!-- Language -->
+<div class="fixed top-0 left-0 px-6 py-6 sm:block">
+		<a href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="text-custom text-xs">
+			{{ Config::get('languages')[App::getLocale()] }}
+		</a>
+		<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		@foreach (Config::get('languages') as $lang => $language)
+			@if ($lang != App::getLocale())
+					<a class="dropdown-item text-custom text-xs" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
+			@endif
+		@endforeach
+		</div>
+	</div>	
+<!-- Primary Navigation Menu -->
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex justify-between h-16 w-95p">
 			<div class="flex">
+				
 				<!-- Logo -->
 				<div class="shrink-0 flex items-center">
 					<a href="{{ route('store') }}">

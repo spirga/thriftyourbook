@@ -72,7 +72,7 @@
 									?>
 								<div class="form-group col-6">
 									
-									<label for="book">Select a book</label>
+									<label for="book"><b>Select your book</b></label>
 									<select id="book" class="form-control" name="book" onchange="bookInfo()">
 										<option value="no">My book is not on this list</option>
 										<?php
@@ -84,7 +84,7 @@
 									</select>
 								</div>
 								<div class="form-group col-6" id="edition-field-div">
-									<label for="edition">Select the edition</label>
+									<label for="edition"><b>Select your book's edition</b></label>
 									<select id="edition" class="form-control" onchange="editionInfo()">
 										<option value="no">My book edition is not on this list</option>
 										<?php
