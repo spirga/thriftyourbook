@@ -259,6 +259,11 @@
 				$('#desc').val("").prop('disabled', false);
 				$('#yr').val("").prop('disabled', false);
 				$('#lang').val("").prop('disabled', false);
+				$('#img').val("").prop('disabled', false);
+				$('#pblshr').val("").prop('disabled', false);
+				$('#eyr').val("").prop('disabled', false);
+				$('#pg').val("").prop('disabled', false);
+				$('#cov').val("").prop('disabled', false);
 			}
 	}
 	function editionInfo() {

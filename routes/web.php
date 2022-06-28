@@ -71,6 +71,7 @@ Route::group(['middleware' => 'auth'], function() {
     // })->name('new-listing');
 
 Route::get('/new-listing', [BookController::class, 'index_all'])->name('new-listing');
+Route::get('/edit-listing/{id}', [ListingController::class, 'update'])->name('edit-listing');
 Route::get('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index')->name('chattest');
 Route::post('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index_one')->name('chattest');
 Route::get('/message/{id}', 'App\Http\Controllers\Auth\RegisteredUserController@getMessage')->name('message');

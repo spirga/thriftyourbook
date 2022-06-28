@@ -33,19 +33,21 @@
 }
 
 .button-container {
-	width: 15%;
+	width: 18%;
 	float: right;
 	display: flex;
-	align-items: center;
-	margin-right: 20px;
+	align-items: flex-end;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.listing-image:hover {
-	-webkit-filter: brightness(90%);
-	cursor: pointer;
+.button-container button {
+	width: 100%;
 }
 
 .listing-container {
+	width: 100%;
 	display: flex;
 	align-items: center;
 }
@@ -53,7 +55,7 @@
 .right-side {
 	display: flex;
 	justify-content: space-between;
-	width: 70%;
+	width: 100%;
 }
 
 .info-container {
@@ -83,62 +85,6 @@
 	color: #858585;
 }
 
-.modal {
-	display: none;
-	position: fixed;
-	z-index: 1;
-	padding-top: 100px;
-	left: 0;
-	top: 0;
-	width: 100%;
-	height: 100%;
-	overflow: auto;
-	background-color: rgb(0, 0, 0);
-	background-color: rgba(0, 0, 0, 0.9);
-}
-
-.modal-content,
-#caption {
-	animation-name: zoom;
-	animation-duration: 0.6s;
-}
-
-
-@keyframes zoom {
-	from {
-		transform: scale(0)
-	}
-
-	to {
-		transform: scale(1)
-	}
-}
-
-.modal-content {
-	margin: auto;
-	display: block;
-	width: 80%;
-	max-width: 400px;
-}
-
-.close {
-	position: absolute;
-	top: 15px;
-	right: 35px;
-	transition: 0.3s;
-}
-
-.close i {
-	color: white;
-}
-
-.close:hover,
-.close:focus {
-	color: white;
-	text-decoration: none;
-	cursor: pointer;
-}
-
 .button-listing {
 	display: flex;
 	justify-content: center;
@@ -146,21 +92,10 @@
 }
 
 @media (min-width: 200px) {
-	.apply-filters {
-		width: 50%;
-		margin-left: 25%;
-	}
-
 	.divider {
 		display: none;
 	}
-
-	.filter-outside-container {
-		display: flex;
-		justify-content: space-around;
-	}
-
-	.filter-listing-container {
+	.listings-container {
 		width: 95%;
 	}
 }
@@ -173,7 +108,7 @@
 	.listings-container {
 		padding-top: 25px;
 		margin-left: 20px;
-		width: 85%;
+		width: 90%;
 	}
 
 	.divider {
@@ -183,15 +118,13 @@
 </style>
 <x-app-layout>
 	<x-slot name="header">
-		<h2 class="font-semibold text-xl text-gray-800 leading-tight">
-			{{ __('l.mylistings') }}
-		</h2>
+	<div class="redirect-container">
+			<a href="{{ URL::previous() }}" class="redirect">
+				<i class="fa-solid fa-arrow-left"></i> </a>
+		</div>
 	</x-slot>
 
-	<div class="py-4">
-		<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-			<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
-				<div class="p-6 bg-white border-b border-gray-200">
+
 				<div class="listings-container">
 				@foreach ($listings as $listing)
 				<div class="mx-auto mb-4">
@@ -200,10 +133,6 @@
 							<div class="listing-container">
 								<div class="image-container">
 									<img src="{{$listing->image_url}}" class="listing-image" />
-									<div id="myModal" class="modal">
-										<span class="close"><i class="fa-solid fa-xmark"></i></span>
-										<img class="modal-content" id="img01">
-									</div>
 								</div>
 								<div class="right-side">
 									<div class="info-container">
@@ -229,18 +158,15 @@
 					</div>
 				</div>
 				@endforeach
-			</div>
-		</div>
-				</div>
-			</div>
+
 		</div>
 	</div>
 </x-app-layout>
 <script>
-function delete_listing(id ) {
+function delete_listing(id) {
             window.location.href = "/delete/" + id;
             }
-function update_listing(id ) {
-            window.location.href = "/update" + id;
+function update_listing(id) {
+            window.location.href = "/edit-listing/" + id;
             }
 </script>
