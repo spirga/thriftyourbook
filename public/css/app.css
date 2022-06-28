@@ -944,6 +944,18 @@ select {
 .w-80p {
     width: 80%;
 }
+.w-70p {
+    width: 70%;
+}
+.w-75p {
+    width: 75%;
+}
+.w-30p {
+    width: 30%;
+}
+.w-20p {
+    width: 20%;
+}
 .w-90p {
     width: 90%;
 }

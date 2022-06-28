@@ -5,6 +5,7 @@ use App\Http\Controllers\ListingController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EditionController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\BookController;
 
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Routes;
@@ -65,10 +66,11 @@ Route::group(['middleware' => 'auth'], function() {
         return view('my-orders');
     })->name('my-orders');
 
-    Route::get('/new-listing', function () {
-        return view('new-listing');
-    })->name('new-listing');
+    // Route::get('/new-listing', function () {
+    //     return view('new-listing');
+    // })->name('new-listing');
 
+Route::get('/new-listing', [BookController::class, 'index_all'])->name('new-listing');
 Route::get('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index')->name('chattest');
 Route::post('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index_one')->name('chattest');
 Route::get('/message/{id}', 'App\Http\Controllers\Auth\RegisteredUserController@getMessage')->name('message');

@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Models\Edition;
 
 class BookController extends Controller
 {
     public function index_all()
     {
-        $books = Book::all().with('editions');
+        $books = Book::with('editions')->get();
         return view('new-listing', compact('books'));
     }
     
