@@ -40,6 +40,7 @@ Route::post('/store', [ListingController::class, 'search'])->name('search');
 Route::get('listing/{id}', [ListingController::class, 'index_one'])->name('listing');
 Route::get('edition/{id}', [EditionController::class, 'index_one'])->name('edition');
 Route::get('listings/{id}', [ListingController::class, 'index_all_edition'])->name('listings');
+Route::post('listings/{id}', [ListingController::class, 'new_search'])->name('listings2');
 
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
@@ -64,7 +65,7 @@ Route::group(['middleware' => 'auth'], function() {
         return view('new-listing');
     })->name('new-listing');
 
- Route::get('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index')->name('chattest');
+Route::get('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index')->name('chattest');
 Route::post('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index_one')->name('chattest');
 Route::get('/message/{id}', 'App\Http\Controllers\Auth\RegisteredUserController@getMessage')->name('message');
 Route::post('message', 'App\Http\Controllers\Auth\RegisteredUserController@sendMessage');

@@ -303,7 +303,7 @@ input[type="range"]::-moz-range-thumb {
 				<div class="mb-4">
 					<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
 						<div class="p-6 bg-white border-b border-gray-200">
-							<form action="{{action([App\Http\Controllers\ListingController::class, 'search'])}}" method="POST">
+							<form action="{{action([App\Http\Controllers\ListingController::class, 'new_search'])}}" method="POST">
 								@csrf
 								<div class="filter-outside-container">
 									<div class="filter-inside-container">
@@ -312,11 +312,11 @@ input[type="range"]::-moz-range-thumb {
 
 											<div class="price-input">
 												<div class="field">
-													<input type="number" class="input-min" value="0">
+													<input type="number" class="input-min" value="0" name="min">
 												</div>
 												<div class="separator">-</div>
 												<div class="field">
-													<input type="number" class="input-max" value="100">
+													<input type="number" class="input-max" value="100" name="max">
 												</div>
 											</div>
 											<div class="slider">

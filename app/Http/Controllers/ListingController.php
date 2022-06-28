@@ -164,6 +164,27 @@ class ListingController extends Controller
      return view('store', compact('listings', 'genres'));
     
 }
+
+public function new_search(Request $request) {
+
+    $condition = $request->input('condition');
+    $min = $request->input('min');
+    $max = $request->input('max');
+    $listings =collect();
+    
+    if ($condition != null) {
+        foreach ($condition as $condition) {
+            $listing = Listing::where('condition' , '=' , $condition)->get();
+            foreach ($listing as $listing) {
+                $listings ->  push($listing);
+            }
+        }
+     }
+        
+     $genres = Genre::all();
+     return view('listings2', compact('listings', 'genres'));
+    
+}
 }
 
 
