@@ -78,7 +78,6 @@
 
 	.filter-book-container {
 		width: 90%;
-		justify-content: space-around;
 		flex-direction: row;
 	}
 
@@ -244,11 +243,12 @@
 				</h2>
 				<div>
 					<div class="p-6 bg-white">
+						@if (is_countable($listings) && count($listings) == 0)
+						<p>There are no books currently being sold or none that match your search...</p>
+						@else
 						<div
 							class="books-container grid xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 1xl:grid-cols-4 2xl:grid-cols-5 vl:grid-cols-6 xs:gap-1 sm:gap-2 md:gap-2 lg:gap-4 flex flex-wrap overflow-hidden -mx-3 sm:-mx-3 md:-mx-4 lg:-mx-4 xl:-mx-4">
-							@if (is_countable($listings) && count($listings) == 0)
-							<p>There are no books currently being sold...</p>
-							@else
+
 							@foreach ($listings as $listing)
 							<div
 								class="my-3 px-3 w-1/4 overflow-hidden sm:my-3 sm:px-3 sm:w-1/2 md:my-4 md:px-4 md:w-1/3 lg:my-4 lg:px-4 lg:w-1/4 xl:my-4 xl:px-4 xl:w-1/6">

@@ -33,7 +33,7 @@
 			@if (Auth::check())
 			<div class="hidden space-x-8 sm:-my-px sm:flex">
 				<x-nav-link :href="route('new-listing')" :active="request()->routeIs('new-listing')" align="left">
-					{{ __('New Listing') }}
+					<b>{{ __('New Listing') }}</b>
 				</x-nav-link>
 			</div>
 
@@ -60,7 +60,7 @@
 						<div class="px-4 py-2">
 							<div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
 							<div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-							<hr class="mt-2">
+							<hr class="mt-2 mb-0">
 						</div>
 						<x-dropdown-link :href="route('profile')">
 							{{ __('My Profile') }}
@@ -111,6 +111,21 @@
 			<x-responsive-nav-link :href="route('store')" :active="request()->routeIs('store')">
 				{{ __('Store') }}
 			</x-responsive-nav-link>
+			<x-responsive-nav-link :href="route('my-listings')" :active="request()->routeIs('my-listings')">
+				{{ __('My Listings') }}
+			</x-responsive-nav-link>
+			<x-responsive-nav-link :href="route('my-orders')" :active="request()->routeIs('my-orders')">
+				{{ __('Orders') }}
+			</x-responsive-nav-link>
+
+		</div>
+		<div class="border-t border-gray-200">
+			<div class="pt-3 pb-3 space-y-1">
+				<x-responsive-nav-link :href="route('new-listing')" :active="request()->routeIs('new-listing')">
+					<b>{{ __('New Listing') }}</b>
+
+				</x-responsive-nav-link>
+			</div>
 		</div>
 
 		<!-- Responsive Settings Options -->

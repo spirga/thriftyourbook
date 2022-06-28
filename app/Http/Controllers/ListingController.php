@@ -167,8 +167,8 @@ class ListingController extends Controller
     }
 
         
-             $genres = Genre::all();
-     return view('store', compact('listings', 'genres'));
+    $genres = Genre::all();
+    return view('store', compact('listings', 'genres'));
     
 }
 
@@ -211,7 +211,7 @@ public function new_search(Request $request, $id) {
             }
         }
     }
-    else{
+    else {
         foreach ($condition as $condition) {
             $listing = Listing::where('condition' , '=' , $condition)->get();
             foreach ($listing as $listing) {
@@ -233,8 +233,6 @@ public function new_search(Request $request, $id) {
      $emptiness = [1];
      return view('listings', compact('listings', 'genres', 'emptiness'));
      }
-     
-    
 }
 }
 
