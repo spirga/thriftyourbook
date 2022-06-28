@@ -48,6 +48,19 @@
 .book-container:hover .book-image {
 	opacity: 0.1;
 }
+.a-style {
+	width: 70%;
+	height: 35px;
+	color: white;
+	border-radius: 10px;
+	background-color: #3b3c43;
+}
+
+.a-style:hover {
+	color: white;
+  background-color: #575862;
+	text-decoration: none;
+}
 </style>
 
 <div class="book-container">
@@ -55,7 +68,7 @@
 	<div class="book-overlay">
 		<p class="book-author">{{ $author }}</p>
 		<p class="book-title">{{ $message }}</p>
-		<a class="w-60p flex justify-center items-center mb-4" href="{{route('listings', $id)}}">{{ __('l.listings') }}</a>
-		<a class=" w-60p flex justify-center items-center" href="{{route('edition', $id)}}">{{ __('l.about') }}</a>
+		<a class="w-60p flex justify-center items-center mb-2 a-style text-sm" href="{{route('listings', $id)}}">{{ __('l.listings') }}</a>
+		<a class=" w-60p flex justify-center items-center a-style text-sm" href="{{route('edition', $id)}}">{{ __('l.about') }}</a>
 	</div>
 </div>
