@@ -64,7 +64,13 @@ class ListingController extends Controller
         //return redirect('listing/');
     }
 
-    public function update(Request $request, $id) {
+    public function update( $id) {
+
+         $listing = Listing::findOrFail($id);
+        return view('edit-listing', ['listings'=>$listing]);
+    }
+
+    public function edit(Request $request, $id) {
         $rules = array(
             'listing_description' => 'required|max:200',
             'price' => 'decimal|required',
@@ -78,7 +84,7 @@ class ListingController extends Controller
         $listing->condition = $request->condition;
         $listing->shipping_type = $request->shipping_type;
         $listing->save();
-        return view('edit-listing/' . $listing->id);
+        return redirect('my-listings/');
     }
     
     public function search(Request $request) {
