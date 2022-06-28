@@ -71,7 +71,7 @@ class ListingController extends Controller
 
     $search = $request->search;
     $language = $request->input('language');
-    $genre = $request->input('genres');
+    $genre = $request->input('genre');
     $listings =collect();
 
     if ($search != null) {

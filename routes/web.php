@@ -22,6 +22,7 @@ use App\User;
 |
 */
 
+
 Route::redirect('/', 'store');
 
 // Route::get('/', function () {
@@ -47,6 +48,7 @@ Route::get('/my-listings', [ListingController::class, 'index_one_user'])->name('
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
 Route::group(['middleware' => 'auth'], function() {
 
@@ -75,3 +77,4 @@ Route::post('message', 'App\Http\Controllers\Auth\RegisteredUserController@sendM
 
 
 require __DIR__.'/auth.php';
+

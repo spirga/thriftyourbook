@@ -138,18 +138,18 @@
 
 <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Chat') }}
+            {{ __('l.chat') }}
         </h2>
-        <p>Sorry for the inconvenience, but for now you have to search the user yourself!  :(</p>
+        <p>{{ __('l.chatmsg') }}</p>
         <form action="{{action([App\Http\Controllers\Auth\RegisteredUserController::class, 'index_one'])}}" method="POST"
 				class="flex justify-center items-center" ">
 			@csrf
 				<div class=" flex mr-4 "><input type=" text" id="dsearch" name="chat"
 				class="block px-4 py-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-200 focus:border-gray-400 input-control"
-				placeholder="Search chat..." required>
+				placeholder="{{ __('l.searchchat') }}" required>
 		</div>
 		<div class="flex justify-center items-center flex-col ml-4">
-			<x-button class="py-2.5" type="submit" value="search">Search</x-button>
+			<x-button class="py-2.5" type="submit" value="search">{{ __('l.search') }}</x-button>
 </x-slot>
 <x-slot name="slot">
 <div class="container-fluid">

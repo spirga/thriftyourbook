@@ -308,7 +308,7 @@ input[type="range"]::-moz-range-thumb {
 								<div class="filter-outside-container">
 									<div class="filter-inside-container">
 										<div class="price-container">
-											<p><b>Price</b></p>
+											<p><b>{{ __('l.price') }}</b></p>
 
 											<div class="price-input">
 												<div class="field">
@@ -330,26 +330,26 @@ input[type="range"]::-moz-range-thumb {
 									</div>
 									<hr class="mb-4 mt-4 divider">
 									<div class="condition-container">
-										<p><b>Condition</b></p>
+										<p><b>{{ __('l.condition') }}</b></p>
 										<div class="flex items-center" style="margin-bottom: 3px;">
 											<input id="condition-checkbox-1" type="checkbox" value="New" name="condition[]"
 												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
 											<label for="condition-checkbox-1" style="margin-bottom:0;"
-												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">New</label>
+												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ __('l.new') }}</label>
 										</div>
 										<div class="flex items-center" style="margin-bottom: 3px;">
 											<input id="condition-checkbox-2" type="checkbox" value="Like New" name="condition[]"
 												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
 											<label for="condition-checkbox-2" style="margin-bottom:0;"
 												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-												Like New</label>
+												{{ __('l.likenew') }}</label>
 										</div>
 										<div class="flex items-center" style="margin-bottom: 3px;">
 											<input id="condition-checkbox-3" type="checkbox" value="Very good" name="condition[]"
 												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
 											<label for="condition-checkbox-3" style="margin-bottom:0;"
 												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-												Very good
+												{{ __('l.vgood') }}
 											</label>
 										</div>
 										<div class="flex items-center" style="margin-bottom: 3px;">
@@ -357,7 +357,7 @@ input[type="range"]::-moz-range-thumb {
 												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
 											<label for="condition-checkbox-1" style="margin-bottom:0;"
 												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-												Good
+												{{ __('l.good') }}
 											</label>
 										</div>
 										<div class="flex items-center" style="margin-bottom: 3px;">
@@ -365,20 +365,19 @@ input[type="range"]::-moz-range-thumb {
 												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
 											<label for="condition-checkbox-4" style="margin-bottom:0;"
 												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-												Acceptable
+												{{ __('l.acceptable') }}
 											</label>
 										</div>
 										<div class="flex items-center" style="margin-bottom: 3px;">
 											<input id="condition-checkbox-4" type="checkbox" value="Antique" name="condition[]"
 												class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
 											<label for="condition-checkbox-4" style="margin-bottom:0;"
-												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Antique
+												class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ __('l.antique') }}
 											</label>
 										</div>
 									</div>
 								</div>
-								<x-button type="submit" value="search" class="mt-4 items-center justify-center apply-filters">Apply
-									Filters
+								<x-button type="submit" value="search" class="mt-4 items-center justify-center apply-filters">{{ __('l.filters') }}
 								</x-button>
 						</div>
 
@@ -389,7 +388,7 @@ input[type="range"]::-moz-range-thumb {
 
 			<div class="listings-container">
 				@if (is_countable($emptiness) && count($emptiness) == 0)
-				<b>There are no such listings! Try again!</b>
+				<b>{{ __('l.nosuchfilter') }}</b>
 				@else
 				@foreach ($listings as $listing)
 				<div class="mx-auto mb-4">
@@ -413,13 +412,13 @@ input[type="range"]::-moz-range-thumb {
 										<div class="info-right">
 											<span><i>{{$listing->condition}}</i></span>
 											<div>
-												<span><b>{{$listing->price}}&euro;</b></span><span class="plus-shipping"> + shipping</span>
+												<span><b>{{$listing->price}}&euro;</b></span><span class="plus-shipping"> + {{ __('l.shipping') }}</span>
 											</div>
-											<p class="shipping">Ships by {{$listing->shipping_type}}</p>
+											<p class="shipping">{{ __('l.shipby') }} {{$listing->shipping_type}}</p>
 										</div>
 									</div>
 									<div class="button-container">
-										<x-button class="message-seller" onclick="chat({{ $listing->user_id }})">Message Seller</x-button>
+										<x-button class="message-seller" onclick="chat({{ $listing->user_id }})">{{ __('l.messageseller') }}</x-button>
 									</div>
 								</div>
 							</div>

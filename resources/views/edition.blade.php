@@ -161,7 +161,7 @@
 						<div class="edition-container">
 							<div class="edition-image-container">
 								<img src="{{$edition->image_url}}" class="edition-image">
-								<x-button class="go-to-listings-1">Listings</x-button>
+								<x-button class="go-to-listings-1">{{ __('l.listings') }}</x-button>
 							</div>
 							<div class="edition-info-container">
 								<h2 class="font-semibold text-xl text-gray-800 leading-tight margin-bottom book-title">
@@ -171,11 +171,11 @@
 									{{$edition->book->book_author}}
 								</p>
 								<div>
-									<p class="margin-bottom"><b>Description</b></p>
+									<p class="margin-bottom"><b>{{ __('l.descript') }}</b></p>
 									<p class="book-description">{{$edition->book->book_description}}</p>
 								</div>
 								<div>
-									<p class="margin-bottom"><b>Genres</b></p>
+									<p class="margin-bottom"><b>{{ __('l.genre') }}</b></p>
 									<div class="genre-container">
 										<?php
 											$num_of_items = count($edition->book->genres);
@@ -190,9 +190,9 @@
 
 								</div>
 								<div>
-									<p class="margin-bottom"><b>About this edition</b></p>
-									<p class="margin-bottom">Published in {{$edition->edition_year}} by {{$edition->publisher}}</p>
-									<p class="margin-bottom">Language:
+									<p class="margin-bottom"><b>{{ __('l.aboutthisedition') }}</b></p>
+									<p class="margin-bottom">{{ __('l.published') }} {{$edition->edition_year}} {{ __('l.by') }} {{$edition->publisher}}</p>
+									<p class="margin-bottom">{{ __('l.language') }}:
 										<?php 
 											if ($edition->book->book_language == "ENG") {
 												echo "<span>English</span>";
@@ -208,7 +208,7 @@
 												echo "<span>Other</span>";
 											}
 											?> </p>
-									<p>Format: {{$edition->pages}} pages,
+									<p>{{ __('l.format') }}: {{$edition->pages}} {{ __('l.pages') }},
 										<?php 
 											if ($edition->cover_type == "HC") {
 												echo "<span>Hardback</span>";
@@ -220,7 +220,7 @@
 											?></p>
 								</div>
 							</div>
-							<x-button class="go-to-listings-2">Listings</x-button>
+							<x-button class="go-to-listings-2">{{ __('l.listings') }}</x-button>
 						</div>
 					</div>
 				</div>

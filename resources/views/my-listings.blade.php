@@ -33,7 +33,7 @@
 }
 
 .button-container {
-	width: 10%;
+	width: 15%;
 	float: right;
 	display: flex;
 	align-items: center;
@@ -184,7 +184,7 @@
 <x-app-layout>
 	<x-slot name="header">
 		<h2 class="font-semibold text-xl text-gray-800 leading-tight">
-			{{ __('My Listings') }}
+			{{ __('l.mylistings') }}
 		</h2>
 	</x-slot>
 
@@ -214,14 +214,14 @@
 										<div class="info-right">
 											<span><i>{{$listing->condition}}</i></span>
 											<div>
-												<span><b>{{$listing->price}}&euro;</b></span><span class="plus-shipping"> + shipping</span>
+												<span><b>{{$listing->price}}&euro;</b></span><span class="plus-shipping"> + {{ __('l.shipping') }}</span>
 											</div>
-											<p class="shipping">Ships by {{$listing->shipping_type}}</p>
+											<p class="shipping">{{ __('l.shipby') }} {{$listing->shipping_type}}</p>
 										</div>
 									</div>
 									<div class="button-container">
-										<x-button class="button-listing" onclick="update_listing({{$listing->id}})">Edit Listing</x-button>
-										<x-button class="button-listing" onclick="delete_listing({{$listing->id}})"> Delete Listing</x-button>
+										<x-button class="button-listing" onclick="update_listing({{$listing->id}})">{{ __('l.editlist') }}</x-button>
+										<x-button class="button-listing" onclick="delete_listing({{$listing->id}})"> {{ __('l.deletelist') }}</x-button>
 									</div>
 								</div>
 							</div>

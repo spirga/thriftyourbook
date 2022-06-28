@@ -55,7 +55,7 @@
 	<div class="book-overlay">
 		<p class="book-author">{{ $author }}</p>
 		<p class="book-title">{{ $message }}</p>
-		<a class="w-60p flex justify-center items-center mb-4" href="{{route('listings', $id)}}">Listings</a>
-		<a class=" w-60p flex justify-center items-center" href="{{route('edition', $id)}}">About</a>
+		<a class="w-60p flex justify-center items-center mb-4" href="{{route('listings', $id)}}">{{ __('l.listings') }}</a>
+		<a class=" w-60p flex justify-center items-center" href="{{route('edition', $id)}}">{{ __('l.about') }}</a>
 	</div>
 </div>

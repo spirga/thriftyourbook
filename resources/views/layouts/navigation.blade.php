@@ -1,4 +1,17 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100 fixed z-50 top-0 w-full">
+		<!-- Language -->
+		<li >
+			<a href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				{{ Config::get('languages')[App::getLocale()] }}
+			</a>
+			<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+			@foreach (Config::get('languages') as $lang => $language)
+				@if ($lang != App::getLocale())
+						<a class="dropdown-item" href="{{ route('lang.switch', $lang) }}"> {{$language}}</a>
+				@endif
+			@endforeach
+			</div>
+		</li>
 	<!-- Primary Navigation Menu -->
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<div class="flex justify-between h-16 w-95p">
@@ -13,18 +26,18 @@
 				<!-- Navigation Links -->
 				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 					<x-nav-link :href="route('store')" :active="request()->routeIs('store')">
-						{{ __('Store') }}
+						{{ __('l.store') }}
 					</x-nav-link>
 				</div>
 				@if (Auth::check())
 				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 					<x-nav-link :href="route('my-listings')" :active="request()->routeIs('my-listings')">
-						{{ __('My Listings') }}
+						{{ __('l.mylistings') }}
 					</x-nav-link>
 				</div>
 				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 					<x-nav-link :href="route('chattest')" :active="request()->routeIs('chattest')">
-						{{ __('Chat') }}
+						{{ __('l.chat') }}
 					</x-nav-link>
 				</div>
 				@endif
@@ -33,7 +46,7 @@
 			@if (Auth::check())
 			<div class="hidden space-x-8 sm:-my-px sm:flex">
 				<x-nav-link :href="route('new-listing')" :active="request()->routeIs('new-listing')" align="left">
-					<b>{{ __('New Listing') }}</b>
+					<b>{{ __('l.newlisting') }}</b>
 				</x-nav-link>
 			</div>
 
@@ -63,7 +76,7 @@
 							<hr class="mt-2 mb-0">
 						</div>
 						<x-dropdown-link :href="route('profile')">
-							{{ __('My Profile') }}
+							{{ __('l.myprofile') }}
 						</x-dropdown-link>
 						<!-- Authentication -->
 						<form method="POST" action="{{ route('logout') }}">
@@ -71,7 +84,7 @@
 
 							<x-dropdown-link :href="route('logout')" onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-								{{ __('Log Out') }}
+								{{ __('l.logout') }}
 							</x-dropdown-link>
 						</form>
 					</x-slot>
@@ -81,10 +94,10 @@
 			@else
 			@if (Route::has('login'))
 			<div class="hidden fixed top-0 right-0 px-6 py-6 sm:block">
-				<a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+				<a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">{{ __('l.login') }}</a>
 
 				@if (Route::has('register'))
-				<a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+				<a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">{{ __('l.register') }}</a>
 				@endif
 			</div>
 			@endif
@@ -109,25 +122,24 @@
 	<div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
 		<div class="pt-2 pb-3 space-y-1">
 			<x-responsive-nav-link :href="route('store')" :active="request()->routeIs('store')">
-				{{ __('Store') }}
+				{{ __('l.store') }}
 			</x-responsive-nav-link>
 			<x-responsive-nav-link :href="route('my-listings')" :active="request()->routeIs('my-listings')">
-				{{ __('My Listings') }}
+				{{ __('l.mylistings') }}
 			</x-responsive-nav-link>
 			<x-responsive-nav-link :href="route('my-orders')" :active="request()->routeIs('my-orders')">
-				{{ __('Orders') }}
+				{{ __('l.orders') }}
 			</x-responsive-nav-link>
 
 		</div>
 		<div class="border-t border-gray-200">
 			<div class="pt-3 pb-3 space-y-1">
 				<x-responsive-nav-link :href="route('new-listing')" :active="request()->routeIs('new-listing')">
-					<b>{{ __('New Listing') }}</b>
-
+					<b>{{ __('l.newlisting') }}</b>
 				</x-responsive-nav-link>
 			</div>
 		</div>
-
+		
 		<!-- Responsive Settings Options -->
 		@if (Auth::check())
 		<div class="pt-4 pb-1 border-t border-gray-200">
@@ -138,7 +150,7 @@
 
 			<div class="mt-3 space-y-1">
 				<x-responsive-nav-link :href="route('profile')">
-					{{ __('My Profile') }}
+					{{ __('l.myprofile') }}
 				</x-responsive-nav-link>
 				<!-- Authentication -->
 				<form method="POST" action="{{ route('logout') }}">
@@ -146,7 +158,7 @@
 
 					<x-responsive-nav-link :href="route('logout')" onclick="event.preventDefault();
                                         this.closest('form').submit();">
-						{{ __('Log Out') }}
+						{{ __('l.logout') }}
 					</x-responsive-nav-link>
 				</form>
 			</div>
@@ -155,14 +167,16 @@
 		@else
 		@if (Route::has('login'))
 		<div class="mt-3 space-y-1">
-			<x-responsive-nav-link href="{{ route('login') }}">Log in</x-responsive-nav-link>
+			<x-responsive-nav-link href="{{ route('login') }}">{{ __('l.login') }}</x-responsive-nav-link>
 
 			@if (Route::has('register'))
-			<x-responsive-nav-link href="{{ route('register') }}">Register</x-responsive-nav-link>
+			<x-responsive-nav-link href="{{ route('register') }}">{{ __('l.register') }}</x-responsive-nav-link>
 			@endif
 		</div>
 		@endif
 
 		@endif
 	</div>
+
+
 </nav>
