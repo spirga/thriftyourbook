@@ -20,7 +20,7 @@
 <x-app-layout>
 	<x-slot name="header">
 		<h2 class="font-semibold text-xl text-gray-800 leading-tight">
-			{{ __('My Profile') }}
+			{{ __('l.myprofile') }}
 		</h2>
 	</x-slot>
 	<x-slot name="slot">
@@ -38,19 +38,19 @@
 								<div class="grid grid-rows-3 gap-6">
 									<div>
 										<div class="mb-4">
-											<b>Information</b>
+											<b>{{ __('l.information') }}</b>
 										</div>
-										<x-label for="location" :value="__('My location')" />
+										<x-label for="location" :value="__('l.mylocation')" />
 										<x-input id="location" class="block mt-1 w-full" type="text" name="location"
 											value="{{ auth()->user()->location }}" />
 									</div>
 									<div>
-										<x-label for="about_me" :value="__('About me')" />
+										<x-label for="about_me" :value="__('l.aboutme')" />
 										<x-input id="about_me" class="block mt-1 w-full" type="text" name="about_me"
 											value="{{ auth()->user()->about_me }}" />
 									</div>
 									<div>
-										<x-label for="file" :value="__('Profile picture')" />
+										<x-label for="file" :value="__('l.profilepic')" />
 										<input type="file" id="file" name="image" class="text-xs text-custom" accept="image/*">
 									</div>
 								</div>
@@ -71,7 +71,7 @@
 												</svg>
 												<span class="text-sm ml-1">5.0</span>
 											</div>
-											<span class="text-xs">1 review</span>
+											<span class="text-xs">1 {{ __('l.review') }}</span>
 										</div>
 
 									</div>
@@ -87,30 +87,30 @@
 					<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
 						<div class="p-6 bg-white border-b border-gray-200">
 							<div class="mb-4">
-								<b>Edit login details</b>
+								<b>{{ __('l.editloginf') }}</b>
 							</div>
 
 							<div class="grid grid-cols-2 gap-6">
 								<div class="grid grid-rows-2 gap-6">
 									<div>
-										<x-label for="name" :value="__('Username')" />
+										<x-label for="name" :value="__('l.username')" />
 										<x-input id="name" class="block mt-1 w-full" type="text" name="name"
 											value="{{ auth()->user()->name }}" />
 									</div>
 									<div>
-										<x-label for="email" :value="__('E-mail')" />
+										<x-label for="email" :value="__('l.email')" />
 										<x-input id="email" class="block mt-1 w-full" type="email" name="email" readonly
 											value="{{ auth()->user()->email }}" />
 									</div>
 								</div>
 								<div class="grid grid-rows-2 gap-6">
 									<div>
-										<x-label for="new_password" :value="__('New password')" />
+										<x-label for="new_password" :value="__('l.newpassword')" />
 										<x-input id="new_password" class="block mt-1 w-full" type="password" name="password"
 											autocomplete="new-password" />
 									</div>
 									<div>
-										<x-label for="confirm_password" :value="__('Confirm password')" />
+										<x-label for="confirm_password" :value="__('l.confirmpassword')" />
 										<x-input id="confirm_password" class="block mt-1 w-full" type="password"
 											name="password_confirmation" autocomplete="confirm-password" />
 									</div>
@@ -124,7 +124,7 @@
 					</div>
 					<div class="flex items-center justify-end mt-4">
 						<x-button>
-							{{ __('Save') }}
+							{{ __('l.save') }}
 						</x-button>
 					</div>
 				</div>

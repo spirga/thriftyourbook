@@ -59,8 +59,8 @@
 									<?php
 										header('Content-Type: text/html; charset=utf8');
 										$servername = "localhost";
-										$username = "root";
-										$password = "";
+										$username = "thriftyourbook-user";
+										$password = "123";
 										$dbname="thriftyourbook";
 										mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 										$conn = new mysqli($servername, $username, $password, $dbname);
@@ -72,9 +72,9 @@
 									?>
 								<div class="form-group col-6">
 									
-									<label for="book">Select a book</label>
+									<label for="book">{{ __('l.selectbook') }}</label>
 									<select id="book" class="form-control" name="book" onchange="bookInfo()">
-										<option value="no">My book is not on this list</option>
+										<option value="no">{{ __('l.onthislist') }}</option>
 										<?php
 										while($r = mysqli_fetch_row($res))
 										{ 
@@ -84,9 +84,9 @@
 									</select>
 								</div>
 								<div class="form-group col-6" id="edition-field-div">
-									<label for="edition">Select the edition</label>
+									<label for="edition">{{ __('l.selectedition') }}</label>
 									<select id="edition" class="form-control" onchange="editionInfo()">
-										<option value="no">My book edition is not on this list</option>
+										<option value="no">{{ __('l.editionnotlist') }}</option>
 										<?php
 										while($r = mysqli_fetch_row($re))
 										{ 
@@ -103,108 +103,108 @@
 								</div>
 							</div>
 							<div class="mt-4 mb-2">
-								<b>Book information</b>
+								<b>{{ __('l.bookinfo') }}</b>
 							</div>
 							<div class="form-group" id="bookFieldsDiv">
     						<div class="row">
       						<div class="col-4">
-        						<label for="ttl">Title</label>
+        						<label for="ttl">{{ __('l.title') }}</label>
         						<input type="text" class="form-control w-100" id="ttl" required>
       						</div>
       						<div class="col-4">
-        						<label for="auth">Author</label>
+        						<label for="auth">{{ __('l.author') }}</label>
         						<input type="text" class="form-control w-100" id="auth" required>
       						</div>
 									<div class="col-1">
-        						<label for="yr">Year</label>
+        						<label for="yr">{{ __('l.year') }}</label>
         						<input type="text" class="form-control w-100" id="yr">
       						</div>
 									<div class="col-3">
-        						<label for="lang">Language</label>
+        						<label for="lang">{{ __('l.language') }}</label>
 										<select id="lang" class="form-control" required>
-											<option value="" disabled selected>Select your option</option>
-											<option value="ENG">English</option>
-											<option value="LV">Latvian</option>
-											<option value="RUS">Russian</option>
-											<option value="DEU">German</option>
-											<option value="ES">Spanish</option>
-											<option value="other">Other</option>
+											<option value="" disabled selected>{{ __('l.selectoption') }}</option>
+											<option value="ENG">{{ __('l.english') }}</option>
+											<option value="LV">{{ __('l.latvian') }}</option>
+											<option value="RUS">{{ __('l.russian') }}</option>
+											<option value="DEU">{{ __('l.german') }}</option>
+											<option value="ES">{{ __('l.spanish') }}</option>
+											<option value="other">{{ __('l.other') }}</option>
 										</select>
       						</div>
     						</div>
 								<div class="row mt-2">
 									<div class="col-12">
-        						<label for="desc">Book Description</label>
+        						<label for="desc">{{ __('l.bookdescription') }}</label>
         						<input type="text" class="form-control w-100" id="desc" required>
       						</div>
 								</div>
   						</div>
 							<div class="mt-4 mb-2">
-								<b>Edition information</b>
+								<b>{{ __('l.editinfo') }}</b>
 							</div>
 							<div class="form-group" id="editionFieldsDiv">
     						<div class="row">
       						<div class="col-4">
-        						<label for="pblshr">Publisher</label>
+        						<label for="pblshr">{{ __('l.publisher') }}</label>
         						<input type="text" class="form-control w-100" id="pblshr" required>
       						</div>
       						<div class="col-1">
-        						<label for="eyr">Year</label>
+        						<label for="eyr">{{ __('l.year') }}</label>
         						<input type="number" class="form-control w-100" id="eyr" required>
       						</div>
 									<div class="col-1">
-        						<label for="pg">Pages</label>
+        						<label for="pg">{{ __('l.pages') }}</label>
         						<input type="number" class="form-control w-100" id="pg" required>
       						</div>
 									<div class="col-2">
-        						<label for="cov">Cover Type</label>
+        						<label for="cov">{{ __('l.covertype') }}</label>
 										<select id="cov" class="form-control" required>
-											<option value="" disabled selected>Select your option</option>
-											<option value="PB">Paperback</option>
-											<option value="HC">Hardcover</option>
+											<option value="" disabled selected>{{ __('l.selectoption') }}</option>
+											<option value="PB">{{ __('l.paperback') }}</option>
+											<option value="HC">{{ __('l.hardcover') }}</option>
 										</select>
       						</div>
 									<div class="col-4">
-        						<label for="img">Cover Image URL</label>
+        						<label for="img">{{ __('l.coverurl') }}</label>
 										<input type="text" class="form-control w-100" id="img">
       						</div>
     						</div>
   						</div>
 							<div class="mt-4 mb-2">
-								<b>Listing information</b>
+								<b>{{ __('l.listinginfo') }}</b>
 							</div>
 							<div class="form-group flex justify-between" id="listingFieldsDiv">
 								<div class="col-8">
 									<div class="row">
-        						<label for="listing_description">Listing Description</label>
+        						<label for="listing_description">{{ __('l.listingdescr') }}</label>
         						<input type="text" class="form-control w-100" id="listing_description" required>
       						</div>
 									<div class="row mt-2">
-										<label for="listing-image">Image URL</label>
+										<label for="listing-image">{{ __('l.imageurl') }}</label>
 										<input type="text" class="form-control w-100" id="listing-image">
 									</div>
 								</div>
     						<div class="col-2">
       						<div class="row">
-        						<label for="price">Price</label>
+        						<label for="price">{{ __('l.price') }}</label>
         						<input type="currency" class="form-control w-100" id="price" required>
       						</div>
       						<div class="row mt-2">
-        						<label for="condition">Condition</label>
+        						<label for="condition">{{ __('l.condition') }}</label>
 										<select id="condition" class="form-control" required>
-											<option value="" disabled selected>Select your option</option>
-											<option value="new">New</option>
-											<option value="like-new">Like New</option>
-											<option value="very-good">Very Good</option>
-											<option value="good">Good</option>
-											<option value="acceptable">Acceptable</option>
-											<option value="antique">Antique</option>
+											<option value="" disabled selected>{{ __('l.selectoption') }}</option>
+											<option value="new">{{ __('l.new') }}</option>
+											<option value="like-new">{{ __('l.likenew') }}</option>
+											<option value="very-good">{{ __('l.vgood') }}</option>
+											<option value="good">{{ __('l.good') }}</option>
+											<option value="acceptable">{{ __('l.acceptable') }}</option>
+											<option value="antique">{{ __('l.antique') }}</option>
 										</select>
       						</div>	
       					</div>
 								<div class="col-1">
 									<div class="row flex flex-col">
-									<label>Shipping</label>
+									<label>{{ __('l.shipping') }}</label>
 										<div>
 											<input type="checkbox" id="omniva" name="omniva" value="omniva" class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
 											<label for="omniva" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Omniva</label>
@@ -215,16 +215,16 @@
 										</div>
 										<div>
 											<input type="checkbox" id="post" name="post" value="post" class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-											<label for="post" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Post</label>
+											<label for="post" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ __('l.post') }}</label>
 										</div>
 										<div>
 											<input type="checkbox" id="other" name="other" value="other" class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-											<label for="other" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Other</label>
+											<label for="other" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ __('l.other') }}</label>
 										</div>
 									</div>
 								</div>
     					</div>
-							<x-button type="submit">Publish</x-button>
+							<x-button type="submit">{{ __('l.publish') }}</x-button>
 							</form>
   					</div>
 						</div>
