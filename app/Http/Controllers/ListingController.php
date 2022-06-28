@@ -9,6 +9,7 @@ use App\Models\Edition;
 use App\Models\Book;
 use App\Models\Genre;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class ListingController extends Controller
 {

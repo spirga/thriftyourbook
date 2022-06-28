@@ -41,7 +41,7 @@ Route::get('listing/{id}', [ListingController::class, 'index_one'])->name('listi
 Route::get('edition/{id}', [EditionController::class, 'index_one'])->name('edition');
 Route::get('listings/{id}', [ListingController::class, 'index_all_edition'])->name('listings');
 Route::post('listings/{id}', [ListingController::class, 'new_search'])->name('listings2');
-Route::get('my-listings', [ListingController::class, 'index_one_user'])->name('listing3');
+Route::get('/my-listings', [ListingController::class, 'index_one_user'])->name('my-listings');
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
@@ -54,9 +54,9 @@ Route::group(['middleware' => 'auth'], function() {
     
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
 
-    Route::get('/my-listings', function () {
-        return view('my-listings');
-    })->name('my-listings');
+    // Route::get('/my-listings', function () {
+    //     return view('my-listings');
+    // })->name('my-listings');
     Route::get('/my-orders', function () {
         return view('my-orders');
     })->name('my-orders');
