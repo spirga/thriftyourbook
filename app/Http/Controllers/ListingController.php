@@ -38,6 +38,12 @@ class ListingController extends Controller
         return view('listing', compact('listing', 'edition', 'book', 'user'));
     }
 
+    public function index_one_user() {
+        $id = Auth::id();
+        $listings = Listing::where('user_id', $id)->get();
+        return view('my-listings', compact('listings'));
+    }
+
     public function create()
     {
         return view('new-listing');
@@ -171,6 +177,7 @@ public function new_search(Request $request, $id) {
     $condition = $request->input('condition');
     $min = $request->input('min');
     $max = $request->input('max');
+    $range = [$min, $max];
     $listings =collect();
     $a=0;
     $listing_collection=[];
@@ -180,7 +187,7 @@ public function new_search(Request $request, $id) {
         if($all_listings->edition_id == $id) $listing_collection[]=$all_listings->id;
     }
     if ($max != null && $condition == null) {
-        $listing = Listing::where('price' , '<=' , $max)->get();
+        $listing = Listing::query()->whereBetween('price', $range)->get();
         foreach ($listing as $listing) {
             if (in_array($listing->id, $listing_collection)) {$listings ->  push($listing);
                 $a=1;}
@@ -188,10 +195,10 @@ public function new_search(Request $request, $id) {
     }
     if ($condition != null) {
         if ($max != null ) {
-            $listing = Listing::where('price' , '<=' , $max)->get();
+            $listing = Listing::query()->whereBetween('price', $range)->get();
             foreach ($listing as $listing) {
-                if (in_array($listing->id, $listing_collection)) $listing_collection1[]=$listing->id;
-            }
+                if (in_array($listing->id, $listing_collection)) {$listing_collection1[]=$listing->id;}
+        }
         foreach ($condition as $condition) {
             $listing = Listing::where('condition' , '=' , $condition)->get();
             foreach ($listing as $listing) {
@@ -231,72 +238,3 @@ public function new_search(Request $request, $id) {
 }
 }
 
-
-// $condition = $request->input('condition');
-// if ($condition != null && $language== null) {
-//     foreach ($condition as $condition) {
-//         $listing = Listing::where('condition' , '=' , $condition)->get();
-//         foreach ($listing as $listing) {
-//             $listings ->  push($listing);
-//           }
-//       }
-//      }
-
-// if ($genre != null) {
-//     $genre_collection = [];
-//     $book_collection = [];
-//     foreach ($genre as $genre) {
-//     $genres = Genre::where('genre' , '=' , $genre)->get();
-//     foreach ($genres as $genres) {
-//       $genre_collection[] = $genres->id;
-//     }
-//     }
-//     $book = Book::all();
-//     foreach ($book as $book) {
-//         $book_genre = $book->genres;
-//         foreach($book_genre as $book_genre){
-//             if (in_array($book_genre->id, $genre_collection)) {
-//                 if (!in_array($book->id, $book_collection)) $book_collection[] = $book->id;
-//             }
-//         }
-//       }
-//       dump($book_collection);
-//       $listing = Listing::with('edition.book.genres')->groupBy('edition_id')->get();
-//      foreach ($listing as $listing) {
-//         $edition_id = $listing->edition_id;
-//         $edition = Edition::where('id', $edition_id)->first();
-//         $checkid=$edition->book_id;
-//         $a = 0;
-//         foreach ($book_collection as $collection){
-//             if ($collection == $checkid) $a=1;
-//         }
-//             if ($a == 1){
-//                 $listings ->  push($listing);
-//             }  
-//         }
-// }
-
-// if ($language != null) {
-//     $book_collection = [];
-//         foreach ($language as $language) {
-//         $books = Book::where('book_language' , '=' , $language)->get();
-//         foreach ($books as $book) {
-//           $book_collection[] = $book->id;
-//         }
-//         }
-//         $listing = Listing::with('edition.book.genres')->groupBy('edition_id')->get();
-//         foreach ($listing as $listing) {
-//             $edition_id = $listing->edition_id;
-//             $edition = Edition::where('id', $edition_id)->first();
-//             $checkid=$edition->book_id;
-//             $a = 0;
-//             foreach ($book_collection as $collection){
-//                 if ($collection == $checkid) $a=1;
-//             }
-            
-//                 if ($a == 1){
-//                     $listings ->  push($listing);
-//                 }
-                
-//             }   
-   // }
