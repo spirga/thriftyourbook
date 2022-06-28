@@ -59,8 +59,8 @@
 									<?php
 										header('Content-Type: text/html; charset=utf8');
 										$servername = "localhost";
-										$username = "root";
-										$password = "";
+										$username = "thriftyourbook-user";
+										$password = "123";
 										$dbname="thriftyourbook";
 										mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 										$conn = new mysqli($servername, $username, $password, $dbname);
@@ -103,7 +103,7 @@
 								</div>
 							</div>
 							<div class="mt-4 mb-2">
-								<b>Book information</b>
+								<b>*Book information</b>
 							</div>
 							<div class="form-group" id="bookFieldsDiv">
     						<div class="row">
@@ -140,7 +140,7 @@
 								</div>
   						</div>
 							<div class="mt-4 mb-2">
-								<b>Edition information</b>
+								<b>*Edition information</b>
 							</div>
 							<div class="form-group" id="editionFieldsDiv">
     						<div class="row">
@@ -166,12 +166,12 @@
       						</div>
 									<div class="col-4">
         						<label for="img">Cover Image URL</label>
-										<input type="text" class="form-control w-100" id="img">
+										<input type="text" class="form-control w-100" id="img" required>
       						</div>
     						</div>
   						</div>
 							<div class="mt-4 mb-2">
-								<b>Listing information</b>
+								<b>*Listing information</b>
 							</div>
 							<div class="form-group flex justify-between" id="listingFieldsDiv">
 								<div class="col-8">
@@ -180,7 +180,7 @@
         						<input type="text" class="form-control w-100" id="listing_description" required>
       						</div>
 									<div class="row mt-2">
-										<label for="listing-image">Image URL</label>
+										<label for="listing-image">Image URL (not required)</label>
 										<input type="text" class="form-control w-100" id="listing-image">
 									</div>
 								</div>
@@ -259,6 +259,11 @@
 				$('#desc').val("").prop('disabled', false);
 				$('#yr').val("").prop('disabled', false);
 				$('#lang').val("").prop('disabled', false);
+				$('#img').val("").prop('disabled', false);
+				$('#pblshr').val("").prop('disabled', false);
+				$('#eyr').val("").prop('disabled', false);
+				$('#pg').val("").prop('disabled', false);
+				$('#cov').val("").prop('disabled', false);
 			}
 	}
 	function editionInfo() {
