@@ -135,10 +135,21 @@
   </head>
 <body>
 <x-app-layout>
+
 <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Chat') }}
         </h2>
+        <p>Sorry for the inconvenience, but for now you have to search the user yourself!  :(</p>
+        <form action="{{action([App\Http\Controllers\Auth\RegisteredUserController::class, 'index_one'])}}" method="POST"
+				class="flex justify-center items-center" ">
+			@csrf
+				<div class=" flex mr-4 "><input type=" text" id="dsearch" name="chat"
+				class="block px-4 py-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-200 focus:border-gray-400 input-control"
+				placeholder="Search chat..." required>
+		</div>
+		<div class="flex justify-center items-center flex-col ml-4">
+			<x-button class="py-2.5" type="submit" value="search">Search</x-button>
 </x-slot>
 <x-slot name="slot">
 <div class="container-fluid">
@@ -148,6 +159,19 @@
                     <ul class="users">
                            <!--  šeit jānomaina lai nav visi useri-->
                     @foreach($users as $user)
+                        @if (is_countable($name) && count($name) == 0)
+                        <li class="user" id="{{ $user->id }}">
+                                @if($user->unread)
+                                   <span class="pending">{{ $user->unread }}</span>
+                                @endif
+
+                                <div class="media">
+                                    <div class="media-body">
+                                        <p class="name">{{ $user->name }}</p>
+                                    </div>
+                                </div>
+                            </li>
+                        @elseif ($user->name==$name)
                            <li class="user" id="{{ $user->id }}">
                                 @if($user->unread)
                                    <span class="pending">{{ $user->unread }}</span>
@@ -159,6 +183,7 @@
                                     </div>
                                 </div>
                             </li>
+                            @endif
                        @endforeach
                     </ul>
                 </div>

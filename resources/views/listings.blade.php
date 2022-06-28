@@ -416,7 +416,7 @@ input[type="range"]::-moz-range-thumb {
 										</div>
 									</div>
 									<div class="button-container">
-										<x-button class="message-seller">Message Seller</x-button>
+										<x-button class="message-seller" onclick="chat({{ $listing->user_id }})">Message Seller</x-button>
 									</div>
 								</div>
 							</div>
@@ -430,6 +430,10 @@ input[type="range"]::-moz-range-thumb {
 </x-app-layout>
 
 <script>
+function chat(id ) {
+            window.location.href = "/chattest";
+            }
+			
 // create references to the modal...
 var modal = document.getElementById('myModal');
 // to all images -- note I'm using a class!
@@ -495,3 +499,4 @@ rangeInput.forEach(input => {
 	});
 });
 </script>
+

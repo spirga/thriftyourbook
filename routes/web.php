@@ -60,7 +60,8 @@ Route::group(['middleware' => 'auth'], function() {
         return view('new-listing');
     })->name('new-listing');
 
-    Route::get('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index')->name('chattest');
+ Route::get('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index')->name('chattest');
+Route::post('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index_one')->name('chattest');
 Route::get('/message/{id}', 'App\Http\Controllers\Auth\RegisteredUserController@getMessage')->name('message');
 Route::post('message', 'App\Http\Controllers\Auth\RegisteredUserController@sendMessage');
 });
