@@ -137,8 +137,8 @@
 								<div class="right-side">
 									<div class="info-container">
 										<div class="info-left">
+											<span><b>{{$listing->edition->book->book_title}}</b></span>
 											<span>{{$listing->listing_description}}</span>
-
 										</div>
 										<div class="info-right">
 											<span><i>{{$listing->condition}}</i></span>

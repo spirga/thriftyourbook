@@ -40,6 +40,7 @@ Route::get('/store',[ListingController::class,'index_all'])->name('store');
 Route::post('/store', [ListingController::class, 'search'])->name('search');
 
 Route::get('listing/{id}', [ListingController::class, 'index_one'])->name('listing');
+Route::get('user/{id}', [ProfileController::class, 'index_one'])->name('user');
 Route::get('edition/{id}', [EditionController::class, 'index_one'])->name('edition');
 Route::get('listings/{id}', [ListingController::class, 'index_all_edition'])->name('listings');
 Route::post('listings/{id}', [ListingController::class, 'new_search'])->name('listings2');
@@ -52,22 +53,15 @@ Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controller
 
 Route::group(['middleware' => 'auth'], function() {
 
-    //Route::post('/profile','ProfileControllerr@upload');
     
     Route::view(uri: 'profile', view: 'profile')->name(name: 'profile');
     
     Route::put('profile', [ProfileController::class, 'update'])->name('profile.update');
 
-    // Route::get('/my-listings', function () {
-    //     return view('my-listings');
-    // })->name('my-listings');
     Route::get('/my-orders', function () {
         return view('my-orders');
     })->name('my-orders');
 
-    // Route::get('/new-listing', function () {
-    //     return view('new-listing');
-    // })->name('new-listing');
 
 Route::get('/new-listing', [BookController::class, 'index_all'])->name('new-listing');
 Route::get('/edit-listing/{id}', [ListingController::class, 'update'])->name('edit-listing');
