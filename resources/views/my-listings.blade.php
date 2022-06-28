@@ -220,8 +220,8 @@
 										</div>
 									</div>
 									<div class="button-container">
-										<x-button class="button-listing">Edit Listing</x-button>
-										<x-button class="button-listing">Delete Listing</x-button>
+										<x-button class="button-listing" onclick="update_listing({{$listing->id}})">Edit Listing</x-button>
+										<x-button class="button-listing" onclick="delete_listing({{$listing->id}})"> Delete Listing</x-button>
 									</div>
 								</div>
 							</div>
@@ -236,3 +236,11 @@
 		</div>
 	</div>
 </x-app-layout>
+<script>
+function delete_listing(id ) {
+            window.location.href = "/delete/" + id;
+            }
+function update_listing(id ) {
+            window.location.href = "/update" + id;
+            }
+</script>

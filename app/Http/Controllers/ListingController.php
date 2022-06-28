@@ -10,6 +10,7 @@ use App\Models\Book;
 use App\Models\Genre;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use function view;
 
 class ListingController extends Controller
 {
@@ -235,5 +236,10 @@ public function new_search(Request $request, $id) {
      return view('listings', compact('listings', 'genres', 'emptiness'));
      }
 }
+public function destroy($id)
+    {
+        Listing::findOrFail($id)->delete();
+        return redirect('my-listings');
+    }
 }
 
