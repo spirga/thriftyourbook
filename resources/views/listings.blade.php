@@ -303,7 +303,7 @@ input[type="range"]::-moz-range-thumb {
 				<div class="mb-4">
 					<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
 						<div class="p-6 bg-white border-b border-gray-200">
-							<form action="{{action([App\Http\Controllers\ListingController::class, 'new_search'])}}" method="POST">
+							<form action="{{action([App\Http\Controllers\ListingController::class, 'new_search'], $listings->first()->edition_id)}}" method="POST">
 								@csrf
 								<div class="filter-outside-container">
 									<div class="filter-inside-container">
@@ -388,6 +388,9 @@ input[type="range"]::-moz-range-thumb {
 			</div>
 
 			<div class="listings-container">
+				@if (is_countable($emptiness) && count($emptiness) == 0)
+				<b>There are no such listings! Try again!</b>
+				@else
 				@foreach ($listings as $listing)
 				<div class="mx-auto mb-4">
 					<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
@@ -424,6 +427,7 @@ input[type="range"]::-moz-range-thumb {
 					</div>
 				</div>
 				@endforeach
+				@endif
 			</div>
 		</div>
 	</x-slot>

@@ -147,7 +147,7 @@
 			<div class="sm:px-6 lg:px-8 filter-container">
 				<div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-6">
 					<div class="p-6 border-b border-gray-200">
-						<form action="{{action([App\Http\Controllers\ListingController::class, 'search'])}}" method="POST">
+						<form action="{{action([App\Http\Controllers\ListingController::class, 'search'])}}" method="GET">
 							@csrf
 							<div class="filter-outside-container">
 								<div class="filter-inside-container">
