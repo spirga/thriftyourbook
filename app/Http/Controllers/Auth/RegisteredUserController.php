@@ -77,42 +77,24 @@ class RegisteredUserController extends Controller
 
     public function index()
     {
-    // ŠEIT IR JĀNOMAINA, LAI NAV VISI USERI  select all Users + count how many message are unread from the selected user
         $users = DB::select("select users.id, users.name, users.email, count(is_read) as unread 
         from users LEFT  JOIN  messages ON users.id = messages.from and is_read = 0 and messages.to = " . Auth::id() . "
         where users.id !=  " . Auth::id() . " 
         group by users.id, users.name, users.email");
         $name=[];
-        return view('chattest', compact('users', 'name'));
+        return view('chat', compact('users', 'name'));
         
     }
 
-    // public function index_one($id)
-    // {
-    // // ŠEIT IR JĀNOMAINA, LAI NAV VISI USERI  select all Users + count how many message are unread from the selected user
-    //     $users =  DB::select("select users.id, users.name, users.email, count(is_read) as unread 
-    //     from users LEFT  JOIN  messages ON users.id = messages.from and is_read = 0 and messages.to = " . Auth::id() . "
-    //     where users.id !=  " . Auth::id() . " and users.id =  " . $id . "
-    //     group by users.id, users.name, users.email");
-      
-    //     return view('chattest', compact('users'));
-        
-    // }
     public function index_one(request $request)
     {
     $name = $request->input('chat');
-    // ŠEIT IR JĀNOMAINA, LAI NAV VISI USERI  select all Users + count how many message are unread from the selected user
     $users = DB::select("select users.id, users.name, users.email, count(is_read) as unread 
     from users LEFT  JOIN  messages ON users.id = messages.from and is_read = 0 and messages.to = " . Auth::id() . "
     where users.id !=  " . Auth::id() . " 
     group by users.id, users.name, users.email");
-    return view('chattest', compact('users', 'name'));
+    return view('chat', compact('users', 'name'));
     }
-//   // ŠEIT IR JĀNOMAINA, LAI NAV VISI USERI  select all Users + count how many message are unread from the selected user
-//   $users = DB::select("select users.id, users.name, users.email, count(is_read) as unread 
-//   from users LEFT  JOIN  messages ON users.id = messages.from and is_read = 0 and messages.to = " . Auth::id() . "
-//   users.id !=  " . Auth::id() . " and and users.id =  " . $id . "
-//   group by users.id, users.name, users.email");
 
     // get all Messages
     public function getMessage($user_id)

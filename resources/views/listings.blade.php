@@ -443,7 +443,7 @@ function goToUser(id) {
 }
 
 function chat(id ) {
-  window.location.href = "/chattest";
+  window.location.href = "/chat";
   }
 			
 // create references to the modal...

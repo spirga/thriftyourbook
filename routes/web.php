@@ -73,8 +73,8 @@ Route::get('/new-listing', [BookController::class, 'index_all'])->name('new-list
 Route::post('/new-listing', [BookController::class, 'store'])->name('new-listing1');
 Route::get('/edit-listing/{id}', [ListingController::class, 'update'])->name('edit-listing');
 Route::post('/edit-listing/{id}', [ListingController::class, 'edit'])->name('edit-listing');
-Route::get('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index')->name('chattest');
-Route::post('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index_one')->name('chattest');
+Route::get('/chat', 'App\Http\Controllers\Auth\RegisteredUserController@index')->name('chat');
+Route::post('/chat', 'App\Http\Controllers\Auth\RegisteredUserController@index_one')->name('chat');
 Route::get('/message/{id}', 'App\Http\Controllers\Auth\RegisteredUserController@getMessage')->name('message');
 Route::post('message', 'App\Http\Controllers\Auth\RegisteredUserController@sendMessage');
 });
