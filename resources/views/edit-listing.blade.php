@@ -49,7 +49,7 @@
         						<input type="text" class="form-control w-100" name="listing_description" id="listing_description" value="{{$listings->listing_description}}" required>
       						</div>
 									<div class="row mt-2">
-										<label for="listing-image">{{ __('l.imageurl') }}</label>
+										<label for="listing-image">{{ __('l.imageurl') }} {{ __('l.notrequired') }}</label>
 										<input type="text" class="form-control w-100" name="image_url" id="listing-image" value="{{$listings->image_url}}">
 									</div>
 								</div>
@@ -63,7 +63,7 @@
 										<select id="condition" class="form-control" required name="condition" value="{{$listings->condition}}">
 											<option value="New">{{ __('l.new') }}</option>
 											<option value="Like New">{{ __('l.likenew') }}</option>
-											<option value="Very good">{{ __('l.vgood') }}</option>
+											<option value="Very Good">{{ __('l.vgood') }}</option>
 											<option value="Good">{{ __('l.good') }}</option>
 											<option value="Acceptable">{{ __('l.acceptable') }}</option>
 											<option value="Antique">{{ __('l.antique') }}</option>
@@ -71,7 +71,7 @@
       						</div>	
       					</div>
     					</div>
-							<x-button type="submit">Save</x-button>
+							<x-button type="submit">{{ __('l.save') }}</x-button>
 							</form>
   					</div>
 						</div>
