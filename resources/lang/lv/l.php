@@ -98,5 +98,7 @@ return [
     'newpassword' => 'Jauna parole',
     'confirmpassword' => 'Apstiprini paroli',
     'deleteuser' => 'Izdzēst lietotāju',
+    'notrequired' => '(nav obligāts)',
+    'any' => 'Jebkurš',
     
 ];

@@ -40,33 +40,33 @@
 						<form method="POST" action="{{action([App\Http\Controllers\ListingController::class, 'edit'], $listings->first()->id)}}">
 							@csrf
 							<div class="mt-4 mb-2">
-								<b>Listing information</b>
+								<b>{{ __('l.listinginfo') }}</b>
 							</div>
 							<div class="form-group flex justify-between" id="listingFieldsDiv">
 								<div class="col-8">
 									<div class="row">
-        						<label for="listing_description">Listing Description</label>
+        						<label for="listing_description">{{ __('l.listingdescr') }}</label>
         						<input type="text" class="form-control w-100" name="listing_description" id="listing_description" value="{{$listings->listing_description}}" required>
       						</div>
 									<div class="row mt-2">
-										<label for="listing-image">Image URL (not required)</label>
+										<label for="listing-image">{{ __('l.imageurl') }} {{ __('l.notrequired') }}</label>
 										<input type="text" class="form-control w-100" name="image_url" id="listing-image" value="{{$listings->image_url}}">
 									</div>
 								</div>
     						<div class="col-2">
       						<div class="row">
-        						<label for="price">Price</label>
+        						<label for="price">{{ __('l.price') }}</label>
         						<input type="currency" class="form-control w-100" name="price" id="price" required value="{{$listings->price}}">
       						</div>
       						<div class="row mt-2">
-        						<label for="condition">Condition</label>
+        						<label for="condition">{{ __('l.condition') }}</label>
 										<select id="condition" class="form-control" required name="condition" value="{{$listings->condition}}">
-											<option value="New">New</option>
-											<option value="Like New">Like New</option>
-											<option value="Very Good">Very Good</option>
-											<option value="Good">Good</option>
-											<option value="Acceptable">Acceptable</option>
-											<option value="Antique">Antique</option>
+											<option value="New">{{ __('l.new') }}</option>
+											<option value="Like New">{{ __('l.likenew') }}</option>
+											<option value="Very Good">{{ __('l.vgood') }}</option>
+											<option value="Good">{{ __('l.good') }}</option>
+											<option value="Acceptable">{{ __('l.acceptable') }}</option>
+											<option value="Antique">{{ __('l.antique') }}</option>
 										</select>
       						</div>	
       					</div>
@@ -91,12 +91,12 @@
 										</div>
 										<div>
 											<input type="radio" id="any" name="shipping_type" value="Any" class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-											<label for="any" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Any</label>
+											<label for="any" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ __('l.any') }}</label>
 										</div>
 									</div>
 								</div>
     					</div>
-							<x-button type="submit">Save</x-button>
+							<x-button type="submit">{{ __('l.save') }}</x-button>
 							</form>
   					</div>
 						</div>
