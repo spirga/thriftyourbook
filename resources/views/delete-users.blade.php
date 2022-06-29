@@ -129,7 +129,7 @@
 										</div>
 									</div>
 									<div class="button-container">
-									<x-button class="button-listing" onclick="delete_user({{$user->id}})"> Delete User</x-button>
+									<x-button class="button-listing" onclick="delete_user({{$user->id}})"> {{ __('l.deleteuser') }}</x-button>
 									</div>
 								</div>
 							</div>

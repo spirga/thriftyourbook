@@ -41,7 +41,7 @@
 						{{ __('l.chat') }}
 					</x-nav-link>
 					<x-nav-link :href="route('delete-users')" :active="request()->routeIs('delete-users')">
-						Delete Users
+					{{ __('l.deleteuser') }}s
 					</x-nav-link>
 				</div>
 				@endif

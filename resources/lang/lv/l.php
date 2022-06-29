@@ -97,5 +97,6 @@ return [
     'email' => 'E-pasts',
     'newpassword' => 'Jauna parole',
     'confirmpassword' => 'Apstiprini paroli',
+    'deleteuser' => 'Izdzēst lietotāju',
     
 ];
