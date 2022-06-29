@@ -154,10 +154,10 @@
 <body>
 <x-app-layout>
 <x-slot name="header">  
-    <div class="redirect-container mb-4">
+    <!-- <div class="redirect-container mb-4">
 		<a href="{{ URL::previous() }}" class="redirect">
 		<i class="fa-solid fa-arrow-left"></i> </a>
-	</div>
+	</div> -->
 </x-slot>
 <x-slot name="slot">
     <div class="container-fluid mb-4" style="padding-left: 60px; padding-right: 60px;">

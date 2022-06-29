@@ -23,12 +23,10 @@ class AdminAuthenticated
             /** @var User $user */
             $user = Auth::user();
 
-            // if user is not admin take him to his dashboard
             if ( $user->hasRole('user') ) {
                 return redirect(route('store'));
             }
 
-            // allow admin to proceed with request
             else if ( $user->hasRole('admin') ) {
                 return $next($request);
             }

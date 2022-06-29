@@ -27,19 +27,12 @@ use App\User;
 
 Route::redirect('/', 'store');
 
-// Route::get('/', function () {
-//     return view('/store');
-// });
-
 Route::get('/store', function () {
     return view('store');
 })->name('store');
 
 Route::get('/store',[ListingController::class,'index_all'])->name('store');
-//Route::resource('storesearch', ListingController::class);
-
 Route::post('/store', [ListingController::class, 'search'])->name('search');
-
 Route::get('listing/{id}', [ListingController::class, 'index_one'])->name('listing');
 Route::get('user/{id}', [ProfileController::class, 'index_one'])->name('user');
 Route::get('edition/{id}', [EditionController::class, 'index_one'])->name('edition');
@@ -51,8 +44,6 @@ Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallba
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
 Route::group(['middleware' => 'auth'], function() {
-
-
     
     Route::view(uri: 'profile', view: 'profile')->name(name: 'profile');
     
@@ -81,9 +72,3 @@ Route::post('message', 'App\Http\Controllers\Auth\RegisteredUserController@sendM
 
 
 require __DIR__.'/auth.php';
-
-
-
-// Route::get('delete-users', function () {
-//     return view('delete-users');
-// })->middleware(['auth', 'admin'])->name('delete-users');

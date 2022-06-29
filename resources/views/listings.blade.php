@@ -292,7 +292,6 @@ input[type="range"]::-moz-range-thumb {
 .go-to-user {
 	cursor: pointer;
 }
-
 </style>
 <x-app-layout>
 	<x-slot name="header">
@@ -308,7 +307,9 @@ input[type="range"]::-moz-range-thumb {
 				<div class="mb-4">
 					<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
 						<div class="p-6 bg-white border-b border-gray-200">
-							<form action="{{action([App\Http\Controllers\ListingController::class, 'new_search'], $listings->first()->edition_id)}}" method="POST">
+							<form
+								action="{{action([App\Http\Controllers\ListingController::class, 'new_search'], $listings->first()->edition_id)}}"
+								method="POST">
 								@csrf
 								<div class="filter-outside-container">
 									<div class="filter-inside-container">
@@ -382,7 +383,8 @@ input[type="range"]::-moz-range-thumb {
 										</div>
 									</div>
 								</div>
-								<x-button type="submit" value="search" class="mt-4 items-center justify-center apply-filters">{{ __('l.filters') }}
+								<x-button type="submit" value="search" class="mt-4 items-center justify-center apply-filters">
+									{{ __('l.filters') }}
 								</x-button>
 						</div>
 
@@ -410,20 +412,22 @@ input[type="range"]::-moz-range-thumb {
 								<div class="right-side">
 									<div class="info-container">
 										<div class="info-left">
-											<a class="go-to-user"onclick="goToUser({{$listing->user->id}})""><b>{{$listing->user->name}}</b></a>
+											<a class="go-to-user" onclick="goToUser({{$listing->user->id}})""><b>{{$listing->user->name}}</b></a>
 											<span>{{$listing->listing_description}}</span>
 
 										</div>
-										<div class="info-right">
-											<span><i>{{$listing->condition}}</i></span>
-											<div>
-												<span><b>{{$listing->price}}&euro;</b></span><span class="plus-shipping"> + {{ __('l.shipping') }}</span>
-											</div>
-											<p class="shipping">{{ __('l.shipby') }} {{$listing->shipping_type}}</p>
+										<div class=" info-right">
+												<span><i>{{$listing->condition}}</i></span>
+												<div>
+													<span><b>{{$listing->price}}&euro;</b></span><span class="plus-shipping"> +
+														{{ __('l.shipping') }}</span>
+												</div>
+												<p class="shipping">{{ __('l.shipby') }} {{$listing->shipping_type}}</p>
 										</div>
 									</div>
 									<div class="button-container">
-										<x-button class="message-seller" onclick="chat({{ $listing->user_id }})">{{ __('l.messageseller') }}</x-button>
+										<x-button class="message-seller" onclick="chat({{ $listing->user_id }})">{{ __('l.messageseller') }}
+										</x-button>
 									</div>
 								</div>
 							</div>
@@ -439,13 +443,13 @@ input[type="range"]::-moz-range-thumb {
 
 <script>
 function goToUser(id) {
-    window.location.href = "/user/" + id;
+	window.location.href = "/user/" + id;
 }
 
-function chat(id ) {
-  window.location.href = "/chat";
-  }
-			
+function chat(id) {
+	window.location.href = "/chat";
+}
+
 // create references to the modal...
 var modal = document.getElementById('myModal');
 // to all images -- note I'm using a class!
@@ -511,4 +515,3 @@ rangeInput.forEach(input => {
 	});
 });
 </script>
-
