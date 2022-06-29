@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Requests\UpdateListingRequest;
 use App\Models\Listing;
 use App\Models\Edition;
 use App\Models\Book;
@@ -53,20 +54,16 @@ class ListingController extends Controller
     }
 
     public function edit(Request $request, $id) {
+        $listing = Listing::findOrFail($id);
+        $listing->update($request->only('listing_description', 'price','condition', 'shipping_type', 'image_url'));
         $rules = array(
             'listing_description' => 'required|max:200',
             'price' => 'numeric|required',
             'condition' => 'required',
             'shipping_type' => 'required',
+            'image_url' => 'nullable',
         );
         $this->validate($request, $rules);
-        $listing = Listing::findOrFail($id);
-        $listing->listing_description = $request->get('listing_description');
-        $listing->price = $request->get('price');
-        $listing->condition = $request->get('condition');
-        $listing->image_url = $request->get('image_url');
-        $listing->shipping_type = $request->get('shipping_type');
-        $listing->save();
         return redirect('edit-listing/', ['listings'=>$listing])->with('message', 'Listing updated succesfully!');;
     }
     

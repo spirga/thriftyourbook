@@ -228,7 +228,7 @@
 										</div>
 										<div>
 											<input type="radio" id="any" name="shipping_type" value="Any" class="w-4 h-4 text-custom bg-gray-100 rounded border-gray-300 checkbox-control">
-											<label for="any" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Any</label>
+											<label for="any" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{ __('l.any') }}</label>
 										</div>
 									</div>
 								</div>
