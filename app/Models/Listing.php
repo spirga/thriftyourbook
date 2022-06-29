@@ -10,6 +10,16 @@ use App\Models\User;
 
 class Listing extends Model
 {
+    protected $fillable = [
+        'user_id',
+        'edition_id',
+        'listing_description',
+        'price',
+        'condition',
+        'shipping_type',
+        'image_url',
+    ];
+
     use HasFactory;
     public function edition() {
         return $this->belongsTo(Edition::class);

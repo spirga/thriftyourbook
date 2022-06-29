@@ -44,14 +44,13 @@ Route::get('user/{id}', [ProfileController::class, 'index_one'])->name('user');
 Route::get('edition/{id}', [EditionController::class, 'index_one'])->name('edition');
 Route::get('listings/{id}', [ListingController::class, 'index_all_edition'])->name('listings');
 Route::post('listings/{id}', [ListingController::class, 'new_search'])->name('listings2');
-Route::get('delete/{id}', [ListingController::class, 'destroy'])->name('destroy');
-Route::get('/my-listings', [ListingController::class, 'index_one_user'])->name('my-listings');
 Route::get('auth/google', [GoogleController::class, 'redirectToGoogle']);
 Route::get('auth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
 Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'App\Http\Controllers\LanguageController@switchLang']);
 
 Route::group(['middleware' => 'auth'], function() {
+
 
     
     Route::view(uri: 'profile', view: 'profile')->name(name: 'profile');
@@ -62,9 +61,12 @@ Route::group(['middleware' => 'auth'], function() {
         return view('my-orders');
     })->name('my-orders');
 
-
+    Route::get('delete/{id}', [ListingController::class, 'destroy'])->name('destroy');
+Route::get('/my-listings', [ListingController::class, 'index_one_user'])->name('my-listings');
 Route::get('/new-listing', [BookController::class, 'index_all'])->name('new-listing');
+Route::post('/new-listing', [BookController::class, 'store'])->name('new-listing1');
 Route::get('/edit-listing/{id}', [ListingController::class, 'update'])->name('edit-listing');
+Route::post('/edit-listing/{id}', [ListingController::class, 'edit'])->name('edit-listing');
 Route::get('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index')->name('chattest');
 Route::post('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index_one')->name('chattest');
 Route::get('/message/{id}', 'App\Http\Controllers\Auth\RegisteredUserController@getMessage')->name('message');

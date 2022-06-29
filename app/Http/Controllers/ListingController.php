@@ -46,27 +46,9 @@ class ListingController extends Controller
         return view('my-listings', compact('listings'));
     }
 
-    public function store(Request $request)
-    {
-        $rules = array(
-            'listing_description' => 'required|max:200',
-            'price' => 'decimal|required',
-            'condition' => 'required',
-            'shipping_type' => 'required',
-        );
-        $this->validate($request, $rules);
-        $listing = new Listing;
-        $listing->listing_description = $request->listing_description;
-        $listing->price = $request->price;
-        $listing->condition = $request->condition;
-        $listing->shipping_type = $request->shipping_type;
-        $listing->save();
-        //return redirect('listing/');
-    }
+    public function update($id) {
 
-    public function update( $id) {
-
-         $listing = Listing::findOrFail($id);
+        $listing = Listing::findOrFail($id);
         return view('edit-listing', ['listings'=>$listing]);
     }
 
@@ -84,7 +66,7 @@ class ListingController extends Controller
         $listing->condition = $request->condition;
         $listing->shipping_type = $request->shipping_type;
         $listing->save();
-        return redirect('my-listings/');
+        return redirect('edit-listing/', ['listings'=>$listing])->with('message', 'Listing added succesfuly!');;
     }
     
     public function search(Request $request) {

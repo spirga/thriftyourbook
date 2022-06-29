@@ -8,6 +8,15 @@ use App\Models\Book;
 
 class Edition extends Model
 {
+    protected $fillable = [
+        'book_id',
+        'image_url',
+        'publisher',
+        'edition_year',
+        'pages',
+        'cover_type',
+    ];
+
     use HasFactory; 
     public function book() {
         return $this->belongsTo(Book::class);
