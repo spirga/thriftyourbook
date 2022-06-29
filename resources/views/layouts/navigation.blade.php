@@ -37,12 +37,14 @@
 					</x-nav-link>
 				</div>
 				<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-					<x-nav-link :href="route('chattest')" :active="request()->routeIs('chattest')">
+					<x-nav-link :href="route('chat')" :active="request()->routeIs('chat')">
 						{{ __('l.chat') }}
 					</x-nav-link>
+					@if (Auth::user()->role == 'admin')
 					<x-nav-link :href="route('delete-users')" :active="request()->routeIs('delete-users')">
 					{{ __('l.deleteuser') }}s
 					</x-nav-link>
+					@endif
 				</div>
 				@endif
 			</div>
