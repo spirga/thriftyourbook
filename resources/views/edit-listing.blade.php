@@ -20,7 +20,7 @@ use App\Http\Controllers\ListingController;
 				<div class="bg-white overflow-hidden shadow-md sm:rounded-lg">
 					<div class="p-6 bg-white border-b border-gray-200">
 					<x-success-message />
-						<form method="POST" action="{{ action('App\Http\Controllers\ListingController@edit'), $listings->id }}">
+						<form method="POST" action="{{action([App\Http\Controllers\ListingController::class, 'edit'], $listings->first()->id)}}">
 							@csrf
 							<div class="mt-4 mb-2">
 								<b>Listing information</b>
