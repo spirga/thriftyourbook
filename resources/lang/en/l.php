@@ -101,7 +101,7 @@ return [
     'deleteuser' => 'Delete User',
     'notrequired' => '(not required)',
     'any' => 'Any',
-    '' => '',
+    'provideinf' => 'This user has not provided this information',
     '' => '',
     '' => '',
     '' => '',

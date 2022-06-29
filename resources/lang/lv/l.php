@@ -100,5 +100,6 @@ return [
     'deleteuser' => 'Izdzēst lietotāju',
     'notrequired' => '(nav obligāts)',
     'any' => 'Jebkurš',
+    'provideinf' => 'Šis lietotājs nav sniedzis prasīto informāciju',
     
 ];

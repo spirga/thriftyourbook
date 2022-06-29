@@ -41,7 +41,12 @@
 										<p><b>{{__('l.mylocation')}}</b></p>
 										<?php 
 										if (!$user->location) {
-											echo "<p>This user hasn't provided this information</p>";
+											if (App::isLocale('en')) {
+												echo "<p>This user hasn't provided this information</p>";
+											}
+											else {
+												echo "<p>Šis lietotājs nav sniedzis prasīto informāciju</p>";
+											}
 										} else {
 											echo "<p>{$user->location}</p>";
 										}
@@ -51,7 +56,12 @@
 										<p><b>{{__('l.aboutme')}}</b></p>
 										<?php 
 										if (!$user->about_me) {
-											echo "<p>This user hasn't provided this information</p>";
+											if (App::isLocale('en')) {
+												echo "<p>This user hasn't provided this information</p>";
+											}
+											else {
+												echo "<p>Šis lietotājs nav sniedzis prasīto informāciju</p>";
+											}
 										} else {
 											echo "<p>{$user->about_me}</p>";
 										}
