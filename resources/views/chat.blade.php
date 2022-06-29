@@ -2,172 +2,186 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-  <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ 'Thrift Your Book' }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-        /* width */  
-        ::-webkit-scrollbar {
-            width: 7px;
-        }
-        /* Track */
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-            background: #a7a7a7;
-        }
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-            background: #929292;
-        }
-        ul {
-            margin: 0;
-            padding: 0;
-        }
-        li {
-            list-style: none;
-        }
-        .user-wrapper, .message-wrapper {
-            border: 1px solid #dddddd;
-            overflow-y: auto;
-        }
-        .user-wrapper {
-            height: 600px;
-        }
-        .user {
-            cursor: pointer;
-            padding: 5px 0;
-            position: relative;
-        }
-        .user:hover {
-            background: #eeeeee;
-        }
-        .user:last-child {
-            margin-bottom: 0;
-        }
-        .pending {
-            position: absolute;
-            left: 13px;
-            top: 9px;
-            background: #b600ff;
-            margin: 0;
-            border-radius: 50%;
-            width: 18px;
-            height: 18px;
-            line-height: 18px;
-            padding-left: 5px;
-            color: #ffffff;
-            font-size: 12px;
-        }
-        .media-left {
-            margin: 0 10px;
-        }
-        .media-left img {
-            width: 64px;
-            border-radius: 64px;
-        }
-        .media-body p {
-            margin: 6px 0;
-        }
-        .message-wrapper {
-            padding: 10px;
-            height: 536px;
-            background: #eeeeee;
-        }
-        .messages .message {
-            margin-bottom: 15px;
-        }
-        .messages .message:last-child {
-            margin-bottom: 0;
-        }
-        .received, .sent {
-            width: 45%;
-            padding: 3px 10px;
-            border-radius: 10px;
-        }
-        .received {
-            background: #ffffff;
-        }
-        .sent {
-            background: #3bebff;
-            float: right;
-            text-align: right;
-        }
-        .message p {
-            margin: 5px 0;
-        }
-        .date {
-            color: #777777;
-            font-size: 12px;
-        }
-        .active {
-            background: #eeeeee;
-        }
-        input[type=text] {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 15px 0 0 0;
-            display: inline-block;
-            border-radius: 4px;
-            box-sizing: border-box;
-            outline: none;
-            border: 1px solid #cccccc;
-        }
-        input[type=text]:focus {
-            border: 1px solid #aaaaaa;
-        }
+    /* width */  
+    ::-webkit-scrollbar {
+        width: 7px;
+    }
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #a7a7a7;
+    }
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #929292;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    li {
+        list-style: none;
+    }
+    .user-wrapper, .message-wrapper {
+        border: 1px solid #dddddd;
+        overflow-y: auto;
+    }
+    .user-wrapper {
+        height: 400px;
+        padding: 20px;
+        border-radius: 20px;
+    }
+    .user {
+        cursor: pointer;
+        padding: 5px 0;
+        position: relative;
+    }
+    .user:hover {
+        background: #f3f4f6;
+    }
+    .user:last-child {
+        margin-bottom: 0;
+    }
+    .pending {
+        position: absolute;
+        left: 0px;
+        top: 15px;
+        background: #3b3c43;
+        margin: 0;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        line-height: 18px;
+        padding-left: 5px;
+        color: #ffffff;
+        font-size: 12px;
+    }
+    .media-left {
+        margin: 0 10px;
+    }
+    .media-left img {
+        width: 64px;
+        border-radius: 64px;
+    }
+    .media-body p {
+        margin: 6px 0;
+    }
+    .message-wrapper {
+        padding: 10px;
+        height: 336px;
+        border-radius: 20px;
+        background: #f3f4f6;
+    }
+    .messages .message {
+        margin-bottom: 15px;
+    }
+    .messages .message:last-child {
+        margin-bottom: 0;
+    }
+    .received, .sent {
+        width: 45%;
+        padding: 3px 10px;
+        border-radius: 10px;
+    }
+    .received {
+        background: #ffffff;
+    }
+    .sent {
+        color: white;
+        background: #3b3c43;
+        float: right;
+        text-align: right;
+    }
+    .message p {
+        margin: 5px 0;
+    }
+    .date {
+        color: #cfcfcf;
+        font-size: 12px;
+    }
+    .active {
+        background: #eeeeee;
+    }
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 15px 0 0 0;
+        display: inline-block;
+        border-radius: 4px;
+        box-sizing: border-box;
+        outline: none;
+        border: 1px solid #cccccc;
+    }
+    input[type=text]:focus {
+        border: 1px solid #aaaaaa;
+    }
+    .redirect {
+        background-color: #3b3c43;
+        padding: 10px;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        transition-timing-function: ease-in-out;
+        transition: 0.2s;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+    }
+
+    .redirect:hover {
+        text-decoration: none;
+        color: white;
+        background-color: #4e4f55;
+    }
+    @media (min-width: 1024px) {
+	#search-button {
+        display: none;
+    }
+}
     </style>
   </head>
 <body>
 <x-app-layout>
-
-<x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('l.chat') }}
-        </h2>
-        <p>{{ __('l.chatmsg') }}</p>
-        <form action="{{action([App\Http\Controllers\Auth\RegisteredUserController::class, 'index_one'])}}" method="POST"
-				class="flex justify-center items-center" ">
-			@csrf
-				<div class=" flex mr-4 "><input type=" text" id="dsearch" name="chat"
-				class="block px-4 py-2.5 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-200 focus:border-gray-400 input-control"
-				placeholder="{{ __('l.searchchat') }}" required>
-		</div>
-		<div class="flex justify-center items-center flex-col ml-4">
-			<x-button class="py-2.5" type="submit" value="search">{{ __('l.search') }}</x-button>
+<x-slot name="header">  
+    <div class="redirect-container mb-4">
+		<a href="{{ URL::previous() }}" class="redirect">
+		<i class="fa-solid fa-arrow-left"></i> </a>
+	</div>
 </x-slot>
 <x-slot name="slot">
-<div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4">
-                 <div class="user-wrapper">
+    <div class="container-fluid mb-4" style="padding-left: 60px; padding-right: 60px;">
+        <div class="row flex justify-center">
+            <div class="col-md-3">
+                 <div class="user-wrapper">    
                     <ul class="users">
-                           <!--  šeit jānomaina lai nav visi useri-->
+                    <form action="{{action([App\Http\Controllers\Auth\RegisteredUserController::class, 'index_one'])}}" method="POST" class="flex justify-center items-center" ">
+                    @csrf
+                        <div class="w-full flex flex-col mb-2">
+                            <input type="text" id="dsearch" name="chat" class="block px-4 mb-2 py-2 w-full text-sm text-gray-900 bg-gray-100 rounded-lg border border-gray-200 focus:border-gray-400 input-control" placeholder="{{ __('l.searchchat') }}" required>
+                            <x-button id="search-button" class=" py-2 flex items-center justify-center" style="width: 50%;" type="submit" value="search">{{ __('l.search') }}</x-button>
+                        </div>
+                        
+                    </form>
                     @foreach($users as $user)
                         @if (is_countable($name) && count($name) == 0)
                         <li class="user" id="{{ $user->id }}">
                                 @if($user->unread)
                                    <span class="pending">{{ $user->unread }}</span>
                                 @endif
-
                                 <div class="media">
-                                    <div class="media-body">
-                                        <p class="name">{{ $user->name }}</p>
+                                    <div class="media-body" style="border-radius: 10px;">
+                                        <p class="name ml-4">{{ $user->name }}</p>
                                     </div>
                                 </div>
                             </li>
@@ -179,7 +193,7 @@
 
                                 <div class="media">
                                     <div class="media-body">
-                                        <p class="name">{{ $user->name }}</p>
+                                        <p class="name ml-4" style="border-radius: 10px;">{{ $user->name }}</p>
                                     </div>
                                 </div>
                             </li>
@@ -194,9 +208,8 @@
             </div>
         </div>
     </div>
-</x-slot>
-    
-    </x-app-layout>
+</x-slot> 
+</x-app-layout>
 
 <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
