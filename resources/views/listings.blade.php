@@ -288,6 +288,11 @@ input[type="range"]::-moz-range-thumb {
 		flex-direction: column;
 	}
 }
+
+.go-to-user {
+	cursor: pointer;
+}
+
 </style>
 <x-app-layout>
 	<x-slot name="header">
@@ -405,7 +410,7 @@ input[type="range"]::-moz-range-thumb {
 								<div class="right-side">
 									<div class="info-container">
 										<div class="info-left">
-											<span><b>{{$listing->user->name}}</b></span>
+											<a class="go-to-user"onclick="goToUser({{$listing->user->id}})""><b>{{$listing->user->name}}</b></a>
 											<span>{{$listing->listing_description}}</span>
 
 										</div>
@@ -433,9 +438,13 @@ input[type="range"]::-moz-range-thumb {
 </x-app-layout>
 
 <script>
+function goToUser(id) {
+    window.location.href = "/user/" + id;
+}
+
 function chat(id ) {
-            window.location.href = "/chattest";
-            }
+  window.location.href = "/chattest";
+  }
 			
 // create references to the modal...
 var modal = document.getElementById('myModal');

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\UpdateProfileRequest;
 use Illuminate\Validation\Rules;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
@@ -27,5 +28,10 @@ class ProfileController extends Controller
             Auth()->user()->update(['image'=>$filename]);
         }
         return redirect()->route('profile')->with('message', 'Profile saved');
+    }
+
+    public function index_one($id) {
+        $user = User::findOrFail($id);
+        return view('user', ['user'=>$user]);
     }
 }
