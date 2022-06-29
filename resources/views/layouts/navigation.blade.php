@@ -40,6 +40,9 @@
 					<x-nav-link :href="route('chattest')" :active="request()->routeIs('chattest')">
 						{{ __('l.chat') }}
 					</x-nav-link>
+					<x-nav-link :href="route('delete-users')" :active="request()->routeIs('delete-users')">
+						Delete Users
+					</x-nav-link>
 				</div>
 				@endif
 			</div>

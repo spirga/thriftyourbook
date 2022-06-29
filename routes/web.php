@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Routes;
 use App\User;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,8 +62,13 @@ Route::group(['middleware' => 'auth'], function() {
         return view('my-orders');
     })->name('my-orders');
 
-    Route::get('delete/{id}', [ListingController::class, 'destroy'])->name('destroy');
+Route::get('delete/{id}', [ListingController::class, 'destroy'])->name('destroy');
 Route::get('/my-listings', [ListingController::class, 'index_one_user'])->name('my-listings');
+
+
+Route::get('delete-users', 'App\Http\Controllers\Auth\RegisteredUserController@role')->name('delete-users');
+Route::get('delete-users/{id}', 'App\Http\Controllers\Auth\RegisteredUserController@deleteuser')->name('delete-users1');
+
 Route::get('/new-listing', [BookController::class, 'index_all'])->name('new-listing');
 Route::post('/new-listing', [BookController::class, 'store'])->name('new-listing1');
 Route::get('/edit-listing/{id}', [ListingController::class, 'update'])->name('edit-listing');
@@ -76,3 +82,8 @@ Route::post('message', 'App\Http\Controllers\Auth\RegisteredUserController@sendM
 
 require __DIR__.'/auth.php';
 
+
+
+// Route::get('delete-users', function () {
+//     return view('delete-users');
+// })->middleware(['auth', 'admin'])->name('delete-users');

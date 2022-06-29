@@ -61,6 +61,19 @@ class RegisteredUserController extends Controller
     return $id;
         
     }
+    public function role() {
+
+    $users = DB::select("select users.id, users.name, users.email, users.image from users where users.id !=  " . Auth::id() . " group by users.id, users.name, users.email, users.image");
+    $user = Auth::user();
+    if ( $user->hasRole('user') ) {
+        return redirect(route('store'));
+    }
+
+    else if ( $user->hasRole('admin') ) {
+    return view('delete-users', compact('users'));
+    }
+
+    }
 
     public function index()
     {
@@ -156,4 +169,20 @@ class RegisteredUserController extends Controller
         $notify = 'notify-channel';
         $pusher->trigger($notify, 'App\\Events\\Notify', $data);
     }
+    public function deleteuser($id)
+    {
+        $user = Auth::user();
+        if ( $user->hasRole('user') ) {
+            return redirect(route('store'));
+        }
+
+        else if ( $user->hasRole('admin') ) {
+        
+        User::where('id', $id)->delete();
+        $users = DB::select("select users.id, users.name, users.email, users.image from users where users.id !=  " . Auth::id() . " group by users.id, users.name, users.email, users.image");
+        return view('delete-users', compact('users'));
+    }
+
+}
+
 }
