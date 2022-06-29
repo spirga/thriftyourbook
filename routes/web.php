@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Routes;
 use App\User;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,6 +70,10 @@ Route::group(['middleware' => 'auth'], function() {
     //     return view('new-listing');
     // })->name('new-listing');
 
+
+Route::get('delete-users', 'App\Http\Controllers\Auth\RegisteredUserController@role')->name('delete-users');
+Route::get('delete-users/{id}', 'App\Http\Controllers\Auth\RegisteredUserController@deleteuser')->name('delete-users1');
+
 Route::get('/new-listing', [BookController::class, 'index_all'])->name('new-listing');
 Route::get('/edit-listing/{id}', [ListingController::class, 'update'])->name('edit-listing');
 Route::get('/chattest', 'App\Http\Controllers\Auth\RegisteredUserController@index')->name('chattest');
@@ -80,3 +85,8 @@ Route::post('message', 'App\Http\Controllers\Auth\RegisteredUserController@sendM
 
 require __DIR__.'/auth.php';
 
+
+
+// Route::get('delete-users', function () {
+//     return view('delete-users');
+// })->middleware(['auth', 'admin'])->name('delete-users');

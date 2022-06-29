@@ -66,7 +66,7 @@ class ListingController extends Controller
 
     public function update( $id) {
 
-         $listing = Listing::findOrFail($id);
+        $listing = Listing::findOrFail($id);
         return view('edit-listing', ['listings'=>$listing]);
     }
 
