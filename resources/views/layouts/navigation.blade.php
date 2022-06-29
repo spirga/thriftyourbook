@@ -40,9 +40,11 @@
 					<x-nav-link :href="route('chat')" :active="request()->routeIs('chat')">
 						{{ __('l.chat') }}
 					</x-nav-link>
+					@if (Auth::user()->role == 'admin')
 					<x-nav-link :href="route('delete-users')" :active="request()->routeIs('delete-users')">
 						Delete Users
 					</x-nav-link>
+					@endif
 				</div>
 				@endif
 			</div>

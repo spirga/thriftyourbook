@@ -2,9 +2,26 @@
 	.main-container {
 		width: 90%;
 	}
-</style>
+	.redirect {
+	background-color: #3b3c43;
+	padding: 10px;
+	font-size: 12px;
+	text-decoration: none;
+	color: white;
+	transition-timing-function: ease-in-out;
+	transition: 0.2s;
+	border-radius: 50%;
+	display: block;
+	width: 30px;
+	height: 30px;
+}
 
-use App\Http\Controllers\ListingController;
+.redirect:hover {
+	text-decoration: none;
+	color: white;
+	background-color: #4e4f55;
+}
+</style>
 
 <x-app-layout>
 	<x-slot name="header">
@@ -29,21 +46,21 @@ use App\Http\Controllers\ListingController;
 								<div class="col-8">
 									<div class="row">
         						<label for="listing_description">Listing Description</label>
-        						<input type="text" class="form-control w-100" id="listing_description" value="{{$listings->listing_description}}" required>
+        						<input type="text" class="form-control w-100" name="listing_description" id="listing_description" value="{{$listings->listing_description}}" required>
       						</div>
 									<div class="row mt-2">
 										<label for="listing-image">Image URL (not required)</label>
-										<input type="text" class="form-control w-100" id="listing-image" value="{{$listings->image_url}}">
+										<input type="text" class="form-control w-100" name="image_url" id="listing-image" value="{{$listings->image_url}}">
 									</div>
 								</div>
     						<div class="col-2">
       						<div class="row">
         						<label for="price">Price</label>
-        						<input type="currency" class="form-control w-100" id="price" required value="{{$listings->price}}">
+        						<input type="currency" class="form-control w-100" name="price" id="price" required value="{{$listings->price}}">
       						</div>
       						<div class="row mt-2">
         						<label for="condition">Condition</label>
-										<select id="condition" class="form-control" required value="{{$listings->condition}}">
+										<select id="condition" class="form-control" required name="condition" value="{{$listings->condition}}">
 											<option value="New">New</option>
 											<option value="Like New">Like New</option>
 											<option value="Very Good">Very Good</option>

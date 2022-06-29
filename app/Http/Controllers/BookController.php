@@ -62,7 +62,7 @@ class BookController extends Controller
 
         //var_dump($request->all());exit;
         
-        return redirect()->route('new-listing1')->with('message', 'Listing added succesfuly!');
+        return redirect()->route('new-listing1')->with('message', 'Listing added succesfully!');
     }
 
     public function destroy($id)
